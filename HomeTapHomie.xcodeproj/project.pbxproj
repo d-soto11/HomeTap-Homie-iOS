@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80527A42222753BD0DC9B12D /* Pods_HomeTapHomie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7370E7BE00CC68F72AC542FD /* Pods_HomeTapHomie.framework */; };
 		B805FB0E1F1AA86B00B7DE41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B805FB0D1F1AA86B00B7DE41 /* AppDelegate.swift */; };
 		B805FB101F1AA86B00B7DE41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B805FB0F1F1AA86B00B7DE41 /* ViewController.swift */; };
 		B805FB131F1AA86B00B7DE41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B805FB111F1AA86B00B7DE41 /* Main.storyboard */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1CE56ED0F50C18388C527648 /* Pods-HomeTapHomie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTapHomie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTapHomie/Pods-HomeTapHomie.debug.xcconfig"; sourceTree = "<group>"; };
+		7370E7BE00CC68F72AC542FD /* Pods_HomeTapHomie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTapHomie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B805FB0A1F1AA86B00B7DE41 /* HomeTapHomie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTapHomie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B805FB0D1F1AA86B00B7DE41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B805FB0F1F1AA86B00B7DE41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		B805FB291F1AA86B00B7DE41 /* HomeTapHomieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeTapHomieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B805FB2D1F1AA86B00B7DE41 /* HomeTapHomieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTapHomieUITests.swift; sourceTree = "<group>"; };
 		B805FB2F1F1AA86B00B7DE41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C64C375FC08B5A608182D705 /* Pods-HomeTapHomie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTapHomie.release.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTapHomie/Pods-HomeTapHomie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80527A42222753BD0DC9B12D /* Pods_HomeTapHomie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		191B57D009F55226959A8506 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7370E7BE00CC68F72AC542FD /* Pods_HomeTapHomie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B805FB011F1AA86B00B7DE41 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +94,8 @@
 				B805FB211F1AA86B00B7DE41 /* HomeTapHomieTests */,
 				B805FB2C1F1AA86B00B7DE41 /* HomeTapHomieUITests */,
 				B805FB0B1F1AA86B00B7DE41 /* Products */,
+				D3F794F19381E1E1A4BB1732 /* Pods */,
+				191B57D009F55226959A8506 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +140,15 @@
 			path = HomeTapHomieUITests;
 			sourceTree = "<group>";
 		};
+		D3F794F19381E1E1A4BB1732 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1CE56ED0F50C18388C527648 /* Pods-HomeTapHomie.debug.xcconfig */,
+				C64C375FC08B5A608182D705 /* Pods-HomeTapHomie.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B805FB321F1AA86B00B7DE41 /* Build configuration list for PBXNativeTarget "HomeTapHomie" */;
 			buildPhases = (
+				445F853E09581C2A74C04B04 /* [CP] Check Pods Manifest.lock */,
 				B805FB061F1AA86B00B7DE41 /* Sources */,
 				B805FB071F1AA86B00B7DE41 /* Frameworks */,
 				B805FB081F1AA86B00B7DE41 /* Resources */,
+				A81C7667A63EEBDE74363B63 /* [CP] Embed Pods Frameworks */,
+				B884DC81E4A27FA8A4351818 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +280,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		445F853E09581C2A74C04B04 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A81C7667A63EEBDE74363B63 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HomeTapHomie/Pods-HomeTapHomie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B884DC81E4A27FA8A4351818 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HomeTapHomie/Pods-HomeTapHomie-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B805FB061F1AA86B00B7DE41 /* Sources */ = {
@@ -410,6 +485,7 @@
 		};
 		B805FB331F1AA86B00B7DE41 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CE56ED0F50C18388C527648 /* Pods-HomeTapHomie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HomeTapHomie/Info.plist;
@@ -422,6 +498,7 @@
 		};
 		B805FB341F1AA86B00B7DE41 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C64C375FC08B5A608182D705 /* Pods-HomeTapHomie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HomeTapHomie/Info.plist;
