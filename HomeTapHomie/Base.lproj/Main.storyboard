@@ -320,7 +320,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perfil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHu-UA-heo">
-                                <rect key="frame" x="139" y="28" width="42.5" height="21.5"/>
+                                <rect key="frame" x="139.5" y="28" width="42.5" height="21.5"/>
                                 <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="18"/>
                                 <color key="textColor" red="0.73932415246963501" green="0.81861990690231323" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1022,7 +1022,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Proxímos servicios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybD-0j-Ner">
-                                <rect key="frame" x="71.5" y="90" width="177" height="25"/>
+                                <rect key="frame" x="69" y="90" width="182" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="R52-EF-VBI"/>
                                 </constraints>
@@ -1031,7 +1031,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inicio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H78-3n-VFV">
-                                <rect key="frame" x="138.5" y="28" width="43" height="22"/>
+                                <rect key="frame" x="137.5" y="28" width="45" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="902-S8-Tnj"/>
                                 </constraints>
@@ -1100,7 +1100,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cambia tu e-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7H-nn-hwJ">
-                                <rect key="frame" x="89.5" y="28" width="142.5" height="21"/>
+                                <rect key="frame" x="89" y="28" width="142.5" height="21"/>
                                 <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="18"/>
                                 <color key="textColor" red="0.7447750568" green="0.79876655340000002" blue="0.25506785510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1214,7 +1214,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cambia tu contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmT-pU-Lup">
-                                <rect key="frame" x="69" y="28" width="183.5" height="21"/>
+                                <rect key="frame" x="68.5" y="28" width="183.5" height="21"/>
                                 <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="18"/>
                                 <color key="textColor" red="0.7447750568" green="0.79876655340000002" blue="0.25506785510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
