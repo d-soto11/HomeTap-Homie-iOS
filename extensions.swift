@@ -123,9 +123,11 @@ extension Array where Element: Equatable {
     }
 }
 
+
 extension Date {
     enum DateFormat {
         case Default
+        case Medium
         case Long
         case Time
         case Try
@@ -136,6 +138,8 @@ extension Date {
         switch withFormat {
         case .Default:
             dtf.dateFormat = K.Helper.fb_date_format
+        case .Medium:
+            dtf.dateFormat = K.Helper.fb_date_medium_format
         case .Long:
             dtf.dateFormat = K.Helper.fb_long_date_format
         case .Time:
@@ -144,22 +148,33 @@ extension Date {
             dtf.dateFormat = K.Helper.fb_date_format
             if let tst_dt = dtf.date(from: fromString) {
                 self = tst_dt
+                print("entro a")
+                return
+            }
+            dtf.dateFormat = K.Helper.fb_date_medium_format
+            if let tst_dt = dtf.date(from: fromString) {
+                self = tst_dt
+                print("entro b")
                 return
             }
             dtf.dateFormat = K.Helper.fb_long_date_format
             if let tst_dt = dtf.date(from: fromString) {
                 self = tst_dt
+                print("entro c")
                 return
             }
             dtf.dateFormat = K.Helper.fb_time_format
             if let tst_dt = dtf.date(from: fromString) {
                 self = tst_dt
+                print("entro d")
                 return
             }
             else {
+                print("entro e")
                 return nil
             }
         }
+        print("entro f")
         
         self = dtf.date(from: fromString)!
     }
@@ -169,6 +184,8 @@ extension Date {
         switch format {
         case .Default:
             dtf.dateFormat = K.Helper.fb_date_format
+        case .Medium:
+            dtf.dateFormat = K.Helper.fb_date_medium_format
         case .Long:
             dtf.dateFormat = K.Helper.fb_long_date_format
         case .Time:
@@ -177,19 +194,23 @@ extension Date {
             dtf.dateFormat = K.Helper.fb_date_format
             var str = dtf.string(from: self)
             if str != "" {
+                
                 return str
             }
             dtf.dateFormat = K.Helper.fb_long_date_format
             str = dtf.string(from: self)
             if str != "" {
+                print("entro b")
                 return str
             }
             dtf.dateFormat = K.Helper.fb_time_format
             str = dtf.string(from: self)
             if str != "" {
+                print("entro c")
                 return str
             }
             else {
+                print("entro c")
                 return nil
             }
         }
@@ -197,4 +218,5 @@ extension Date {
         return str
     }
 }
+
 

@@ -20,8 +20,9 @@ struct K {
     }
     
     struct Helper {
-        static let fb_date_format:String = "YYYY-MM-DDThh:mmTZD"
-        static let fb_long_date_format: String = "YYYY-MM-DDThh:mm:ss.sTZD"
+        static let fb_date_format:String = "yyyy-MM-dd'T'HH:mmZZZZZ"
+        static let fb_date_medium_format:String = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        static let fb_long_date_format: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
         static let fb_time_format: String = "hh:mm a"
     }
     

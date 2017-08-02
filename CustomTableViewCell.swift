@@ -10,6 +10,9 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var mainBackground: UIView!
+    
+    @IBOutlet weak var shadowLayer: UIView!
     
     @IBOutlet weak var userImageView: UIImageView!
     
@@ -30,7 +33,7 @@ class CustomTableViewCell: UITableViewCell {
     var idService: String = ""
     
    
-    /*
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -42,6 +45,6 @@ class CustomTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
  
- */
+
     
 }

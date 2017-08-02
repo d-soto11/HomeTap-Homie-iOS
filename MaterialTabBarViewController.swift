@@ -37,7 +37,7 @@ class MaterialTabBarViewController: UIViewController {
         
         calendarViewController = storyboard.instantiateViewController(withIdentifier: "CalendarView")
         
-         homeViewController = storyboard.instantiateViewController(withIdentifier: "Home2View")
+         homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeView")
         
          historyViewController = storyboard.instantiateViewController(withIdentifier: "HistoryView")
         
@@ -82,35 +82,6 @@ class MaterialTabBarViewController: UIViewController {
         vc.didMove(toParentViewController: self)
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        if Auth.auth().currentUser != nil {
-            
-            K.Database.ref!.child("homies").observeSingleEvent(of: .value, with: { (snapshot) in
-                
-                if snapshot.hasChild(getCurrentUserUid()!){
-                    
-                    print("the homie has information")
-                    setCurrentUser()
-                    
-                }else{
-                    
-                    self.performSegue(withIdentifier: "FillDataSeg", sender: self)
-                }
-                
-                
-            }){ (error) in
-                print(error.localizedDescription)
-            }
-            
-        } else {
-            
-            self.performSegue(withIdentifier: "AuthSeg", sender: self)
-            
-        }
-        
-    }
     
 
     

@@ -17,8 +17,6 @@ target 'HomeTapHomie' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
-  pod 'JModalController'
-  pod 'CircleProgressBar', '~> 0.32'
   pod 'GoogleSignIn'
   pod 'GoogleMaps'
   pod 'GooglePlaces'

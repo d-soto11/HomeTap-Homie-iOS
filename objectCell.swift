@@ -21,6 +21,8 @@ class objectCell: NSObject {
     var idService : String = " "
     public init(brief: Service){
         
+        let s = String(describing: brief)
+        print(s)
         price = "80000COP"
         
         let calendar = Calendar.current
