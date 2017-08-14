@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseStorage
+import FirebaseAuth
 
 class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate , UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
     
@@ -51,6 +52,11 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         userPhoneTxt.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         
         
+        self.userImage.layer.borderWidth = 1
+        self.userImage.layer.masksToBounds = false
+        self.userImage.layer.borderColor = UIColor(red:186/255.0, green:208/255.0, blue:65/255.0, alpha: 1.0).cgColor
+        self.userImage.layer.cornerRadius = self.userImage.frame.height/2
+        self.userImage.clipsToBounds = true
         
         sexPicker.delegate = self
         sexPicker.dataSource = self
@@ -119,26 +125,25 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         
         //preguntarle al pez sobre el date
         
-        let h = Homie(dict: [ :])
-        h.name = userNameTxt.text
-        h.phone = userPhoneTxt.text
-        h.birth =  Date()
-        h.joined = Date()
+        K.User.homie = Homie(user: Auth.auth().currentUser!)
+        K.User.homie?.name = userNameTxt.text
+        K.User.homie?.phone = userPhoneTxt.text
+        K.User.homie?.birth =  Date()
+        K.User.homie?.joined = Date()
         if userSexTxt.text == "Hombre"{
-            h.gender = 0
+            K.User.homie?.gender = 0
         }
         else
         {
-            h.gender = 1
+            K.User.homie?.gender = 1
         }
-        h.photo = " "
-        h.email = getCurrenUserEmail()
-        h.rating = 0.0
-        h.votes = 0
-        h.uid = getCurrentUserUid()
+        
+        K.User.homie?.email = getCurrentUserMail()
+        K.User.homie?.rating = 0.0
+        K.User.homie?.votes = 0
+        K.User.homie?.uid = getCurrentUserUid()
         
         
-        h.save(route: "homies")
         
         //add image to storage
         let storage = Storage.storage()
@@ -146,10 +151,10 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         var data = NSData()
         data = UIImageJPEGRepresentation(userImage.image!, 0.8)! as NSData
         // set upload path
-        let filePath = "homies/\(getCurrentUserUid() ?? "" )/\("userPhoto")"
+        let filePath = "homies/\(getCurrentUserUid() ?? "" )/\("pp.png")"
         print(filePath)
         let metaData = StorageMetadata()
-        metaData.contentType = "image/jpg"
+        metaData.contentType = "image/png"
         storageRef.child(filePath).putData(data as Data, metadata: metaData){(metaData,error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -157,8 +162,8 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
             }else{
                 //store downloadURL
                 let downloadURL = metaData!.downloadURL()!.absoluteString
-                //store downloadURL at database
-                K.Database.ref!.child("homies").child(getCurrentUserUid()!).updateChildValues(["photo": downloadURL])
+                K.User.homie?.photo = downloadURL
+                K.User.homie?.save()
             }
             
         }

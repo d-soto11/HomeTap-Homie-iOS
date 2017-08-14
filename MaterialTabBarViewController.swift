@@ -60,8 +60,6 @@ class MaterialTabBarViewController: UIViewController {
     
     @IBAction func didPressTab(_ sender: UIButton) {
         
-        K.Database.ref = Database.database().reference()
-        
         let previousIndex = selectedIndex
         
         selectedIndex = sender.tag

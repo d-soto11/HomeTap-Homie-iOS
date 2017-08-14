@@ -30,9 +30,7 @@ class CustomTableViewCell: UITableViewCell {
     
     @IBOutlet weak var hourLable: UILabel!
     
-    var idService: String = ""
     
-   
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +42,8 @@ class CustomTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
  
 
     

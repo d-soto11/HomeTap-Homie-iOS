@@ -10,7 +10,6 @@ import UIKit
 
 class InventoryViewController: UIViewController {
 
-    @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBOutlet weak var yellowMaterialView: UIView!
     
@@ -18,10 +17,33 @@ class InventoryViewController: UIViewController {
     
     @IBOutlet weak var pinkMaterialView: UIView!
     
+    
+    @IBOutlet weak var yellowSecond: UIView!
+    
+    
+    @IBOutlet weak var blueSecond: UIView!
+    
+    
+    @IBOutlet weak var pinkSecond: UIView!
+    
+    
+    @IBOutlet weak var heightYellow: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var heightBlue: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var heightPink: NSLayoutConstraint!
+    
+    
+    
+    var blue = 50
+    var pink = 50
+    var yellow = 50
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationBar.shadowImage = UIImage()
+        
         
         self.yellowMaterialView.layer.borderWidth = 2
         self.yellowMaterialView.layer.borderColor = UIColor(red:252/255.0, green:225/255.0, blue:150/255.0, alpha: 1.0).cgColor
@@ -39,6 +61,37 @@ class InventoryViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        
+        self.yellowSecond.layer.borderWidth = 2
+        self.yellowSecond.layer.borderColor = UIColor(red:252/255.0, green:225/255.0, blue:150/255.0, alpha: 1.0).cgColor
+        self.yellowSecond.backgroundColor = UIColor(red:252/255.0, green:225/255.0, blue:150/255.0, alpha: 1.0)
+        self.yellowSecond.layer.cornerRadius = 20
+        
+        self.blueSecond.layer.borderWidth = 2
+        self.blueSecond.layer.borderColor = UIColor(red:112/255.0, green:148/255.0, blue:232/255.0, alpha: 1.0).cgColor
+        self.blueSecond.backgroundColor = UIColor(red:112/255.0, green:148/255.0, blue:232/255.0, alpha: 1.0)
+        self.blueSecond.layer.cornerRadius = 20
+        
+        self.pinkSecond.layer.borderWidth = 2
+        self.pinkSecond.layer.borderColor = UIColor(red:230/255.0, green:101/255.0, blue:162/255.0, alpha: 1.0).cgColor
+        self.pinkSecond.backgroundColor = UIColor(red:230/255.0, green:101/255.0, blue:162/255.0, alpha: 1.0)
+        self.pinkSecond.layer.cornerRadius = 20
+        
+        
+        heightYellow.constant = self.yellowMaterialView.frame.size.height*0.7
+        
+        heightBlue.constant = self.yellowMaterialView.frame.size.height*0.6
+
+        heightPink.constant = self.yellowMaterialView.frame.size.height*0.4
+
+        
+        view.updateConstraints()
+    }
+
     
 
     /*

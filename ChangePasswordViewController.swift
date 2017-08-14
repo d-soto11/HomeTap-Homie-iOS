@@ -51,7 +51,7 @@ class ChangePasswordViewController: UIViewController {
         
         //pedir info
         
-        let credential = EmailAuthProvider.credential(withEmail: getCurrenUserEmail()!, password: passwordTxt.text!)
+        let credential = EmailAuthProvider.credential(withEmail: getCurrentUserUid()!, password: passwordTxt.text!)
         
         user?.reauthenticate(with: credential) { error in
             if error != nil {

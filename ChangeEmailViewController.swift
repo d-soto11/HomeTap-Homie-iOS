@@ -23,7 +23,7 @@ class ChangeEmailViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mailTxt.delegate = self
-        mailTxt.text = K.User.current?.email
+        mailTxt.text = K.User.homie?.email
         // Do any additional setup after loading the view.
     }
 
@@ -74,7 +74,7 @@ class ChangeEmailViewController: UIViewController, UITextFieldDelegate {
     func okHandler( alert: UIAlertAction! )
     {
         password = passTextField.text!
-        email = getCurrenUserEmail()!
+        email = getCurrentUserMail()!
         
         let user = Auth.auth().currentUser
         
@@ -90,7 +90,7 @@ class ChangeEmailViewController: UIViewController, UITextFieldDelegate {
                         print(error)
                         
                     } else {
-                        K.Database.ref!.child("homies").child(getCurrentUserUid()!).updateChildValues(["email": self.mailTxt.text!])
+                        K.Database.ref().child("homies").child(getCurrentUserUid()!).updateChildValues(["email": self.mailTxt.text!])
                         self.showAlert(title: "Aviso", message: String(format:"El correo se ha cambiado"), closeButtonTitle: "Ok")
                         
                     }

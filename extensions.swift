@@ -36,6 +36,15 @@ extension UIView {
         self.layer.shadowPath = shadowPath.cgPath
     }
     
+    func addInvertedShadow() {
+        let shadowPath = UIBezierPath(rect: self.bounds)
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: -2.0)
+        self.layer.shadowOpacity = 0.1
+        self.layer.shadowPath = shadowPath.cgPath
+    }
+    
     func addSpecialShadow(size: CGSize) {
         let shadowPath = UIBezierPath(rect: self.bounds)
         self.layer.masksToBounds = false
@@ -45,6 +54,12 @@ extension UIView {
         self.layer.shadowPath = shadowPath.cgPath
     }
     
+    func addHomeCellShadow(){
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.08
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+
+    }
     func addLightShadow() {
         let shadowPath = UIBezierPath(rect: self.bounds)
         self.layer.masksToBounds = false
@@ -55,11 +70,12 @@ extension UIView {
     }
     
     func clearShadows() {
-        self.layer.shadowOpacity = 0.0;
+        self.layer.shadowOpacity = 0.0
     }
     
     func roundCorners(radius: CGFloat) {
-        self.layer.cornerRadius = radius;
+        self.layer.cornerRadius = radius
+        self.layer.shadowRadius = radius
     }
     
     func bordered(color:UIColor) {
@@ -74,6 +90,7 @@ extension UIView {
 }
 
 extension UIViewController {
+    
     func showAlert(title:String, message:String, closeButtonTitle:String) {
         let alertController = UIAlertController(title: title, message: message,
                                                 preferredStyle: .alert)
@@ -82,10 +99,55 @@ extension UIViewController {
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true) { }
     }
+    
+    func setUpSmartKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisplay(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clearKeyboards)))
+    }
+    
+    func keyboardWillDisplay(notification:NSNotification) {
+        let userInfo:Dictionary = notification.userInfo!
+        let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.frame = CGRect(x: 0.0, y: ((self.originalFrame().origin.y)-keyboardHeight)*self.needsDisplacement(), width: (self.originalFrame().size.width), height: (self.originalFrame().size.height))
+        })
+    }
+    
+    func keyboardWillHide(notification:NSNotification) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.frame = self.originalFrame()
+        })
+    }
+    
+    func needsDisplacement() -> CGFloat {
+        return CGFloat(0)
+    }
+    
+    func originalFrame() -> CGRect {
+        return CGRect.zero
+    }
+    
+    func keyboards() -> [UITextField] {
+        return []
+    }
+    
+    func clearKeyboards(index: Int = -1) {
+        let kb = keyboards()
+        for k in kb {
+            k.resignFirstResponder()
+        }
+        if (index > -1 && index < kb.count) {
+            kb[index].becomeFirstResponder()
+        }
+    }
 }
 
 extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFill) {
         let mb = MBProgressHUD.showAdded(to: self, animated: true)
         contentMode = mode
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -101,7 +163,7 @@ extension UIImageView {
             }
             }.resume()
     }
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFill) {
         guard let url = URL(string: link) else { return }
         downloadedFrom(url: url, contentMode: mode)
     }
@@ -111,6 +173,29 @@ extension UIImageView {
     }
 }
 
+extension NSLayoutConstraint {
+    
+    func setMultiplier(multiplier:CGFloat) -> NSLayoutConstraint {
+        
+        NSLayoutConstraint.deactivate([self])
+        
+        let newConstraint = NSLayoutConstraint(
+            item: firstItem,
+            attribute: firstAttribute,
+            relatedBy: relation,
+            toItem: secondItem,
+            attribute: secondAttribute,
+            multiplier: multiplier,
+            constant: constant)
+        
+        newConstraint.priority = priority
+        newConstraint.shouldBeArchived = self.shouldBeArchived
+        newConstraint.identifier = self.identifier
+        
+        NSLayoutConstraint.activate([newConstraint])
+        return newConstraint
+    }
+}
 // Logical
 
 extension Array where Element: Equatable {
@@ -121,11 +206,43 @@ extension Array where Element: Equatable {
             remove(at: index)
         }
     }
+    
+    func empty() -> Bool {
+        return self.count == 0
+    }
+    
+    var head: Element? {
+        get {
+            return self.first
+        }
+    }
+    
+    var tail: Array<Element>? {
+        get {
+            if self.empty() { return nil }
+            return Array(self.dropFirst())
+        }
+    }
+    
+    func foldl<A>(acc: A, list: Array<Element>,f: (A, Element) -> A) -> A {
+        if list.empty() { return acc }
+        return foldl(acc: f(acc, list.head!), list: list.tail!, f: f)
+    }
+    
+    subscript(indexes: [Int]) ->  [Element] {
+        var result: [Element] = []
+        for index in indexes {
+            if index > 0 && index < self.count {
+                result.append(self[index])
+            }
+        }
+        return result
+    }
 }
-
 
 extension Date {
     enum DateFormat {
+        case Short
         case Default
         case Medium
         case Long
@@ -136,6 +253,8 @@ extension Date {
     init?(fromString: String, withFormat: DateFormat) {
         let dtf = DateFormatter()
         switch withFormat {
+        case .Short:
+            dtf.dateFormat = K.Helper.fb_date_short_format
         case .Default:
             dtf.dateFormat = K.Helper.fb_date_format
         case .Medium:
@@ -148,33 +267,32 @@ extension Date {
             dtf.dateFormat = K.Helper.fb_date_format
             if let tst_dt = dtf.date(from: fromString) {
                 self = tst_dt
-                print("entro a")
+                return
+            }
+            dtf.dateFormat = K.Helper.fb_date_short_format
+            if let tst_dt = dtf.date(from: fromString) {
+                self = tst_dt
                 return
             }
             dtf.dateFormat = K.Helper.fb_date_medium_format
             if let tst_dt = dtf.date(from: fromString) {
                 self = tst_dt
-                print("entro b")
                 return
             }
             dtf.dateFormat = K.Helper.fb_long_date_format
             if let tst_dt = dtf.date(from: fromString) {
                 self = tst_dt
-                print("entro c")
                 return
             }
             dtf.dateFormat = K.Helper.fb_time_format
             if let tst_dt = dtf.date(from: fromString) {
                 self = tst_dt
-                print("entro d")
                 return
             }
             else {
-                print("entro e")
                 return nil
             }
         }
-        print("entro f")
         
         self = dtf.date(from: fromString)!
     }
@@ -182,6 +300,8 @@ extension Date {
     func toString(format: DateFormat) -> String? {
         let dtf = DateFormatter()
         switch format {
+        case .Short:
+            dtf.dateFormat = K.Helper.fb_date_short_format
         case .Default:
             dtf.dateFormat = K.Helper.fb_date_format
         case .Medium:
@@ -194,23 +314,19 @@ extension Date {
             dtf.dateFormat = K.Helper.fb_date_format
             var str = dtf.string(from: self)
             if str != "" {
-                
                 return str
             }
             dtf.dateFormat = K.Helper.fb_long_date_format
             str = dtf.string(from: self)
             if str != "" {
-                print("entro b")
                 return str
             }
             dtf.dateFormat = K.Helper.fb_time_format
             str = dtf.string(from: self)
             if str != "" {
-                print("entro c")
                 return str
             }
             else {
-                print("entro c")
                 return nil
             }
         }
@@ -218,5 +334,3 @@ extension Date {
         return str
     }
 }
-
-

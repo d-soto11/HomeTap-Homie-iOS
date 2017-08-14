@@ -27,23 +27,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rfk-cH-9Im">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                                <rect key="frame" x="8" y="8" width="304" height="63.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaulImageProfile" translatesAutoresizingMaskIntoConstraints="NO" id="jM5-Mx-Vcf">
-                                        <rect key="frame" x="15" y="14" width="50" height="50"/>
+                                        <rect key="frame" x="8" y="6" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="4ky-h3-abc"/>
                                             <constraint firstAttribute="width" constant="50" id="LUl-wn-es5"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="María Silva Miranda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRX-If-6HG">
-                                        <rect key="frame" x="99" y="14" width="151.5" height="20"/>
+                                        <rect key="frame" x="87.5" y="6" width="151.5" height="20"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ktc-CG-l4Z">
-                                        <rect key="frame" x="99" y="35" width="31" height="12"/>
+                                        <rect key="frame" x="87.5" y="27" width="31" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="31" id="949-m1-jJu"/>
                                         </constraints>
@@ -52,7 +52,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17/10/2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjy-r7-PBW">
-                                        <rect key="frame" x="135" y="35.5" width="51" height="12"/>
+                                        <rect key="frame" x="123.5" y="27.5" width="51" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="51" id="vcz-fi-LNd"/>
                                         </constraints>
@@ -61,7 +61,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:00PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wee-iw-V65">
-                                        <rect key="frame" x="135" y="52" width="41" height="12"/>
+                                        <rect key="frame" x="123.5" y="44" width="41" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="41" id="XIU-7r-26v"/>
                                         </constraints>
@@ -70,31 +70,31 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hora:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UR3-z2-JhT">
-                                        <rect key="frame" x="99" y="52" width="25" height="12"/>
+                                        <rect key="frame" x="87.5" y="44" width="25" height="12"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="10"/>
                                         <color key="textColor" red="0.50190895795822144" green="0.50199705362319946" blue="0.50189739465713501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paga:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nr-8e-yT0">
-                                        <rect key="frame" x="206" y="52.5" width="26" height="12"/>
+                                        <rect key="frame" x="194.5" y="44.5" width="26" height="12"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="10"/>
                                         <color key="textColor" red="0.50190895795822144" green="0.50199705362319946" blue="0.50189739465713501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="550000 COP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTk-WS-sly">
-                                        <rect key="frame" x="244" y="52.5" width="59.5" height="12"/>
+                                        <rect key="frame" x="232.5" y="44.5" width="59.5" height="12"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="10"/>
                                         <color key="textColor" red="0.50190895800000002" green="0.50199705360000002" blue="0.50189739470000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnv-vO-cjt">
-                                        <rect key="frame" x="244" y="35.5" width="61" height="12"/>
+                                        <rect key="frame" x="232.5" y="27.5" width="56.5" height="12"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="10"/>
                                         <color key="textColor" red="0.73932415246963501" green="0.81861990690231323" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Estado:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgP-fW-I9l">
-                                        <rect key="frame" x="206" y="35.5" width="35" height="12"/>
+                                        <rect key="frame" x="194.5" y="27.5" width="35" height="12"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="10"/>
                                         <color key="textColor" red="0.50190895795822144" green="0.50199705362319946" blue="0.50189739465713501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -108,7 +108,7 @@
                                     <constraint firstItem="Ktc-CG-l4Z" firstAttribute="centerY" secondItem="kjy-r7-PBW" secondAttribute="centerY" id="JFx-zX-pfE"/>
                                     <constraint firstItem="1nr-8e-yT0" firstAttribute="centerY" secondItem="UR3-z2-JhT" secondAttribute="centerY" id="M5V-gS-b8v"/>
                                     <constraint firstItem="jM5-Mx-Vcf" firstAttribute="top" secondItem="cRX-If-6HG" secondAttribute="top" id="Nah-Cd-WCV"/>
-                                    <constraint firstItem="jM5-Mx-Vcf" firstAttribute="leading" secondItem="Rfk-cH-9Im" secondAttribute="leading" constant="15" id="Nf9-hi-4eE"/>
+                                    <constraint firstItem="jM5-Mx-Vcf" firstAttribute="leading" secondItem="Rfk-cH-9Im" secondAttribute="leading" constant="8" id="Nf9-hi-4eE"/>
                                     <constraint firstItem="cRX-If-6HG" firstAttribute="leading" relation="lessThanOrEqual" secondItem="jM5-Mx-Vcf" secondAttribute="trailing" constant="34" id="VOc-nH-N2v"/>
                                     <constraint firstItem="1nr-8e-yT0" firstAttribute="leading" secondItem="NgP-fW-I9l" secondAttribute="leading" id="Vtf-Qh-XgD"/>
                                     <constraint firstItem="rTk-WS-sly" firstAttribute="centerY" secondItem="1nr-8e-yT0" secondAttribute="centerY" id="aPU-mB-WUI"/>
@@ -129,10 +129,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Rfk-cH-9Im" firstAttribute="top" secondItem="Mpt-XL-o2I" secondAttribute="top" id="5fD-be-Z3g"/>
-                            <constraint firstAttribute="bottom" secondItem="Rfk-cH-9Im" secondAttribute="bottom" id="9h1-dX-PQ5"/>
-                            <constraint firstAttribute="trailing" secondItem="Rfk-cH-9Im" secondAttribute="trailing" id="aGk-k6-VSv"/>
-                            <constraint firstItem="Rfk-cH-9Im" firstAttribute="leading" secondItem="Mpt-XL-o2I" secondAttribute="leading" id="e2Q-YG-Lqb"/>
+                            <constraint firstItem="Rfk-cH-9Im" firstAttribute="top" secondItem="Mpt-XL-o2I" secondAttribute="top" constant="8" id="5fD-be-Z3g"/>
+                            <constraint firstAttribute="bottom" secondItem="Rfk-cH-9Im" secondAttribute="bottom" constant="8" id="9h1-dX-PQ5"/>
+                            <constraint firstAttribute="trailing" secondItem="Rfk-cH-9Im" secondAttribute="trailing" constant="8" id="aGk-k6-VSv"/>
+                            <constraint firstItem="Rfk-cH-9Im" firstAttribute="leading" secondItem="Mpt-XL-o2I" secondAttribute="leading" constant="8" id="e2Q-YG-Lqb"/>
                         </constraints>
                     </view>
                 </subviews>

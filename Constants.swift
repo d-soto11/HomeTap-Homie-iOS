@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import JModalController
 
 struct K {
     struct Test {
@@ -20,17 +21,22 @@ struct K {
     }
     
     struct Helper {
-        static let fb_date_format:String = "yyyy-MM-dd'T'HH:mmZZZZZ"
-        static let fb_date_medium_format:String = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        static let fb_long_date_format: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        static let fb_date_short_format:String = "dd-MM-yyyy"
+        static let fb_date_format:String = "yyyy-MM-dd'T'HH:mmxxxxx"
+        static let fb_date_medium_format:String = "yyyy-MM-dd'T'HH:mm:ssxxxxx"
+        static let fb_long_date_format: String = "yyyy-MM-dd'T'HH:mm:ss.SSSxxxxx"
         static let fb_time_format: String = "hh:mm a"
     }
     
     struct Database {
-        static var ref: DatabaseReference? = nil
+        public static func ref() -> DatabaseReference {
+            return Firebase.Database.database().reference()
+        }
+        private static let storageURL: String = "gs://hometap-f173f.appspot.com/"
+        public static func storageRef() -> StorageReference {
+            return Storage.storage().reference(forURL: storageURL)
+        }
     }
-    
-    
     
     struct UI {
         static let main_color: UIColor = UIColor(netHex: 0xbad041)
@@ -44,13 +50,22 @@ struct K {
         static let round_px: CGFloat = 25.0
         static let special_round_px: CGFloat = 20.0
         static let light_round_px: CGFloat = 5.0
-
+        static let round_to_circle: CGFloat = 7.5
     }
     
-    struct  User {
-        static var current:Homie?
+    struct User {
+        static let default_ph: String = "default"
+        
+        static var homie:Homie?
+        
+        static func logged_user () -> Firebase.User?{
+            return Auth.auth().currentUser
+        }
     }
     
+    struct MaterialTapBar {
+        static var TapBar: MaterialTabBarViewController?
+    }
     
 }
 
@@ -58,28 +73,8 @@ func getCurrentUserUid()->String?{
     return Auth.auth().currentUser?.uid
 }
 
-func getCurrenUserEmail()->String?{
+func getCurrentUserMail()->String?{
     return Auth.auth().currentUser?.email
 }
-
-
-func setCurrentUser(){
-    
-    K.Database.ref?.child("homies").child(getCurrentUserUid()!).observeSingleEvent(of: .value, with: { (snapshot) in
-        // Get user value
-        let value = snapshot.value as? NSDictionary
-        
-        let homie = Homie.init(dict: value as! [String : AnyObject])
-        
-        K.User.current = homie
-        
-        
-    }) { (error) in
-        print(error.localizedDescription)
-    }
-}
-
-
-
 
 

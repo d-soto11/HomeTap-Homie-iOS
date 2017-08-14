@@ -46,7 +46,18 @@ class User: HometapObject {
         }
     }
     
+    public convenience init(user: Firebase.User) {
+        var dict = ["name": user.displayName, "email":user.email, "id": user.uid]
+        if let pp = user.photoURL {
+            dict["photo"] = pp.absoluteString
+        }
+        self.init(dict: dict as [String : AnyObject])
+    }
+    
     override func save(route: String) {
+        if (self.uid != getCurrentUserUid()) {
+            return
+        }        
         if self.name != nil {
             original_dictionary["name"] = self.name as AnyObject
         }
@@ -113,7 +124,9 @@ class User: HometapObject {
             if let srvcDict = srvc as? [String:AnyObject] {
                 for (id_service, _) in srvcDict {
                     Service.withID(id: id_service, callback: {(service) in
-                        services_brief.append(service)
+                        if service != nil {
+                            services_brief.append(service!)
+                        }
                     })
                 }
                 return services_brief
@@ -143,7 +156,9 @@ class User: HometapObject {
             if let srvcDict = srvc as? [String:AnyObject] {
                 for (id_service, _) in srvcDict {
                     Service.withID(id: id_service, callback: {(service) in
-                        history.append(service)
+                        if service != nil {
+                            history.append(service!)
+                        }
                     })
                 }
                 return history

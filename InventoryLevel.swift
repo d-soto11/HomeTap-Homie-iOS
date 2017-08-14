@@ -47,7 +47,7 @@ class InventoryLevel: UIView {
         
         
         context.move(to: CGPoint(x:0  , y: rect.height / 2))
-        context.addQuadCurve(to: CGPoint(x: rect.width/20  , y: rect.height / 2), control: CGPoint(x: 0  , y: rect.height) )
+        
         context.addLine(to: CGPoint(x: rect.width * 19/20, y: rect.height))
         context.addLine(to: CGPoint(x: rect.width, y: 0))
         context.addLine(to: CGPoint(x: 0, y: 0))

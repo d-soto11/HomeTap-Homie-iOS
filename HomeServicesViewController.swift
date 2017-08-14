@@ -9,9 +9,17 @@
 import UIKit
 import FirebaseAuth
 class HomeServicesViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
-
+    
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var ilustrationNoBooking: UIImageView!
+    
+    @IBOutlet weak var textNoBooking: UITextView!
+    
+    @IBOutlet weak var configureScheduleButton: UIButton!
+    
+    @IBOutlet weak var textBookings: UILabel!
     
     var services:[Service] = []
     
@@ -22,22 +30,40 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
         
         Auth.auth().addStateDidChangeListener(){auth, user in
             if user != nil {
-                Homie.withID(id: getCurrentUserUid()!, callback: {(homie) in
+                Homie.withID(id: (user?.uid)!, callback: {(homie) in
                     if homie == nil {
                         
                         self.performSegue(withIdentifier: "FillDataSeg", sender: self)
                     }
                     else{
-                        K.User.current = homie
-                        self.services = (K.User.current?.services_brief())!
-                        self.tableView.reloadData()
+                        
+                        K.User.homie = homie
+                        if (K.User.homie?.services_brief()) != nil {
+                            
+                            K.User.homie = homie
+                            self.services = (K.User.homie?.services_brief())!
+                            self.tableView.reloadData()
+                            
+                        }
+                        else
+                        {
+                            self.tableView.alpha = 0
+                            self.textBookings.alpha = 0
+                            self.textNoBooking.alpha = 1
+                            self.ilustrationNoBooking.alpha = 1
+                            self.configureScheduleButton.alpha = 1
+                            self.configureScheduleButton.isEnabled = true
+                            
+                        }
+                        
                     }
-                
+                    
                 })
             }else{
+            
                 self.performSegue(withIdentifier: "AuthSeg", sender: self)
             }
-        
+            
         }
     }
     
@@ -58,56 +84,49 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as? CustomTableViewCell {
             
             let obj = objectCell(brief: services[indexPath.row])
-
-            cell.idService = obj.idService
+            
+           
             cell.dayLable.text = String(obj.day)
             cell.monthLable.text = obj.month
             cell.hourLable.text = obj.hour
             cell.lastNameLable.text = obj.lastName
             cell.nameLable.text = obj.name
-            //cell.userImageView.downloadedFrom(link: obj.imageClient, contentMode: .scaleAspectFill)
+            cell.userImageView.circleImage()
+            print(obj.imageClient)
+            cell.userImageView.downloadedFrom(link: obj.imageClient , contentMode: .scaleAspectFill)
             cell.serviceValueLable.text = obj.price
             
+            cell.mainBackground.addHomeCellShadow()
+            cell.mainBackground.roundCorners(radius: K.UI.light_round_px)
             
-            cell.mainBackground.layer.cornerRadius = 8
-            cell.mainBackground.layer.masksToBounds = true
             
-            cell.shadowLayer.layer.masksToBounds = false
-            cell.shadowLayer.layer.shadowOffset = CGSize(width: 0, height: 0)
-            cell.shadowLayer.layer.shadowColor = UIColor.black.cgColor
-            cell.shadowLayer.layer.shadowOpacity = 0.23
-            cell.shadowLayer.layer.shadowRadius = 4
-            
-            cell.shadowLayer.layer.shadowPath = UIBezierPath(roundedRect: cell.shadowLayer.bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 8, height: 8)).cgPath
-            cell.shadowLayer.layer.shouldRasterize = true
-            cell.shadowLayer.layer.rasterizationScale = UIScreen.main.scale
-            
-            print("entro aca a")
             return cell
         } else {
             let vc = UIViewController.init(nibName: "CustomTableViewCell", bundle: nil)
             if let cell = vc.view as? CustomTableViewCell{
                 
-                print("entro aca b")
                 let obj = objectCell(brief: services[indexPath.row])
                 
-                cell.idService = obj.idService
+                
                 cell.dayLable.text = String(obj.day)
                 cell.monthLable.text = obj.month
                 cell.hourLable.text = obj.hour
                 cell.lastNameLable.text = obj.lastName
                 cell.nameLable.text = obj.name
+                cell.serviceValueLable.text = obj.price
                 //cell.userImageView.image = obj.cargarImagen(url: obj.imageClient)
                 cell.serviceValueLable.text = obj.price
-                 return cell
+                cell.mainBackground.addHomeCellShadow()
+                cell.mainBackground.roundCorners(radius: K.UI.light_round_px)
+                
+                
+                return cell
             }
             else
             {
-                
-                print("entro aca c")
                 return UITableViewCell()
             }
-           
+            
         }
         
     }
@@ -117,10 +136,20 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
         return 100.0
     }
     
-    //func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //performSegueWithIdentifier("WebSegue", sender: indexPath)
-        //tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    //}
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "HomeSummaryServiceViewController") as! HomeSummaryServiceViewController
+        controller.serviceBrief = services[indexPath.row]
+        
+        Service.withID(id: services[indexPath.row].uid!) { (service) in
+            controller.service = service
+        }
+        self.present(controller, animated: true, completion: nil)
+    }
+
     
     
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class objectCell: NSObject {
-
+    
     
     var hour : String = " "
     var month : String = " "
@@ -19,18 +19,16 @@ class objectCell: NSObject {
     var imageClient : String = ""
     var price : String = " "
     var idService : String = " "
+    var holdName : String = " "
+    
     public init(brief: Service){
         
-        let s = String(describing: brief)
-        print(s)
-        price = "80000COP"
+        price = String(Int(brief.price!)) + "COP"
         
         let calendar = Calendar.current
         
         let monthTemp = calendar.component(.month, from: brief.date!)
         let dayTemp = calendar.component(.day, from: brief.date!)
-        let hourTemp = calendar.component(.hour, from: brief.date!)
-        let minTemp = calendar.component(.minute, from: brief.date!)
         
         if monthTemp == 1{
             month = "JAN"
@@ -68,18 +66,19 @@ class objectCell: NSObject {
         if monthTemp == 12{
             month = "DIC"
         }
-
+        
         day = dayTemp
         
-        hour = String(hourTemp) + ":" + String(minTemp)
+        hour = (brief.date?.toString(format: .Time))!
         
         let nameTemp = brief.briefName
         
         var fullNameArr = nameTemp?.components(separatedBy: " ")
         
+        print(fullNameArr?.count ?? "no tiene")
         if fullNameArr?.count == 4 {
-           name = (fullNameArr?[0])! + " " + (fullNameArr?[1])!
-           lastName = (fullNameArr?[0])! + " " + (fullNameArr?[1])!
+            name = (fullNameArr?[0])! + " " + (fullNameArr?[1])!
+            lastName = (fullNameArr?[2])! + " " + (fullNameArr?[3])!
         }
         if fullNameArr?.count == 3 {
             name = (fullNameArr?[0])!
@@ -92,9 +91,9 @@ class objectCell: NSObject {
             
         }
         
-         imageClient = brief.briefPhoto!
+        imageClient = brief.briefPhoto!
         
-         idService = brief.uid!
+        idService = brief.uid!
         
         
         

@@ -11,7 +11,7 @@ import FirebaseAuth
 import MBProgressHUD
 
 class ProfileViewController: UIViewController {
-
+    
     @IBOutlet weak var infoView: UIStackView!
     
     @IBOutlet weak var profilePicture: UIImageView!
@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //add gesture to labels
         let tap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.goName))
         nameLabel.isUserInteractionEnabled = true
@@ -51,58 +51,30 @@ class ProfileViewController: UIViewController {
         self.infoView.isHidden = true
         self.profilePicture.isHidden=true
         
-        
-            self.nameLabel.text = K.User.current?.name
-            self.phoneLabel.text = K.User.current?.phone
-            self.eMailLabel.text = K.User.current?.email
-            self.passwordLabel.text = "******"
-            
         //cargar imagen
-            
-        self.cargarImagen(url: (K.User.current?.photo)!)
+        
+        
         
         self.infoView.isHidden = false
         self.profilePicture.isHidden = false
         
         
     }
-
-    func cargarImagen(url: String){
+    
+    override func viewDidAppear(_ animated: Bool) {
         
-        let catPictureURL = URL(string: url)!
-        
-        // Creating a session object with the default configuration.
-        // You can read more about it here https://developer.apple.com/reference/foundation/urlsessionconfiguration
-        let session = URLSession(configuration: .default)
-        
-        // Define a download task. The download task will download the contents of the URL as a Data object and then you can do what you wish with that data.
-        let downloadPicTask = session.dataTask(with: catPictureURL) { (data, response, error) in
-            // The download has finished.
-            if let e = error {
-                print("Error downloading cat picture: \(e)")
-            } else {
-                // No errors found.
-                // It would be weird if we didn't have a response, so check for that too.
-                if let res = response as? HTTPURLResponse {
-                    print("Downloaded cat picture with response code \(res.statusCode)")
-                    if let imageData = data {
-                        // Finally convert that Data into an image and do what you wish with it.
-                        let image = UIImage(data: imageData)
-                        
-                        self.profilePicture.image = image
-                        // Do something with your image.
-                    } else {
-                        print("Couldn't get image: Image is nil")
-                    }
-                } else {
-                    print("Couldn't get response code for some reason")
-                }
-            }
+        self.nameLabel.text = K.User.homie?.name
+        self.phoneLabel.text = K.User.homie?.phone
+        self.eMailLabel.text = K.User.homie?.email
+        self.passwordLabel.text = "******"
+        if ( K.User.homie?.photo != nil ){
+            self.profilePicture.downloadedFrom(link:  (K.User.homie?.photo)!)
         }
         
-        downloadPicTask.resume()
-
+        
     }
+    
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -147,15 +119,15 @@ class ProfileViewController: UIViewController {
         self.performSegue(withIdentifier: "MailSeg", sender: self)
         
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

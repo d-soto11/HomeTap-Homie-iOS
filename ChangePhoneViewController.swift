@@ -20,7 +20,7 @@ class ChangePhoneViewController: UIViewController , UITextFieldDelegate{
         //self.saveChangesBtt.isEnabled = false
         self.phoneTxt.delegate = self
         //phoneTxt.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
-        phoneTxt.text = K.User.current?.phone
+        phoneTxt.text = K.User.homie?.phone
         // Do any additional setup after loading the view.
     }
 
@@ -49,7 +49,7 @@ class ChangePhoneViewController: UIViewController , UITextFieldDelegate{
     
     @IBAction func changeInfo(_ sender: Any) {
         
-        K.Database.ref!.child("homies").child(getCurrentUserUid()!).updateChildValues(["phone": phoneTxt.text!])
+        K.Database.ref().child("homies").child(getCurrentUserUid()!).updateChildValues(["phone": phoneTxt.text!])
         self.dismiss(animated: true, completion: nil)
         
     }

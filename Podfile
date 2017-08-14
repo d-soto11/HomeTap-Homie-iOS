@@ -12,7 +12,6 @@ target 'HomeTapHomie' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
-  pod 'SWRevealViewController', '~> 2.3'
   pod 'Firebase/Database'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
@@ -20,5 +19,6 @@ target 'HomeTapHomie' do
   pod 'GoogleSignIn'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'JModalController'	
 
 end
