@@ -241,6 +241,7 @@ extension Array where Element: Equatable {
 }
 
 extension Date {
+   
     enum DateFormat {
         case Short
         case Default
@@ -248,6 +249,23 @@ extension Date {
         case Long
         case Time
         case Try
+        case Custom(String)
+    }
+    
+    func merge(time: Date) -> Date? {
+        let calendar = Calendar.current
+        
+        let dateComponents = calendar.dateComponents([.year, .month, .day], from: self)
+        let timeComponents = calendar.dateComponents([.hour, .minute], from: time)
+        
+        var mergedComponments = DateComponents()
+        mergedComponments.year = dateComponents.year!
+        mergedComponments.month = dateComponents.month!
+        mergedComponments.day = dateComponents.day!
+        mergedComponments.hour = timeComponents.hour!
+        mergedComponments.minute = timeComponents.minute!
+        
+        return calendar.date(from: mergedComponments)
     }
     
     init?(fromString: String, withFormat: DateFormat) {
@@ -292,6 +310,9 @@ extension Date {
             else {
                 return nil
             }
+        case .Custom(let format):
+            dtf.dateFormat = format
+            print(format)
         }
         
         self = dtf.date(from: fromString)!
@@ -302,7 +323,7 @@ extension Date {
         switch format {
         case .Short:
             dtf.dateFormat = K.Helper.fb_date_short_format
-        case .Default:
+        case .Default, .Try:
             dtf.dateFormat = K.Helper.fb_date_format
         case .Medium:
             dtf.dateFormat = K.Helper.fb_date_medium_format
@@ -310,27 +331,96 @@ extension Date {
             dtf.dateFormat = K.Helper.fb_long_date_format
         case .Time:
             dtf.dateFormat = K.Helper.fb_time_format
-        case .Try:
-            dtf.dateFormat = K.Helper.fb_date_format
-            var str = dtf.string(from: self)
+        case .Custom(let format):
+            dtf.dateFormat = format
+            let str = dtf.string(from: self)
             if str != "" {
                 return str
-            }
-            dtf.dateFormat = K.Helper.fb_long_date_format
-            str = dtf.string(from: self)
-            if str != "" {
-                return str
-            }
-            dtf.dateFormat = K.Helper.fb_time_format
-            str = dtf.string(from: self)
-            if str != "" {
-                return str
-            }
-            else {
-                return nil
             }
         }
         let str = dtf.string(from: self)
         return str
     }
+    
+    func toCalendar() -> String? {
+        
+        var month = ""
+        
+        var DW = ""
+        
+        let calendar = Calendar.current
+        
+        let monthTemp = calendar.component(.month, from: self)
+        
+        let weekDayTemp = calendar.component(.weekday, from: self)
+        
+        let dayTemp = calendar.component(.day, from: self)
+        
+        
+        if monthTemp == 1{
+            month = "Enero"
+        }
+        if monthTemp == 2{
+            month = "Febrero"
+        }
+        if monthTemp == 3{
+            month = "Marzo"
+        }
+        if monthTemp == 4{
+            month = "Abril"
+        }
+        if monthTemp == 5{
+            month = "Mayo"
+        }
+        if monthTemp == 6{
+            month = "Junio"
+        }
+        if monthTemp == 7{
+            month = "Julio"
+        }
+        if monthTemp == 8{
+            month = "Agosto"
+        }
+        if monthTemp == 9{
+            month = "Septiembre"
+        }
+        if monthTemp == 10{
+            month = "Octubre"
+        }
+        if monthTemp == 11{
+            month = "Noviembre"
+        }
+        if monthTemp == 12{
+            month = "Diciembre"
+        }
+        
+        if weekDayTemp == 1 {
+            DW = "Domingo"
+        }
+        if weekDayTemp == 2 {
+            DW = "Lunes"
+        }
+        if weekDayTemp == 3 {
+            DW = "Martes"
+        }
+        if weekDayTemp == 4 {
+            DW = "Miercoles"
+        }
+        if weekDayTemp == 5 {
+            DW = "Jueves"
+        }
+        if weekDayTemp == 6 {
+            DW = "viernes"
+        }
+        if weekDayTemp == 7 {
+            DW = "Sabado"
+        }
+        return DW + " " + String(dayTemp) + " " + month
+    }
+
 }
+
+
+
+
+

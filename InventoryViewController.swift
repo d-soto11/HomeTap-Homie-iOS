@@ -35,8 +35,6 @@ class InventoryViewController: UIViewController {
     
     @IBOutlet weak var heightPink: NSLayoutConstraint!
     
-    
-    
     var blue = 50
     var pink = 50
     var yellow = 50
@@ -44,16 +42,6 @@ class InventoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        self.yellowMaterialView.layer.borderWidth = 2
-        self.yellowMaterialView.layer.borderColor = UIColor(red:252/255.0, green:225/255.0, blue:150/255.0, alpha: 1.0).cgColor
-        self.yellowMaterialView.layer.cornerRadius = 20
-        self.blueMaterialView.layer.borderWidth = 2
-        self.blueMaterialView.layer.borderColor = UIColor(red:112/255.0, green:148/255.0, blue:232/255.0, alpha: 1.0).cgColor
-         self.blueMaterialView.layer.cornerRadius = 20
-        self.pinkMaterialView.layer.borderWidth = 2
-        self.pinkMaterialView.layer.borderColor = UIColor(red:230/255.0, green:101/255.0, blue:162/255.0, alpha: 1.0).cgColor
-         self.pinkMaterialView.layer.cornerRadius = 20
         // Do any additional setup after loading the view.
     }
 
@@ -62,9 +50,23 @@ class InventoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillLayoutSubviews() {
+        AnimateHeight()
+    }
+    
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        self.yellowMaterialView.layer.borderWidth = 2
+        self.yellowMaterialView.layer.borderColor = UIColor(red:252/255.0, green:225/255.0, blue:150/255.0, alpha: 1.0).cgColor
+        self.yellowMaterialView.layer.cornerRadius = 20
+        self.blueMaterialView.layer.borderWidth = 2
+        self.blueMaterialView.layer.borderColor = UIColor(red:112/255.0, green:148/255.0, blue:232/255.0, alpha: 1.0).cgColor
+        self.blueMaterialView.layer.cornerRadius = 20
+        self.pinkMaterialView.layer.borderWidth = 2
+        self.pinkMaterialView.layer.borderColor = UIColor(red:230/255.0, green:101/255.0, blue:162/255.0, alpha: 1.0).cgColor
+        self.pinkMaterialView.layer.cornerRadius = 20
         
         self.yellowSecond.layer.borderWidth = 2
         self.yellowSecond.layer.borderColor = UIColor(red:252/255.0, green:225/255.0, blue:150/255.0, alpha: 1.0).cgColor
@@ -82,16 +84,24 @@ class InventoryViewController: UIViewController {
         self.pinkSecond.layer.cornerRadius = 20
         
         
-        heightYellow.constant = self.yellowMaterialView.frame.size.height*0.7
         
-        heightBlue.constant = self.yellowMaterialView.frame.size.height*0.6
+           }
 
-        heightPink.constant = self.yellowMaterialView.frame.size.height*0.4
-
+    
+    func AnimateHeight() {
         
-        view.updateConstraints()
+        UIView.animate(withDuration: 2, animations: {
+            self.heightYellow.constant = self.yellowMaterialView.frame.size.height*0.7
+            
+           self.heightBlue.constant = self.yellowMaterialView.frame.size.height*0.6
+            
+            self.heightPink.constant = self.yellowMaterialView.frame.size.height*0.4
+            
+            
+            self.view.updateConstraints()
+        })
     }
-
+    
     
 
     /*

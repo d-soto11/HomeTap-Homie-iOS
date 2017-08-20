@@ -44,14 +44,32 @@ class Homie: User {
     }
     
     var preferences: NSDictionary?
-    var folder: String?    
+    var folder: String?
     
-    public func schedule() -> HTCalendar? {
-        return nil
-    }
-    
-    public func products() -> [Product] {
-        return []
+    public func blocks() -> [HTCBlock] {
+        var blocks:[HTCBlock] = []
+        if let block = original_dictionary["blocks"] {
+            if let blockDict = block as? [String:AnyObject] {
+                for (_, blo) in blockDict {
+                    if let bloDict = blo as? [String:AnyObject] {
+                        blocks.append(HTCBlock(dict: bloDict))
+                    }
+                }
+                return blocks
+            }
+            
+        }
+        
+        return blocks
     }
     
 }
+
+/*
+ public func products() -> [HTCBlock] {
+ 
+ return nil
+ }
+ */
+
+

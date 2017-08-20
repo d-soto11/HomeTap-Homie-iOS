@@ -26,6 +26,7 @@ struct K {
         static let fb_date_medium_format:String = "yyyy-MM-dd'T'HH:mm:ssxxxxx"
         static let fb_long_date_format: String = "yyyy-MM-dd'T'HH:mm:ss.SSSxxxxx"
         static let fb_time_format: String = "hh:mm a"
+        static let fb_time_ymd: String = "yyyy-MM-dd"
     }
     
     struct Database {
@@ -64,7 +65,7 @@ struct K {
     }
     
     struct MaterialTapBar {
-        static var TapBar: MaterialTabBarViewController?
+        static var TapBar: MaterialTapBarViewController?
     }
     
 }

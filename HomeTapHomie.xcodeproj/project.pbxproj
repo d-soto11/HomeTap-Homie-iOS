@@ -30,10 +30,29 @@
 		B817C6A71F3B36390078629C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C69C1F3B36390078629C /* Product.swift */; };
 		B817C6A81F3B36390078629C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C69D1F3B36390078629C /* Service.swift */; };
 		B817C6A91F3B36390078629C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C69E1F3B36390078629C /* User.swift */; };
+		B820639A1F48E483000B2E71 /* iconArrowGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B82063991F48E483000B2E71 /* iconArrowGreen.png */; };
+		B82063AB1F48EBA3000B2E71 /* iconStarEmpty.png in Resources */ = {isa = PBXBuildFile; fileRef = B820639B1F48EBA3000B2E71 /* iconStarEmpty.png */; };
+		B82063AC1F48EBA3000B2E71 /* iconStarFilled.png in Resources */ = {isa = PBXBuildFile; fileRef = B820639C1F48EBA3000B2E71 /* iconStarFilled.png */; };
+		B82063AD1F48EBA3000B2E71 /* iconInventoryGray.png in Resources */ = {isa = PBXBuildFile; fileRef = B820639D1F48EBA3000B2E71 /* iconInventoryGray.png */; };
+		B82063AE1F48EBA3000B2E71 /* iconInventoryGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B820639E1F48EBA3000B2E71 /* iconInventoryGreen.png */; };
+		B82063AF1F48EBA3000B2E71 /* iconProfileGray.png in Resources */ = {isa = PBXBuildFile; fileRef = B820639F1F48EBA3000B2E71 /* iconProfileGray.png */; };
+		B82063B01F48EBA3000B2E71 /* iconProfileGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B82063A01F48EBA3000B2E71 /* iconProfileGreen.png */; };
+		B82063B11F48EBA3000B2E71 /* iconAdressGray.png in Resources */ = {isa = PBXBuildFile; fileRef = B82063A11F48EBA3000B2E71 /* iconAdressGray.png */; };
+		B82063B21F48EBA3000B2E71 /* iconAdressGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B82063A21F48EBA3000B2E71 /* iconAdressGreen.png */; };
+		B82063B41F48EBA3000B2E71 /* iconCalendarGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B82063A41F48EBA3000B2E71 /* iconCalendarGreen.png */; };
+		B82063B51F48EBA3000B2E71 /* iconCreditCardGray.png in Resources */ = {isa = PBXBuildFile; fileRef = B82063A51F48EBA3000B2E71 /* iconCreditCardGray.png */; };
+		B82063B61F48EBA3000B2E71 /* iconCreditCardGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B82063A61F48EBA3000B2E71 /* iconCreditCardGreen.png */; };
+		B82063B71F48EBA3000B2E71 /* iconHistoryGray.png in Resources */ = {isa = PBXBuildFile; fileRef = B82063A71F48EBA3000B2E71 /* iconHistoryGray.png */; };
+		B82063B81F48EBA3000B2E71 /* iconHistoryGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B82063A81F48EBA3000B2E71 /* iconHistoryGreen.png */; };
+		B82063B91F48EBA3000B2E71 /* iconHouseGray.png in Resources */ = {isa = PBXBuildFile; fileRef = B82063A91F48EBA3000B2E71 /* iconHouseGray.png */; };
+		B82063BA1F48EBA3000B2E71 /* iconHouseGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B82063AA1F48EBA3000B2E71 /* iconHouseGreen.png */; };
+		B82063BC1F48EE4E000B2E71 /* iconCalendarGray.png in Resources */ = {isa = PBXBuildFile; fileRef = B82063BB1F48EE4E000B2E71 /* iconCalendarGray.png */; };
 		B82532F51F317DF900F6FA36 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B82532F41F317DF900F6FA36 /* GoogleService-Info.plist */; };
 		B82CD63C1F2BB0D9009CFEEB /* HomeServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82CD63B1F2BB0D9009CFEEB /* HomeServicesViewController.swift */; };
 		B82CD63F1F2BCF3F009CFEEB /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82CD63D1F2BCF3F009CFEEB /* CustomTableViewCell.swift */; };
 		B82CD6401F2BCF3F009CFEEB /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82CD63E1F2BCF3F009CFEEB /* CustomTableViewCell.xib */; };
+		B82E88F41F434C2100DE95A7 /* MaterialTapBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82E88F31F434C2100DE95A7 /* MaterialTapBarViewController.swift */; };
+		B82E88FB1F44F82600DE95A7 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82E88FA1F44F82600DE95A7 /* CustomView.swift */; };
 		B837B62C1F2D298E006F5626 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = B837B6211F2D298E006F5626 /* OFL.txt */; };
 		B837B62D1F2D298E006F5626 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B837B6221F2D298E006F5626 /* Rubik-Black.ttf */; };
 		B837B62E1F2D298E006F5626 /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B837B6231F2D298E006F5626 /* Rubik-BlackItalic.ttf */; };
@@ -47,21 +66,20 @@
 		B837B6361F2D298E006F5626 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B837B62B1F2D298E006F5626 /* Rubik-Regular.ttf */; };
 		B83C247B1F2CD765008548E6 /* objectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83C247A1F2CD765008548E6 /* objectCell.swift */; };
 		B83D3DCC1F25EC58006B4B4F /* InventoryLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83D3DCB1F25EC58006B4B4F /* InventoryLevel.swift */; };
-		B84367C11F1D78680085D5A3 /* MaterialTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84367C01F1D78680085D5A3 /* MaterialTabBarViewController.swift */; };
 		B84367CA1F1E8C2D0085D5A3 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84367C91F1E8C2D0085D5A3 /* AuthViewController.swift */; };
 		B84367CC1F1E97D50085D5A3 /* Login.png in Resources */ = {isa = PBXBuildFile; fileRef = B84367CB1F1E97D50085D5A3 /* Login.png */; };
 		B84367CF1F1FE13C0085D5A3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84367CE1F1FE13C0085D5A3 /* SignInViewController.swift */; };
-		B84367D11F1FF9240085D5A3 /* illustrationNoBookings.png in Resources */ = {isa = PBXBuildFile; fileRef = B84367D01F1FF9240085D5A3 /* illustrationNoBookings.png */; };
-		B843680D1F200FB00085D5A3 /* iconNoPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = B843680C1F200FB00085D5A3 /* iconNoPhoto.png */; };
 		B843680F1F2018F10085D5A3 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843680E1F2018F10085D5A3 /* ChangeNameViewController.swift */; };
+		B850BCEF1F41705100033E51 /* iconInventoryBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = B850BCC41F41705100033E51 /* iconInventoryBlue.png */; };
+		B850BCF21F41705100033E51 /* iconInventoryPink.png in Resources */ = {isa = PBXBuildFile; fileRef = B850BCC71F41705100033E51 /* iconInventoryPink.png */; };
+		B850BCF31F41705100033E51 /* iconInventoryYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = B850BCC81F41705100033E51 /* iconInventoryYellow.png */; };
+		B850BCF41F41705100033E51 /* iconNoPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = B850BCC91F41705100033E51 /* iconNoPhoto.png */; };
+		B850BCF81F41705100033E51 /* iconServiceBooked.png in Resources */ = {isa = PBXBuildFile; fileRef = B850BCCD1F41705100033E51 /* iconServiceBooked.png */; };
+		B850BCF91F41705100033E51 /* iconServiceChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = B850BCCE1F41705100033E51 /* iconServiceChecked.png */; };
+		B850BD061F41705100033E51 /* illustrationNoBookings.png in Resources */ = {isa = PBXBuildFile; fileRef = B850BCDB1F41705100033E51 /* illustrationNoBookings.png */; };
 		B86D1BD01F21528C00DBF9B9 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BCF1F21528C00DBF9B9 /* ChangePasswordViewController.swift */; };
 		B86D1BD21F21529A00DBF9B9 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BD11F21529A00DBF9B9 /* ChangeEmailViewController.swift */; };
 		B86D1BD41F2152AB00DBF9B9 /* ChangePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BD31F2152AB00DBF9B9 /* ChangePhoneViewController.swift */; };
-		B86D1BD81F2154CA00DBF9B9 /* iconInventoryBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = B86D1BD51F2154CA00DBF9B9 /* iconInventoryBlue.png */; };
-		B86D1BD91F2154CA00DBF9B9 /* iconInventoryPink.png in Resources */ = {isa = PBXBuildFile; fileRef = B86D1BD61F2154CA00DBF9B9 /* iconInventoryPink.png */; };
-		B86D1BDA1F2154CA00DBF9B9 /* iconInventoryYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = B86D1BD71F2154CA00DBF9B9 /* iconInventoryYellow.png */; };
-		B86D1BDC1F2165ED00DBF9B9 /* iconServiceChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = B86D1BDB1F2165ED00DBF9B9 /* iconServiceChecked.png */; };
-		B86D1BDE1F2166C200DBF9B9 /* iconServiceBooked.png in Resources */ = {isa = PBXBuildFile; fileRef = B86D1BDD1F2166C200DBF9B9 /* iconServiceBooked.png */; };
 		B8A75F9D1F3D0E23006072B1 /* HomeSummaryServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A75F9C1F3D0E23006072B1 /* HomeSummaryServiceViewController.swift */; };
 		B8A75F9F1F3E4CEE006072B1 /* HistoryServiceSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A75F9E1F3E4CEE006072B1 /* HistoryServiceSummaryViewController.swift */; };
 		B8CE52EE1F3049CC0072FF98 /* CustomHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CE52EC1F3049CC0072FF98 /* CustomHistoryTableViewCell.swift */; };
@@ -116,10 +134,29 @@
 		B817C69C1F3B36390078629C /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B817C69D1F3B36390078629C /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		B817C69E1F3B36390078629C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B82063991F48E483000B2E71 /* iconArrowGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconArrowGreen.png; sourceTree = "<group>"; };
+		B820639B1F48EBA3000B2E71 /* iconStarEmpty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconStarEmpty.png; sourceTree = "<group>"; };
+		B820639C1F48EBA3000B2E71 /* iconStarFilled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconStarFilled.png; sourceTree = "<group>"; };
+		B820639D1F48EBA3000B2E71 /* iconInventoryGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconInventoryGray.png; sourceTree = "<group>"; };
+		B820639E1F48EBA3000B2E71 /* iconInventoryGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconInventoryGreen.png; sourceTree = "<group>"; };
+		B820639F1F48EBA3000B2E71 /* iconProfileGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconProfileGray.png; sourceTree = "<group>"; };
+		B82063A01F48EBA3000B2E71 /* iconProfileGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconProfileGreen.png; sourceTree = "<group>"; };
+		B82063A11F48EBA3000B2E71 /* iconAdressGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconAdressGray.png; sourceTree = "<group>"; };
+		B82063A21F48EBA3000B2E71 /* iconAdressGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconAdressGreen.png; sourceTree = "<group>"; };
+		B82063A41F48EBA3000B2E71 /* iconCalendarGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconCalendarGreen.png; sourceTree = "<group>"; };
+		B82063A51F48EBA3000B2E71 /* iconCreditCardGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconCreditCardGray.png; sourceTree = "<group>"; };
+		B82063A61F48EBA3000B2E71 /* iconCreditCardGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconCreditCardGreen.png; sourceTree = "<group>"; };
+		B82063A71F48EBA3000B2E71 /* iconHistoryGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconHistoryGray.png; sourceTree = "<group>"; };
+		B82063A81F48EBA3000B2E71 /* iconHistoryGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconHistoryGreen.png; sourceTree = "<group>"; };
+		B82063A91F48EBA3000B2E71 /* iconHouseGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconHouseGray.png; sourceTree = "<group>"; };
+		B82063AA1F48EBA3000B2E71 /* iconHouseGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconHouseGreen.png; sourceTree = "<group>"; };
+		B82063BB1F48EE4E000B2E71 /* iconCalendarGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconCalendarGray.png; sourceTree = "<group>"; };
 		B82532F41F317DF900F6FA36 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B82CD63B1F2BB0D9009CFEEB /* HomeServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeServicesViewController.swift; sourceTree = "<group>"; };
 		B82CD63D1F2BCF3F009CFEEB /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		B82CD63E1F2BCF3F009CFEEB /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		B82E88F31F434C2100DE95A7 /* MaterialTapBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTapBarViewController.swift; sourceTree = "<group>"; };
+		B82E88FA1F44F82600DE95A7 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		B837B6211F2D298E006F5626 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		B837B6221F2D298E006F5626 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
 		B837B6231F2D298E006F5626 /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -133,21 +170,20 @@
 		B837B62B1F2D298E006F5626 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		B83C247A1F2CD765008548E6 /* objectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objectCell.swift; sourceTree = "<group>"; };
 		B83D3DCB1F25EC58006B4B4F /* InventoryLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryLevel.swift; sourceTree = "<group>"; };
-		B84367C01F1D78680085D5A3 /* MaterialTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTabBarViewController.swift; sourceTree = "<group>"; };
 		B84367C91F1E8C2D0085D5A3 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		B84367CB1F1E97D50085D5A3 /* Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login.png; sourceTree = "<group>"; };
 		B84367CE1F1FE13C0085D5A3 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		B84367D01F1FF9240085D5A3 /* illustrationNoBookings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = illustrationNoBookings.png; sourceTree = "<group>"; };
-		B843680C1F200FB00085D5A3 /* iconNoPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconNoPhoto.png; sourceTree = "<group>"; };
 		B843680E1F2018F10085D5A3 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
+		B850BCC41F41705100033E51 /* iconInventoryBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconInventoryBlue.png; sourceTree = "<group>"; };
+		B850BCC71F41705100033E51 /* iconInventoryPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconInventoryPink.png; sourceTree = "<group>"; };
+		B850BCC81F41705100033E51 /* iconInventoryYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconInventoryYellow.png; sourceTree = "<group>"; };
+		B850BCC91F41705100033E51 /* iconNoPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconNoPhoto.png; sourceTree = "<group>"; };
+		B850BCCD1F41705100033E51 /* iconServiceBooked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconServiceBooked.png; sourceTree = "<group>"; };
+		B850BCCE1F41705100033E51 /* iconServiceChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconServiceChecked.png; sourceTree = "<group>"; };
+		B850BCDB1F41705100033E51 /* illustrationNoBookings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = illustrationNoBookings.png; sourceTree = "<group>"; };
 		B86D1BCF1F21528C00DBF9B9 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		B86D1BD11F21529A00DBF9B9 /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
 		B86D1BD31F2152AB00DBF9B9 /* ChangePhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePhoneViewController.swift; sourceTree = "<group>"; };
-		B86D1BD51F2154CA00DBF9B9 /* iconInventoryBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconInventoryBlue.png; sourceTree = "<group>"; };
-		B86D1BD61F2154CA00DBF9B9 /* iconInventoryPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconInventoryPink.png; sourceTree = "<group>"; };
-		B86D1BD71F2154CA00DBF9B9 /* iconInventoryYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconInventoryYellow.png; sourceTree = "<group>"; };
-		B86D1BDB1F2165ED00DBF9B9 /* iconServiceChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconServiceChecked.png; sourceTree = "<group>"; };
-		B86D1BDD1F2166C200DBF9B9 /* iconServiceBooked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconServiceBooked.png; sourceTree = "<group>"; };
 		B8A75F9C1F3D0E23006072B1 /* HomeSummaryServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSummaryServiceViewController.swift; sourceTree = "<group>"; };
 		B8A75F9E1F3E4CEE006072B1 /* HistoryServiceSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryServiceSummaryViewController.swift; sourceTree = "<group>"; };
 		B8CE52EC1F3049CC0072FF98 /* CustomHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -269,6 +305,7 @@
 				B817C69E1F3B36390078629C /* User.swift */,
 				B83D3DCB1F25EC58006B4B4F /* InventoryLevel.swift */,
 				B83C247A1F2CD765008548E6 /* objectCell.swift */,
+				B82E88FA1F44F82600DE95A7 /* CustomView.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -344,7 +381,7 @@
 		B84367BF1F1D783B0085D5A3 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				B84367C01F1D78680085D5A3 /* MaterialTabBarViewController.swift */,
+				B82E88F31F434C2100DE95A7 /* MaterialTapBarViewController.swift */,
 			);
 			name = TabBar;
 			sourceTree = "<group>";
@@ -352,14 +389,31 @@
 		B84367C41F1E858E0085D5A3 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				B86D1BDD1F2166C200DBF9B9 /* iconServiceBooked.png */,
-				B86D1BD51F2154CA00DBF9B9 /* iconInventoryBlue.png */,
-				B86D1BD61F2154CA00DBF9B9 /* iconInventoryPink.png */,
-				B86D1BD71F2154CA00DBF9B9 /* iconInventoryYellow.png */,
-				B84367D01F1FF9240085D5A3 /* illustrationNoBookings.png */,
-				B86D1BDB1F2165ED00DBF9B9 /* iconServiceChecked.png */,
+				B820639B1F48EBA3000B2E71 /* iconStarEmpty.png */,
+				B820639C1F48EBA3000B2E71 /* iconStarFilled.png */,
+				B820639D1F48EBA3000B2E71 /* iconInventoryGray.png */,
+				B820639E1F48EBA3000B2E71 /* iconInventoryGreen.png */,
+				B820639F1F48EBA3000B2E71 /* iconProfileGray.png */,
+				B82063BB1F48EE4E000B2E71 /* iconCalendarGray.png */,
+				B82063A01F48EBA3000B2E71 /* iconProfileGreen.png */,
+				B82063A11F48EBA3000B2E71 /* iconAdressGray.png */,
+				B82063A21F48EBA3000B2E71 /* iconAdressGreen.png */,
+				B82063A41F48EBA3000B2E71 /* iconCalendarGreen.png */,
+				B82063A51F48EBA3000B2E71 /* iconCreditCardGray.png */,
+				B82063A61F48EBA3000B2E71 /* iconCreditCardGreen.png */,
+				B82063A71F48EBA3000B2E71 /* iconHistoryGray.png */,
+				B82063A81F48EBA3000B2E71 /* iconHistoryGreen.png */,
+				B82063A91F48EBA3000B2E71 /* iconHouseGray.png */,
+				B82063AA1F48EBA3000B2E71 /* iconHouseGreen.png */,
+				B850BCC41F41705100033E51 /* iconInventoryBlue.png */,
+				B850BCC71F41705100033E51 /* iconInventoryPink.png */,
+				B850BCC81F41705100033E51 /* iconInventoryYellow.png */,
+				B850BCC91F41705100033E51 /* iconNoPhoto.png */,
+				B850BCCD1F41705100033E51 /* iconServiceBooked.png */,
+				B850BCCE1F41705100033E51 /* iconServiceChecked.png */,
+				B850BCDB1F41705100033E51 /* illustrationNoBookings.png */,
+				B82063991F48E483000B2E71 /* iconArrowGreen.png */,
 				B84367CB1F1E97D50085D5A3 /* Login.png */,
-				B843680C1F200FB00085D5A3 /* iconNoPhoto.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -494,30 +548,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				B837B62C1F2D298E006F5626 /* OFL.txt in Resources */,
+				B82063B51F48EBA3000B2E71 /* iconCreditCardGray.png in Resources */,
+				B82063B11F48EBA3000B2E71 /* iconAdressGray.png in Resources */,
 				B837B6361F2D298E006F5626 /* Rubik-Regular.ttf in Resources */,
 				B82532F51F317DF900F6FA36 /* GoogleService-Info.plist in Resources */,
 				B82CD6401F2BCF3F009CFEEB /* CustomTableViewCell.xib in Resources */,
 				B805FB181F1AA86B00B7DE41 /* LaunchScreen.storyboard in Resources */,
+				B82063AE1F48EBA3000B2E71 /* iconInventoryGreen.png in Resources */,
 				B837B62D1F2D298E006F5626 /* Rubik-Black.ttf in Resources */,
-				B86D1BDA1F2154CA00DBF9B9 /* iconInventoryYellow.png in Resources */,
 				B837B6311F2D298E006F5626 /* Rubik-Italic.ttf in Resources */,
-				B84367D11F1FF9240085D5A3 /* illustrationNoBookings.png in Resources */,
 				B837B6301F2D298E006F5626 /* Rubik-BoldItalic.ttf in Resources */,
+				B82063B81F48EBA3000B2E71 /* iconHistoryGreen.png in Resources */,
+				B82063AF1F48EBA3000B2E71 /* iconProfileGray.png in Resources */,
 				B8CE52EF1F3049CC0072FF98 /* CustomHistoryTableViewCell.xib in Resources */,
+				B82063B61F48EBA3000B2E71 /* iconCreditCardGreen.png in Resources */,
+				B82063B91F48EBA3000B2E71 /* iconHouseGray.png in Resources */,
+				B850BCF41F41705100033E51 /* iconNoPhoto.png in Resources */,
 				B837B6341F2D298E006F5626 /* Rubik-Medium.ttf in Resources */,
+				B82063B21F48EBA3000B2E71 /* iconAdressGreen.png in Resources */,
+				B850BCEF1F41705100033E51 /* iconInventoryBlue.png in Resources */,
+				B850BCF81F41705100033E51 /* iconServiceBooked.png in Resources */,
 				B837B6331F2D298E006F5626 /* Rubik-LightItalic.ttf in Resources */,
-				B86D1BDC1F2165ED00DBF9B9 /* iconServiceChecked.png in Resources */,
 				B805FB151F1AA86B00B7DE41 /* Assets.xcassets in Resources */,
-				B86D1BDE1F2166C200DBF9B9 /* iconServiceBooked.png in Resources */,
-				B843680D1F200FB00085D5A3 /* iconNoPhoto.png in Resources */,
+				B82063BC1F48EE4E000B2E71 /* iconCalendarGray.png in Resources */,
+				B850BCF91F41705100033E51 /* iconServiceChecked.png in Resources */,
+				B82063B01F48EBA3000B2E71 /* iconProfileGreen.png in Resources */,
+				B82063AC1F48EBA3000B2E71 /* iconStarFilled.png in Resources */,
+				B850BCF31F41705100033E51 /* iconInventoryYellow.png in Resources */,
 				B84367CC1F1E97D50085D5A3 /* Login.png in Resources */,
+				B850BD061F41705100033E51 /* illustrationNoBookings.png in Resources */,
 				B837B6351F2D298E006F5626 /* Rubik-MediumItalic.ttf in Resources */,
+				B82063B71F48EBA3000B2E71 /* iconHistoryGray.png in Resources */,
 				B805FB131F1AA86B00B7DE41 /* Main.storyboard in Resources */,
-				B86D1BD91F2154CA00DBF9B9 /* iconInventoryPink.png in Resources */,
+				B82063B41F48EBA3000B2E71 /* iconCalendarGreen.png in Resources */,
 				B837B62F1F2D298E006F5626 /* Rubik-Bold.ttf in Resources */,
+				B82063AB1F48EBA3000B2E71 /* iconStarEmpty.png in Resources */,
+				B82063AD1F48EBA3000B2E71 /* iconInventoryGray.png in Resources */,
+				B82063BA1F48EBA3000B2E71 /* iconHouseGreen.png in Resources */,
+				B850BCF21F41705100033E51 /* iconInventoryPink.png in Resources */,
 				B837B6321F2D298E006F5626 /* Rubik-Light.ttf in Resources */,
 				B837B62E1F2D298E006F5626 /* Rubik-BlackItalic.ttf in Resources */,
-				B86D1BD81F2154CA00DBF9B9 /* iconInventoryBlue.png in Resources */,
+				B820639A1F48E483000B2E71 /* iconArrowGreen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +662,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B817C6A41F3B36390078629C /* HometapObject.swift in Sources */,
+				B82E88FB1F44F82600DE95A7 /* CustomView.swift in Sources */,
 				B817C6A61F3B36390078629C /* Place.swift in Sources */,
 				B817C6A21F3B36390078629C /* Constants.swift in Sources */,
 				B805FB0E1F1AA86B00B7DE41 /* AppDelegate.swift in Sources */,
@@ -604,8 +676,8 @@
 				B8A75F9F1F3E4CEE006072B1 /* HistoryServiceSummaryViewController.swift in Sources */,
 				B817C6A31F3B36390078629C /* extensions.swift in Sources */,
 				B817C69F1F3B36390078629C /* AdditionalServices.swift in Sources */,
-				B84367C11F1D78680085D5A3 /* MaterialTabBarViewController.swift in Sources */,
 				B84367CA1F1E8C2D0085D5A3 /* AuthViewController.swift in Sources */,
+				B82E88F41F434C2100DE95A7 /* MaterialTapBarViewController.swift in Sources */,
 				B817C6A81F3B36390078629C /* Service.swift in Sources */,
 				B817C6A51F3B36390078629C /* Homie.swift in Sources */,
 				B84367CF1F1FE13C0085D5A3 /* SignInViewController.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HistoryViewController: UIViewController , UITableViewDataSource, UITableViewDelegate  {
     
@@ -17,12 +18,52 @@ class HistoryViewController: UIViewController , UITableViewDataSource, UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
-    var services : [Int] = [1,2,3,4]
+     var services:[Service] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UINib(nibName: "CustomHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomHistoryTableViewCell")
+        
+        Auth.auth().addStateDidChangeListener(){auth, user in
+            if user != nil {
+                Homie.withID(id: (user?.uid)!, callback: {(homie) in
+                    if homie == nil {
+                        
+                        self.performSegue(withIdentifier: "FillDataSeg", sender: self)
+                    }
+                    else{
+                        
+                        K.User.homie = homie
+                        if (K.User.homie?.history_brief()) != nil {
+                            
+                            K.User.homie = homie
+                            self.services = (K.User.homie?.history_brief())!
+                            self.tableView.reloadData()
+                            
+                        }
+                        else
+                        {
+                            self.tableView.alpha = 0
+                            self.nohistoryText.alpha = 1
+                            self.configureSchedule.alpha = 1
+                            self.configureSchedule.isEnabled = true
+                            
+                        }
+                        
+                    }
+                    
+                })
+            }else{
+                
+                self.performSegue(withIdentifier: "AuthSeg", sender: self)
+            }
+            
+        }
+
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+     self.configureSchedule.roundCorners(radius: K.UI.special_round_px)
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,26 +74,23 @@ class HistoryViewController: UIViewController , UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4
+        return services.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomHistoryTableViewCell") as? CustomHistoryTableViewCell {
-            /*
-             let obj = objectCell(brief: services[indexPath.row])
-             
-             cell.idService = obj.idService
-             cell.dayLable.text = String(obj.day)
-             cell.monthLable.text = obj.month
-             cell.hourLable.text = obj.hour
-             cell.lastNameLable.text = obj.lastName
-             cell.nameLable.text = obj.name
-             //cell.userImageView.downloadedFrom(link: obj.imageClient, contentMode: .scaleAspectFill)
-             cell.serviceValueLable.text = obj.price
-             */
             
+            
+            let obj = objectCell(brief: services[indexPath.row])
+            
+            cell.hourLable.text = obj.hour
+            cell.nameLable.text = obj.name + " " + obj.lastName
+            cell.dateLable.text = obj.date?.toString(format: .Short)
+            cell.clientImage.circleImage()
+            cell.clientImage.downloadedFrom(link: obj.imageClient , contentMode: .scaleAspectFill)
+            cell.payedLable.text = obj.price
             cell.mainBackground.addHomeCellShadow()
             cell.mainBackground.roundCorners(radius: K.UI.light_round_px)
             
@@ -62,6 +100,15 @@ class HistoryViewController: UIViewController , UITableViewDataSource, UITableVi
             if let cell = vc.view as? CustomHistoryTableViewCell{
                 
                 //cargar informacion al cell
+                 let obj = objectCell(brief: services[indexPath.row])
+                
+                cell.hourLable.text = obj.hour
+                cell.nameLable.text = obj.name + obj.lastName
+                cell.dateLable.text = obj.date?.toString(format: .Short)
+                cell.clientImage.circleImage()
+                cell.clientImage.downloadedFrom(link: obj.imageClient , contentMode: .scaleAspectFill)
+                cell.payedLable.text = obj.price
+                
                 cell.mainBackground.addHomeCellShadow()
                 cell.mainBackground.roundCorners(radius: K.UI.light_round_px)
                 return cell
@@ -78,15 +125,21 @@ class HistoryViewController: UIViewController , UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 100.0
+        return 120.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "HistoryServiceSummaryViewController") as! HistoryServiceSummaryViewController
-        //controller.serviceBrief = services[indexPath.row]
+        controller.serviceBrief = services[indexPath.row]
+        Service.withID(id: services[indexPath.row].uid!) { (service) in
+            controller.service = service
+        }
+
         self.present(controller, animated: true, completion: nil)
     }
+    
+    
     
 }

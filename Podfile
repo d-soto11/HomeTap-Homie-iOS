@@ -19,6 +19,7 @@ target 'HomeTapHomie' do
   pod 'GoogleSignIn'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
-  pod 'JModalController'	
+  pod 'JModalController'
+  pod 'FSCalendar'	
 
 end

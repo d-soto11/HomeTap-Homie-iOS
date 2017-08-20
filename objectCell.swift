@@ -20,11 +20,13 @@ class objectCell: NSObject {
     var price : String = " "
     var idService : String = " "
     var holdName : String = " "
+    var date: Date?
     
     public init(brief: Service){
         
         price = String(Int(brief.price!)) + "COP"
         
+        date = brief.date!
         let calendar = Calendar.current
         
         let monthTemp = calendar.component(.month, from: brief.date!)

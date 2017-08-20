@@ -66,6 +66,9 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
             
         }
     }
+    override func viewDidAppear(_ animated: Bool) {
+        self.configureScheduleButton.roundCorners(radius: K.UI.special_round_px)
+    }
     
     
     override func didReceiveMemoryWarning() {
@@ -92,7 +95,6 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
             cell.lastNameLable.text = obj.lastName
             cell.nameLable.text = obj.name
             cell.userImageView.circleImage()
-            print(obj.imageClient)
             cell.userImageView.downloadedFrom(link: obj.imageClient , contentMode: .scaleAspectFill)
             cell.serviceValueLable.text = obj.price
             
@@ -105,6 +107,7 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
             let vc = UIViewController.init(nibName: "CustomTableViewCell", bundle: nil)
             if let cell = vc.view as? CustomTableViewCell{
                 
+                
                 let obj = objectCell(brief: services[indexPath.row])
                 
                 
@@ -113,8 +116,8 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
                 cell.hourLable.text = obj.hour
                 cell.lastNameLable.text = obj.lastName
                 cell.nameLable.text = obj.name
-                cell.serviceValueLable.text = obj.price
-                //cell.userImageView.image = obj.cargarImagen(url: obj.imageClient)
+                cell.userImageView.circleImage()
+                cell.userImageView.downloadedFrom(link: obj.imageClient , contentMode: .scaleAspectFill)
                 cell.serviceValueLable.text = obj.price
                 cell.mainBackground.addHomeCellShadow()
                 cell.mainBackground.roundCorners(radius: K.UI.light_round_px)
