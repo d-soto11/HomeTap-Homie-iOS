@@ -36,8 +36,9 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
                         self.performSegue(withIdentifier: "FillDataSeg", sender: self)
                     }
                     else{
-                        
                         K.User.homie = homie
+                        K.User.inventory()
+                        
                         if (K.User.homie?.services_brief()) != nil {
                             
                             K.User.homie = homie

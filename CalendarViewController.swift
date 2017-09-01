@@ -22,7 +22,9 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     
     @IBOutlet weak var reservationArea: UIView!
     
-    var pocisiones: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    var pocisiones: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    var tagsssView: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    
     
     
     
@@ -30,14 +32,11 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let gs = UITapGestureRecognizer(target: self , action: #selector(respondGesture(gesture:)))
         self.reservationArea.addGestureRecognizer(gs)
         
-        print ( String(describing: K.User.homie?.blocks()))
-        //self.dayViewSchedule.addGestureRecognizer(gs)
-        // Do any additional setup after loading the view.
-        // customView.customViewHeight = customViewHeight
-        
+        paintBlocks( dateN: Date())
         
     }
     
@@ -92,84 +91,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
         
         print(String(describing: currentPoint.x) + " --- " + String(describing: currentPoint.y))
         
-        
-        for index in 0...25 {
-            if (currentPoint.y > CGFloat((Double(index) * 40)) && currentPoint.y < CGFloat((40 * (Double(index + 1)))))
-            {
-                if (index < 19)
-                {
-                    
-                    print(index)
-                    if(self.pocisiones[index] == 0 )
-                    {
-                        
-                        if (index > 0){
-                            if(self.pocisiones[index - 1] == 1){
-                                
-                                if index > 6 {
-                                    
-                                    
-                                    let varia = self.reservationArea.viewWithTag(index + 100 - 7) as! CustomView
-                                    self.reservationArea.viewWithTag(index +  100 - 7)?.frame = CGRect.init(x: (varia.frame.origin.x), y: (varia.frame.origin.y), width: (varia.frame.width) , height:CGFloat(540) )
-                                    
-                                    ((self.reservationArea.viewWithTag(index + 100  - 7))as! CustomView ).blocks = 14
-                                    
-                                    for i in 0...6
-                                    {
-                                        self.pocisiones[index + i] = 1
-                                    }
-                                    
-                                    
-                                }
-                            }
-                            else{
-                                
-                                for i in 0...6
-                                {
-                                    self.pocisiones[index + i] = 1
-                                }
-                                
-                                let n = CGFloat(40 * (Double(index)))
-                                let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 278) ))
-                                viewP.blocks = 7
-                                viewP.startBlock = (index + 1)
-                                viewP.tag = 100 + index
-                                let gest1 = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
-                                gest1.minimumNumberOfTouches = 1
-                                gest1.maximumNumberOfTouches = 1
-                                viewP.addGestureRecognizer(gest1)
-                                self.reservationArea.addSubview(viewP)
-                                
-                               
-                            }
-                            
-                            
-                        }
-                        else{
-                            
-                            for i in 0...6
-                            {
-                                self.pocisiones[index + i] = 1
-                            }
-                            
-                            let n = CGFloat(40 * (Double(index)))
-                            let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 278) ))
-                                viewP.blocks = 7
-                                viewP.startBlock = (index + 1)
-                                viewP.tag = 100 + index
-                            
-                            let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
-                            gest.minimumNumberOfTouches = 1
-                            gest.maximumNumberOfTouches = 1
-                            viewP.addGestureRecognizer(gest)
-                            
-                            self.reservationArea.addSubview(viewP)
-                        }
-                    }
-                }
-            }
-            
-        }
+       drawInUi(x: CGFloat(currentPoint.x), y: CGFloat(currentPoint.y))
         
     
     }
@@ -208,9 +130,148 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
         
         UIView.animate(withDuration: 0, animations: {
             
-            target.frame = CGRect(x: target.frame.origin.x , y: target.frame.origin.y , width: target.frame.width, height: gesture.location(in: self.reservationArea).y)
+            print(gesture.location(in: self.reservationArea).y)
+            if(gesture.location(in: self.reservationArea).y < 983 )
+            {
+            target.frame = CGRect(x: target.frame.origin.x , y: target.frame.origin.y , width: target.frame.width, height: gesture.location(in: self.reservationArea).y - target.frame.origin.y)
+                print(gesture.location(in: self.reservationArea).y)
+            }
+            
+            
             })
         
         
+    }
+    
+    func paintBlocks( dateN: Date){
+        
+        
+        
+        if let blockUser = K.User.homie?.blocks(date: dateN)
+        {
+            for i in blockUser {
+                
+                for j in i.UiFirstBlock()...i.UiBlocks()
+                {
+                    self.pocisiones[j] = 1
+                    self.tagsssView[j] = j + 100                            }
+                
+                let n = CGFloat(40 * (Double(i.UiFirstBlock())))
+                let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( i.UiBlocks()*40) ))
+                viewP.blocks = 7
+                viewP.startBlock = (i.UiFirstBlock() + 1)
+                viewP.tag = 100 + i.UiFirstBlock()
+                viewP.idBlockeDB = i.uid
+                
+                let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
+                gest.minimumNumberOfTouches = 1
+                gest.maximumNumberOfTouches = 1
+                viewP.addGestureRecognizer(gest)
+                
+                self.reservationArea.addSubview(viewP)
+            }
+        }
+        
+        
+        
+       
+        
+    
+    }
+    
+    func drawInUi(x: CGFloat , y: CGFloat ){
+        
+        
+        for index in 0...25 {
+            if (y > CGFloat((Double(index) * 40)) && y < CGFloat((40 * (Double(index + 1)))))
+            {
+                if (index < 19)
+                {
+                    
+                    print(index)
+                    if(self.pocisiones[index] == 0 )
+                    {
+                        
+                        if (index > 0){
+                            if(self.pocisiones[index - 1] == 1){
+                                
+                                if index > 6 {
+                                   
+                                    let varia = self.reservationArea.viewWithTag(self.tagsssView[index - 1]) as! CustomView
+                                    self.reservationArea.viewWithTag(self.tagsssView[index - 1])?.frame = CGRect.init(x: (varia.frame.origin.x), y: (varia.frame.origin.y), width: (varia.frame.width) , height:varia.frame.height + 280 )
+                                    
+                                    varia.blocks = varia.blocks + 7
+                                    
+                                    for i in 0...6
+                                    {
+                                        self.pocisiones[index + i] = 1
+                                        self.tagsssView[index + i] = varia.tag
+                                    }
+                                    
+                                    
+                                    
+                                }
+                            }
+                            else{
+                                
+                                for i in 0...6
+                                {
+                                    self.pocisiones[index + i] = 1
+                                    self.tagsssView[index + i] = index + 100
+                                }
+                                
+                                let n = CGFloat(40 * (Double(index)))
+                                let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 280) ))
+                                viewP.blocks = 7
+                                viewP.startBlock = (index + 1)
+                                viewP.tag = 100 + index
+                                
+                                let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
+                                gest.minimumNumberOfTouches = 1
+                                gest.maximumNumberOfTouches = 1
+                                viewP.addGestureRecognizer(gest)
+                                
+                                self.reservationArea.addSubview(viewP)
+                                
+                                
+                            }
+                            
+                            
+                        }
+                        else{
+                            
+                            for i in 0...6
+                            {
+                                self.pocisiones[index + i] = 1
+                                self.tagsssView[index + i] = index + 100                            }
+                            
+                            let n = CGFloat(40 * (Double(index)))
+                            let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 280) ))
+                            viewP.blocks = 7
+                            viewP.startBlock = (index + 1)
+                            viewP.tag = 100 + index
+                            
+                            let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
+                            gest.minimumNumberOfTouches = 1
+                            gest.maximumNumberOfTouches = 1
+                            viewP.addGestureRecognizer(gest)
+                            
+                            self.reservationArea.addSubview(viewP)
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    
+    func createBlock(blockStart: Int , blocks: Int , dateN: Date){
+        
+        let initialTime = (3600 * (7 + (blockStart/2)))
+        print(initialTime)
+        let finalTime = initialTime + ((blocks/2) * 3600)
+        print(finalTime)
+        let  date = dateN
     }
 }

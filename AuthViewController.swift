@@ -64,18 +64,21 @@ class AuthViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInU
         let authentication = user.authentication
         let credential = GoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
                                                        accessToken: (authentication?.accessToken)!)
-        
-        print("entro a google")
-        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+
         Auth.auth().signIn(with: credential) { (user, error) in
             MBProgressHUD.hide(for: self.view, animated: true)
             if (error != nil){
                 
+                
+                MBProgressHUD.hide(for: self.view, animated: true)
                 self.showAlert(title: "Lo sentimos", message: String(format:"Ha ocurrido un error inesperado: %@", error!.localizedDescription), closeButtonTitle: "Ok")
             }
             else{
                 
+                MBProgressHUD.hide(for: self.view, animated: true)
                 self.dismiss(animated: true, completion: nil)
+                
             }
             
         }

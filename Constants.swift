@@ -59,13 +59,28 @@ struct K {
         
         static var homie:Homie?
         
+        static var globalInventory: HTCInventory?
+
+        
         static func logged_user () -> Firebase.User?{
             return Auth.auth().currentUser
         }
+        
+        static func inventory() {
+        
+            Homie.globalInventory { (inven) in
+                globalInventory = inven
+            }
+        }
+        
     }
     
     struct MaterialTapBar {
         static var TapBar: MaterialTapBarViewController?
+    }
+    
+    struct Calendar {
+        //func dateToCordinates(date: Date)
     }
     
 }

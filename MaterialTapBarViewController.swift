@@ -136,7 +136,7 @@ class MaterialTapBarViewController: UIViewController {
     
     @IBAction func tabBarTap(_ sender: UIButton) {
         if(sender.tag == selectedIndex) {
-            reloadViewController()
+            //reloadViewController()
             return
         }
         
@@ -150,30 +150,30 @@ class MaterialTapBarViewController: UIViewController {
         
         switch selectedIndex {
         case 0:
-            self.constraintIcon2 = self.constraintIcon2.setMultiplier(multiplier: 0.75)
-            self.constraintIcon3 = self.constraintIcon3.setMultiplier(multiplier: 0.75)
-            self.constraintIcon4 = self.constraintIcon4.setMultiplier(multiplier: 0.75)
-            self.constraintIcon5 = self.constraintIcon5.setMultiplier(multiplier: 0.75)
+            self.constraintIcon2 = self.constraintIcon2.setMultiplier(multiplier: 0.95)
+            self.constraintIcon3 = self.constraintIcon3.setMultiplier(multiplier: 0.95)
+            self.constraintIcon4 = self.constraintIcon4.setMultiplier(multiplier: 0.95)
+            self.constraintIcon5 = self.constraintIcon5.setMultiplier(multiplier: 0.95)
         case 1:
-            self.constraintIcon2 = self.constraintIcon2.setMultiplier(multiplier: 2)
-            self.constraintIcon3 = self.constraintIcon3.setMultiplier(multiplier: 1)
-            self.constraintIcon4 = self.constraintIcon4.setMultiplier(multiplier: 1)
-            self.constraintIcon5 = self.constraintIcon5.setMultiplier(multiplier: 1)
+            self.constraintIcon2 = self.constraintIcon2.setMultiplier(multiplier: 1.2)
+            self.constraintIcon3 = self.constraintIcon3.setMultiplier(multiplier: 0.95)
+            self.constraintIcon4 = self.constraintIcon4.setMultiplier(multiplier: 0.95)
+            self.constraintIcon5 = self.constraintIcon5.setMultiplier(multiplier: 0.95)
         case 2:
-            self.constraintIcon2 = self.constraintIcon2.setMultiplier(multiplier: 1)
-            self.constraintIcon3 = self.constraintIcon3.setMultiplier(multiplier: 2)
-            self.constraintIcon4 = self.constraintIcon4.setMultiplier(multiplier: 1)
-            self.constraintIcon5 = self.constraintIcon5.setMultiplier(multiplier: 1)
+            self.constraintIcon2 = self.constraintIcon2.setMultiplier(multiplier: 0.95)
+            self.constraintIcon3 = self.constraintIcon3.setMultiplier(multiplier: 1.2)
+            self.constraintIcon4 = self.constraintIcon4.setMultiplier(multiplier: 0.95)
+            self.constraintIcon5 = self.constraintIcon5.setMultiplier(multiplier: 0.95)
         case 3:
-            self.constraintIcon2 = self.constraintIcon2.setMultiplier(multiplier: 1)
-            self.constraintIcon3 = self.constraintIcon3.setMultiplier(multiplier: 1)
-            self.constraintIcon4 = self.constraintIcon4.setMultiplier(multiplier: 2)
-            self.constraintIcon5 = self.constraintIcon5.setMultiplier(multiplier: 1)
+            self.constraintIcon2 = self.constraintIcon2.setMultiplier(multiplier: 0.95)
+            self.constraintIcon3 = self.constraintIcon3.setMultiplier(multiplier: 0.95)
+            self.constraintIcon4 = self.constraintIcon4.setMultiplier(multiplier: 1.2)
+            self.constraintIcon5 = self.constraintIcon5.setMultiplier(multiplier: 0.95)
         case 4:
-            self.constraintIcon2 = self.constraintIcon2.setMultiplier(multiplier: 1)
-            self.constraintIcon3 = self.constraintIcon3.setMultiplier(multiplier: 1)
-            self.constraintIcon4 = self.constraintIcon4.setMultiplier(multiplier: 1)
-            self.constraintIcon5 = self.constraintIcon5.setMultiplier(multiplier: 2)
+            self.constraintIcon2 = self.constraintIcon2.setMultiplier(multiplier: 0.95)
+            self.constraintIcon3 = self.constraintIcon3.setMultiplier(multiplier: 0.95)
+            self.constraintIcon4 = self.constraintIcon4.setMultiplier(multiplier: 0.95)
+            self.constraintIcon5 = self.constraintIcon5.setMultiplier(multiplier: 1.2)
             
         default:
             return

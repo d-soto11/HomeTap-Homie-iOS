@@ -32,6 +32,18 @@ class Homie: User {
         })
     }
     
+    class func globalInventory( callback: @escaping (_ s: HTCInventory?)->Void){
+        K.Database.ref().child("appContent").child("inventory").observe(DataEventType.value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String:AnyObject] {
+                callback(HTCInventory(dict: dict))
+            } else {
+                callback(nil)
+            }
+        })
+    }
+    
+   
+    
     public func save() {
         if self.preferences != nil {
             original_dictionary["preferences"] = self.preferences as AnyObject
@@ -46,13 +58,19 @@ class Homie: User {
     var preferences: NSDictionary?
     var folder: String?
     
-    public func blocks() -> [HTCBlock] {
+    public func blocks(date:Date) -> [HTCBlock] {
         var blocks:[HTCBlock] = []
         if let block = original_dictionary["blocks"] {
             if let blockDict = block as? [String:AnyObject] {
                 for (_, blo) in blockDict {
                     if let bloDict = blo as? [String:AnyObject] {
-                        blocks.append(HTCBlock(dict: bloDict))
+                        
+                        let b = HTCBlock(dict: bloDict)
+                       
+                        if(b.date?.toString(format: .Custom("yyyy-MM-dd")) == date.toString(format: .Custom("yyyy-MM-dd"))){
+                        blocks.append(b)
+                        }
+                        
                     }
                 }
                 return blocks
@@ -63,6 +81,20 @@ class Homie: User {
         return blocks
     }
     
+    public func inventory() -> HTCInventory? {
+        
+        if let prod = original_dictionary["products"] {
+            
+            if let prodDict = prod as? [String:AnyObject] {
+               
+                return HTCInventory(dict: prodDict)
+            }
+            
+        }
+        
+        return HTCInventory(dict: [:])
+    }
+
 }
 
 /*

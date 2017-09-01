@@ -9,7 +9,7 @@
 import UIKit
 
 class InventoryViewController: UIViewController {
-
+    
     
     @IBOutlet weak var yellowMaterialView: UIView!
     
@@ -35,16 +35,26 @@ class InventoryViewController: UIViewController {
     
     @IBOutlet weak var heightPink: NSLayoutConstraint!
     
-    var blue = 50
-    var pink = 50
-    var yellow = 50
+    @IBOutlet weak var yellowPercentage: UILabel!
+    
+    @IBOutlet weak var bluePercentage: UILabel!
+    
+    @IBOutlet weak var pinkPercentage: UILabel!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+        
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -52,6 +62,7 @@ class InventoryViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         AnimateHeight()
+        
     }
     
     
@@ -85,17 +96,25 @@ class InventoryViewController: UIViewController {
         
         
         
-           }
-
+    }
+    
+    
     
     func AnimateHeight() {
         
+        
+        
+        pinkPercentage.text = String(describing: Int(CGFloat((K.User.homie?.inventory()?.pink)!*1/((K.User.globalInventory?.pink)!)) * 100)) + "%"
+        bluePercentage.text = String(describing: Int(CGFloat((K.User.homie?.inventory()?.blue)!*1/((K.User.globalInventory?.blue)!)) * 100)) + "%"
+        yellowPercentage.text = String(describing: Int(CGFloat((K.User.homie?.inventory()?.yellow)!*1/((K.User.globalInventory?.yellow)!)) * 100)) + "%"
+        
+        
         UIView.animate(withDuration: 2, animations: {
-            self.heightYellow.constant = self.yellowMaterialView.frame.size.height*0.7
+            self.heightYellow.constant = self.yellowMaterialView.frame.size.height * CGFloat((K.User.homie?.inventory()?.yellow)!*1/((K.User.globalInventory?.yellow)!))
             
-           self.heightBlue.constant = self.yellowMaterialView.frame.size.height*0.6
+            self.heightBlue.constant = self.yellowMaterialView.frame.size.height * CGFloat((K.User.homie?.inventory()?.blue)!*1/((K.User.globalInventory?.blue)!))
             
-            self.heightPink.constant = self.yellowMaterialView.frame.size.height*0.4
+            self.heightPink.constant = self.yellowMaterialView.frame.size.height * CGFloat((K.User.homie?.inventory()?.pink)!*1/((K.User.globalInventory?.pink)!))
             
             
             self.view.updateConstraints()
@@ -103,15 +122,15 @@ class InventoryViewController: UIViewController {
     }
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

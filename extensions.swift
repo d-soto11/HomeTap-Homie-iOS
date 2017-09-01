@@ -312,7 +312,6 @@ extension Date {
             }
         case .Custom(let format):
             dtf.dateFormat = format
-            print(format)
         }
         
         self = dtf.date(from: fromString)!

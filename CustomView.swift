@@ -16,6 +16,8 @@ class CustomView: UIView {
     var blocks = 0
     var startBlock = 0
     var idService: String?
+    var idBlockeDB : String?
+    
     
     
     
@@ -44,6 +46,7 @@ class CustomView: UIView {
     
     
     func startDate() -> Date {
+        
       return Date()
     }
     

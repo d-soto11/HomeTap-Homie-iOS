@@ -37,4 +37,40 @@ class HTCBlock: HometapObject {
         
         return false
     }
+    
+    public func UiBlocks()-> Int{
+        
+        let time  = endHour?.timeIntervalSince((startHour)!)
+        
+        return Int(time!/(3600*0.5))
+        
+    }
+    
+    public func UiFirstBlock()-> Int{
+        
+        let time = startHour?.timeIntervalSince(Date(fromString: "07:00" , withFormat: .Custom("HH:mm"))!)
+        return Int(time!/(3600*0.5))
+    }
+    
+}
+
+class HTCInventory: HometapObject {
+    public override init(dict: [String : AnyObject]) {
+        super.init(dict: dict)
+        
+        if let blue = dict["blue"] {
+            self.blue = (blue as? Double)
+        }
+        if let pink = dict["pink"] {
+            self.pink = (pink as? Double)
+        }
+        if let yellow = dict["yellow"] {
+            self.yellow = (yellow as? Double)
+        }
+    }
+    
+    var blue: Double?
+    var pink: Double?
+    var yellow: Double?
+    
 }
