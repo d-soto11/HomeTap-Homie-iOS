@@ -54,6 +54,36 @@ struct K {
         static let round_to_circle: CGFloat = 7.5
     }
     
+    struct blo {
+        static func getHourFromSeconds(time:Double)->String {
+            
+            var str:String?
+            if (time.truncatingRemainder(dividingBy: 1) == 0.5)
+            {
+                let temp = time - 0.5
+                
+                if (temp > 9){
+                str = String(Int(temp)) + ":30"
+                }
+                else{
+                str = "0" + String(Int(temp)) + ":30"
+                }
+                
+                
+            }
+            else{
+                
+                
+                if (time > 9){
+                    str = String(Int(time)) + ":00"
+                }
+                else{
+                    str = "0" + String(Int(time)) + ":00"
+                }
+            }
+            return str!
+        }
+    }
     struct User {
         static let default_ph: String = "default"
         

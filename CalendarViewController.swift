@@ -19,6 +19,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     
     @IBOutlet weak var dateLable: UILabel!
     
+    var dateTemp: Date = Date()
     
     @IBOutlet weak var reservationArea: UIView!
     
@@ -59,6 +60,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
         
         dateLable.text = Date().toCalendar()
         
+        
        
         
     }
@@ -66,6 +68,16 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
         dateLable.text = date.toCalendar()
+        dateTemp = date
+        for vi in reservationArea.subviews {
+            vi.removeFromSuperview()
+        }
+        
+        
+        pocisiones = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        tagsssView = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        
+        paintBlocks( dateN: date)
     }
     
     override func viewWillLayoutSubviews()
@@ -97,16 +109,15 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     }
     
     func deleteReserv(sender:UIButton){
-        //print("llego a eliminar")
+      
         sender.superview?.removeFromSuperview()
         let bStart = ((sender.superview)as! CustomView).startBlock - 1
         let bTotal = ((sender.superview)as! CustomView).blocks - 1
         
-        //print("inicio: " + String(bStart) + " termina: " + String(bTotal))
         for i in 0...bTotal
         {
             self.pocisiones[bStart + i] = 0
-            //print(String(self.pocisiones[bStart + i]))
+            
         }
         
     }
@@ -126,15 +137,62 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     }
     
     func dragBlock( gesture: UIPanGestureRecognizer){
-        let target = gesture.view!
+        let target = gesture.view! as! CustomView
+        let initialIndex = target.startBlock + target.blocks - 1
         
+        var limit = 24
+        
+        for i in initialIndex...23{
+           
+            if (self.pocisiones[ i ] == 1 )
+            {
+                limit = i
+                break
+            }
+        }
+        
+        
+       
         UIView.animate(withDuration: 0, animations: {
             
             print(gesture.location(in: self.reservationArea).y)
             if(gesture.location(in: self.reservationArea).y < 983 )
             {
-            target.frame = CGRect(x: target.frame.origin.x , y: target.frame.origin.y , width: target.frame.width, height: gesture.location(in: self.reservationArea).y - target.frame.origin.y)
-                print(gesture.location(in: self.reservationArea).y)
+                 target.frame = CGRect(x: target.frame.origin.x , y: target.frame.origin.y , width: target.frame.width, height: gesture.location(in: self.reservationArea).y - target.frame.origin.y)
+                
+                if(gesture.location(in: self.reservationArea).y > CGFloat((limit + 1)*40))
+                {
+                    let alertController = UIAlertController(title: "Alerta", message: "¿Eliminar el siguiente bloque?", preferredStyle: .alert)
+                    
+                    let cancelAction = UIAlertAction(title: "No", style: .cancel) { (action:UIAlertAction!) in
+                        print("you have pressed No button");
+                        target.frame = CGRect(x: target.frame.origin.x , y: target.frame.origin.y , width: target.frame.width, height: CGFloat(limit * 40) - target.frame.origin.y)
+                    }
+                    alertController.addAction(cancelAction)
+                    
+                    let OKAction = UIAlertAction(title: "si", style: .default) { (action:UIAlertAction!) in
+                        print("you have pressed Yes button");
+                        
+                        for vi in self.reservationArea.subviews {
+                            
+                            let temp = vi as! CustomView
+                            if(vi.tag == self.tagsssView[limit])
+                            {
+                                vi.removeFromSuperview()
+                                K.User.homie?.deleteBlock(uid: temp.idBlockeDB!)
+                                break
+                            }
+                        }
+
+                        
+                        
+                        //Call another alert here
+                    }
+                    alertController.addAction(OKAction)
+                    
+                    self.present(alertController, animated: true, completion:nil)
+                    
+                }
             }
             
             
@@ -151,7 +209,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
         {
             for i in blockUser {
                 
-                for j in i.UiFirstBlock()...i.UiBlocks()
+                for j in i.UiFirstBlock()...(i.UiFirstBlock() + i.UiBlocks() - 1)
                 {
                     self.pocisiones[j] = 1
                     self.tagsssView[j] = j + 100                            }
@@ -223,8 +281,10 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                                 let n = CGFloat(40 * (Double(index)))
                                 let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 280) ))
                                 viewP.blocks = 7
+                                
                                 viewP.startBlock = (index + 1)
                                 viewP.tag = 100 + index
+                                createBlock(blockStart: index, blocks: 7, dateN: self.dateTemp)
                                 
                                 let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
                                 gest.minimumNumberOfTouches = 1
@@ -250,6 +310,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                             viewP.blocks = 7
                             viewP.startBlock = (index + 1)
                             viewP.tag = 100 + index
+                            createBlock(blockStart: index, blocks: 7, dateN: self.dateTemp)
                             
                             let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
                             gest.minimumNumberOfTouches = 1
@@ -267,11 +328,18 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     
     
     func createBlock(blockStart: Int , blocks: Int , dateN: Date){
-        
-        let initialTime = (3600 * (7 + (blockStart/2)))
-        print(initialTime)
-        let finalTime = initialTime + ((blocks/2) * 3600)
-        print(finalTime)
+        let initialTime = Double(7.0 + (Double(blockStart)/2.0))
+        let finalTime =   Double((7.0 + (Double(blockStart + blocks)/2.0)))
         let  date = dateN
+        
+        let blo = HTCBlock(dict: [:])
+        
+        blo.startHour = Date(fromString: K.blo.getHourFromSeconds(time: initialTime) , withFormat: .Custom("HH:mm"))
+        blo.endHour = Date(fromString: K.blo.getHourFromSeconds(time: finalTime) , withFormat: .Custom("HH:mm"))
+        blo.date = Date(fromString: date.toString(format: .Custom("yyyy-MM-dd"))!, withFormat: .Custom("yyyy-MM-dd"))
+       
+        K.User.homie?.saveBlock(block: blo)
+        K.User.homie?.save()
+       
     }
 }

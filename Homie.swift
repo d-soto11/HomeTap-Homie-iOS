@@ -95,6 +95,24 @@ class Homie: User {
         return HTCInventory(dict: [:])
     }
 
+    public func saveBlock(block: HTCBlock) {
+        if block.uid == nil {
+            block.uid = K.Database.ref().child("homies").child(self.uid!).child("blocks").childByAutoId().key
+        }
+        let blo_dict = block.prepareForSave()
+        var org_blocks_dict:[String:[String:AnyObject]] = original_dictionary["blocks"] as? [String:[String:AnyObject]] ?? [:]
+        org_blocks_dict[block.uid!] = blo_dict
+        original_dictionary["blocks"] = org_blocks_dict as AnyObject
+    }
+    
+    public func deleteBlock(uid: String) {
+        
+        K.Database.ref().child("homies").child(self.uid!).child("blocks").child(uid).removeValue()
+        var org_blocks_dict:[String:[String:AnyObject]] = original_dictionary["blocks"] as? [String:[String:AnyObject]] ?? [:]
+        org_blocks_dict.removeValue(forKey: uid)
+        
+    }
+    
 }
 
 /*
