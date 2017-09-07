@@ -24,6 +24,9 @@ class HTCBlock: HometapObject {
         if let serviceID = dict["serviceID"] {
             self.serviceID = (serviceID as? String)
         }
+        if let homie = dict["homieID"] {
+            self.homieID = homie as? String
+        }
         
     }
     public func prepareForSave() -> [String:AnyObject] {
@@ -39,6 +42,12 @@ class HTCBlock: HometapObject {
         if self.serviceID != nil {
             original_dictionary["serviceID"] = self.serviceID as AnyObject
         }
+        if self.uid != nil {
+            original_dictionary["id"] = self.uid as AnyObject
+        }
+        if self.homieID != nil {
+            original_dictionary["homieID"] = self.homieID as AnyObject
+        }
         
         return original_dictionary
     }
@@ -47,6 +56,7 @@ class HTCBlock: HometapObject {
     var endHour: Date?
     var date: Date?
     var serviceID : String?
+    var homieID : String?
     
     public func service(callback: @escaping (_:Service?)->Void) -> Bool{
         if let id_service = original_dictionary["serviceID"] as? String {
@@ -70,7 +80,6 @@ class HTCBlock: HometapObject {
     public func UiFirstBlock()-> Int{
         
         let time = startHour?.timeIntervalSince(Date(fromString: "07:00" , withFormat: .Custom("HH:mm"))!)
-        print("tiempo intervalo del de las 7 am " + String(time!))
         return Int(time!/(3600*0.5))
     }
     
@@ -89,6 +98,7 @@ class HTCInventory: HometapObject {
         if let yellow = dict["yellow"] {
             self.yellow = (yellow as? Double)
         }
+        
     }
     
     
