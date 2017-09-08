@@ -88,6 +88,7 @@
 		B86D1BD01F21528C00DBF9B9 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BCF1F21528C00DBF9B9 /* ChangePasswordViewController.swift */; };
 		B86D1BD21F21529A00DBF9B9 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BD11F21529A00DBF9B9 /* ChangeEmailViewController.swift */; };
 		B86D1BD41F2152AB00DBF9B9 /* ChangePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BD31F2152AB00DBF9B9 /* ChangePhoneViewController.swift */; };
+		B89429321F635CFA00054FFB /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89429311F635CFA00054FFB /* Comment.swift */; };
 		B8A75F9D1F3D0E23006072B1 /* HomeSummaryServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A75F9C1F3D0E23006072B1 /* HomeSummaryServiceViewController.swift */; };
 		B8A75F9F1F3E4CEE006072B1 /* HistoryServiceSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A75F9E1F3E4CEE006072B1 /* HistoryServiceSummaryViewController.swift */; };
 		B8CE52EE1F3049CC0072FF98 /* CustomHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CE52EC1F3049CC0072FF98 /* CustomHistoryTableViewCell.swift */; };
@@ -200,6 +201,7 @@
 		B86D1BCF1F21528C00DBF9B9 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		B86D1BD11F21529A00DBF9B9 /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
 		B86D1BD31F2152AB00DBF9B9 /* ChangePhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePhoneViewController.swift; sourceTree = "<group>"; };
+		B89429311F635CFA00054FFB /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		B8A75F9C1F3D0E23006072B1 /* HomeSummaryServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSummaryServiceViewController.swift; sourceTree = "<group>"; };
 		B8A75F9E1F3E4CEE006072B1 /* HistoryServiceSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryServiceSummaryViewController.swift; sourceTree = "<group>"; };
 		B8CE52EC1F3049CC0072FF98 /* CustomHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				B83D3DCB1F25EC58006B4B4F /* InventoryLevel.swift */,
 				B83C247A1F2CD765008548E6 /* objectCell.swift */,
 				B82E88FA1F44F82600DE95A7 /* CustomView.swift */,
+				B89429311F635CFA00054FFB /* Comment.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 				B86200D41F6293A3000278B2 /* ViewControllerUsedInventoryMaterial.swift in Sources */,
 				B83C247B1F2CD765008548E6 /* objectCell.swift in Sources */,
 				B86D1BD01F21528C00DBF9B9 /* ChangePasswordViewController.swift in Sources */,
+				B89429321F635CFA00054FFB /* Comment.swift in Sources */,
 				B86D1BD21F21529A00DBF9B9 /* ChangeEmailViewController.swift in Sources */,
 				B8CE52EE1F3049CC0072FF98 /* CustomHistoryTableViewCell.swift in Sources */,
 			);
