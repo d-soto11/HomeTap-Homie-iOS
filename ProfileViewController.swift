@@ -25,10 +25,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //add gesture to labels
-        let tap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.goName))
-        nameLabel.isUserInteractionEnabled = true
-        nameLabel.addGestureRecognizer(tap)
+        
         let tap1 = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.goPhone))
         phoneLabel.isUserInteractionEnabled = true
         phoneLabel.addGestureRecognizer(tap1)

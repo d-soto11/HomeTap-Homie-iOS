@@ -71,6 +71,12 @@ class HistoryViewController: UIViewController , UITableViewDataSource, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func goToCalendar(_ sender: Any) {
+        
+        configureSchedule.tag = 1
+        
+        K.MaterialTapBar.TapBar?.tabBarTap( configureSchedule)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

@@ -15,7 +15,7 @@ class Place: HometapObject {
         if let lat = dict["lat"] {
             self.lat = (lat as? Double)
         }
-        if let long = dict["long"] {
+        if let long = dict["lng"] {
             self.long = (long as? Double)
         }
         if let address = dict["address"] {
@@ -46,7 +46,7 @@ class Place: HometapObject {
             original_dictionary["lat"] = self.lat as AnyObject
         }
         if self.long != nil {
-            original_dictionary["long"] = self.long as AnyObject
+            original_dictionary["lng"] = self.long as AnyObject
         }
         if self.address != nil {
             original_dictionary["address"] = self.address as AnyObject
@@ -82,5 +82,8 @@ class Place: HometapObject {
     var rooms: Int?
     var bathrooms: Int?
     var basement: Bool?
+    
+    
+
     
 }

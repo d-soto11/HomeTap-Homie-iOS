@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		80527A42222753BD0DC9B12D /* Pods_HomeTapHomie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7370E7BE00CC68F72AC542FD /* Pods_HomeTapHomie.framework */; };
+		B801E8DB1F627AAF00208756 /* web_hi_res_512.png in Resources */ = {isa = PBXBuildFile; fileRef = B801E8DA1F627AAF00208756 /* web_hi_res_512.png */; };
+		B801E8DD1F627BE200208756 /* LOGO.bmp in Resources */ = {isa = PBXBuildFile; fileRef = B801E8DC1F627BE200208756 /* LOGO.bmp */; };
+		B801E8DF1F627C3500208756 /* start.bmp in Resources */ = {isa = PBXBuildFile; fileRef = B801E8DE1F627C3500208756 /* start.bmp */; };
 		B805FB0E1F1AA86B00B7DE41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B805FB0D1F1AA86B00B7DE41 /* AppDelegate.swift */; };
 		B805FB131F1AA86B00B7DE41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B805FB111F1AA86B00B7DE41 /* Main.storyboard */; };
 		B805FB151F1AA86B00B7DE41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B805FB141F1AA86B00B7DE41 /* Assets.xcassets */; };
@@ -77,6 +80,9 @@
 		B850BCF81F41705100033E51 /* iconServiceBooked.png in Resources */ = {isa = PBXBuildFile; fileRef = B850BCCD1F41705100033E51 /* iconServiceBooked.png */; };
 		B850BCF91F41705100033E51 /* iconServiceChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = B850BCCE1F41705100033E51 /* iconServiceChecked.png */; };
 		B850BD061F41705100033E51 /* illustrationNoBookings.png in Resources */ = {isa = PBXBuildFile; fileRef = B850BCDB1F41705100033E51 /* illustrationNoBookings.png */; };
+		B86200CB1F6282DC000278B2 /* ViewControllerStartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86200CA1F6282DC000278B2 /* ViewControllerStartService.swift */; };
+		B86200CD1F6282F6000278B2 /* ViewControllerEndService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86200CC1F6282F6000278B2 /* ViewControllerEndService.swift */; };
+		B86200CF1F628D00000278B2 /* ViewControllerServiceDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86200CE1F628D00000278B2 /* ViewControllerServiceDone.swift */; };
 		B86D1BD01F21528C00DBF9B9 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BCF1F21528C00DBF9B9 /* ChangePasswordViewController.swift */; };
 		B86D1BD21F21529A00DBF9B9 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BD11F21529A00DBF9B9 /* ChangeEmailViewController.swift */; };
 		B86D1BD41F2152AB00DBF9B9 /* ChangePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BD31F2152AB00DBF9B9 /* ChangePhoneViewController.swift */; };
@@ -106,6 +112,9 @@
 /* Begin PBXFileReference section */
 		1CE56ED0F50C18388C527648 /* Pods-HomeTapHomie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTapHomie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTapHomie/Pods-HomeTapHomie.debug.xcconfig"; sourceTree = "<group>"; };
 		7370E7BE00CC68F72AC542FD /* Pods_HomeTapHomie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTapHomie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B801E8DA1F627AAF00208756 /* web_hi_res_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = web_hi_res_512.png; sourceTree = "<group>"; };
+		B801E8DC1F627BE200208756 /* LOGO.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = LOGO.bmp; sourceTree = "<group>"; };
+		B801E8DE1F627C3500208756 /* start.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = start.bmp; sourceTree = "<group>"; };
 		B805FB0A1F1AA86B00B7DE41 /* HomeTapHomie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTapHomie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B805FB0D1F1AA86B00B7DE41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B805FB121F1AA86B00B7DE41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -181,6 +190,9 @@
 		B850BCCD1F41705100033E51 /* iconServiceBooked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconServiceBooked.png; sourceTree = "<group>"; };
 		B850BCCE1F41705100033E51 /* iconServiceChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconServiceChecked.png; sourceTree = "<group>"; };
 		B850BCDB1F41705100033E51 /* illustrationNoBookings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = illustrationNoBookings.png; sourceTree = "<group>"; };
+		B86200CA1F6282DC000278B2 /* ViewControllerStartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerStartService.swift; sourceTree = "<group>"; };
+		B86200CC1F6282F6000278B2 /* ViewControllerEndService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerEndService.swift; sourceTree = "<group>"; };
+		B86200CE1F628D00000278B2 /* ViewControllerServiceDone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerServiceDone.swift; sourceTree = "<group>"; };
 		B86D1BCF1F21528C00DBF9B9 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		B86D1BD11F21529A00DBF9B9 /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
 		B86D1BD31F2152AB00DBF9B9 /* ChangePhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePhoneViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +240,7 @@
 		B805FB011F1AA86B00B7DE41 = {
 			isa = PBXGroup;
 			children = (
+				B86200C91F6282B9000278B2 /* OnService */,
 				B837B61E1F2D290E006F5626 /* Resources */,
 				B84367CD1F1F41F00085D5A3 /* Authentication */,
 				B84367C41F1E858E0085D5A3 /* Assets */,
@@ -389,6 +402,9 @@
 		B84367C41F1E858E0085D5A3 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				B801E8DE1F627C3500208756 /* start.bmp */,
+				B801E8DC1F627BE200208756 /* LOGO.bmp */,
+				B801E8DA1F627AAF00208756 /* web_hi_res_512.png */,
 				B820639B1F48EBA3000B2E71 /* iconStarEmpty.png */,
 				B820639C1F48EBA3000B2E71 /* iconStarFilled.png */,
 				B820639D1F48EBA3000B2E71 /* iconInventoryGray.png */,
@@ -425,6 +441,16 @@
 				B84367CE1F1FE13C0085D5A3 /* SignInViewController.swift */,
 			);
 			name = Authentication;
+			sourceTree = "<group>";
+		};
+		B86200C91F6282B9000278B2 /* OnService */ = {
+			isa = PBXGroup;
+			children = (
+				B86200CA1F6282DC000278B2 /* ViewControllerStartService.swift */,
+				B86200CC1F6282F6000278B2 /* ViewControllerEndService.swift */,
+				B86200CE1F628D00000278B2 /* ViewControllerServiceDone.swift */,
+			);
+			name = OnService;
 			sourceTree = "<group>";
 		};
 		D3F794F19381E1E1A4BB1732 /* Pods */ = {
@@ -557,6 +583,7 @@
 				B82063AE1F48EBA3000B2E71 /* iconInventoryGreen.png in Resources */,
 				B837B62D1F2D298E006F5626 /* Rubik-Black.ttf in Resources */,
 				B837B6311F2D298E006F5626 /* Rubik-Italic.ttf in Resources */,
+				B801E8DF1F627C3500208756 /* start.bmp in Resources */,
 				B837B6301F2D298E006F5626 /* Rubik-BoldItalic.ttf in Resources */,
 				B82063B81F48EBA3000B2E71 /* iconHistoryGreen.png in Resources */,
 				B82063AF1F48EBA3000B2E71 /* iconProfileGray.png in Resources */,
@@ -571,6 +598,7 @@
 				B837B6331F2D298E006F5626 /* Rubik-LightItalic.ttf in Resources */,
 				B805FB151F1AA86B00B7DE41 /* Assets.xcassets in Resources */,
 				B82063BC1F48EE4E000B2E71 /* iconCalendarGray.png in Resources */,
+				B801E8DB1F627AAF00208756 /* web_hi_res_512.png in Resources */,
 				B850BCF91F41705100033E51 /* iconServiceChecked.png in Resources */,
 				B82063B01F48EBA3000B2E71 /* iconProfileGreen.png in Resources */,
 				B82063AC1F48EBA3000B2E71 /* iconStarFilled.png in Resources */,
@@ -580,6 +608,7 @@
 				B837B6351F2D298E006F5626 /* Rubik-MediumItalic.ttf in Resources */,
 				B82063B71F48EBA3000B2E71 /* iconHistoryGray.png in Resources */,
 				B805FB131F1AA86B00B7DE41 /* Main.storyboard in Resources */,
+				B801E8DD1F627BE200208756 /* LOGO.bmp in Resources */,
 				B82063B41F48EBA3000B2E71 /* iconCalendarGreen.png in Resources */,
 				B837B62F1F2D298E006F5626 /* Rubik-Bold.ttf in Resources */,
 				B82063AB1F48EBA3000B2E71 /* iconStarEmpty.png in Resources */,
@@ -675,13 +704,16 @@
 				B805FB5D1F1ADE3E00B7DE41 /* InventoryViewController.swift in Sources */,
 				B8A75F9F1F3E4CEE006072B1 /* HistoryServiceSummaryViewController.swift in Sources */,
 				B817C6A31F3B36390078629C /* extensions.swift in Sources */,
+				B86200CB1F6282DC000278B2 /* ViewControllerStartService.swift in Sources */,
 				B817C69F1F3B36390078629C /* AdditionalServices.swift in Sources */,
+				B86200CD1F6282F6000278B2 /* ViewControllerEndService.swift in Sources */,
 				B84367CA1F1E8C2D0085D5A3 /* AuthViewController.swift in Sources */,
 				B82E88F41F434C2100DE95A7 /* MaterialTapBarViewController.swift in Sources */,
 				B817C6A81F3B36390078629C /* Service.swift in Sources */,
 				B817C6A51F3B36390078629C /* Homie.swift in Sources */,
 				B84367CF1F1FE13C0085D5A3 /* SignInViewController.swift in Sources */,
 				B83D3DCC1F25EC58006B4B4F /* InventoryLevel.swift in Sources */,
+				B86200CF1F628D00000278B2 /* ViewControllerServiceDone.swift in Sources */,
 				B817C6A71F3B36390078629C /* Product.swift in Sources */,
 				B817C6A01F3B36390078629C /* Calendar.swift in Sources */,
 				B843680F1F2018F10085D5A3 /* ChangeNameViewController.swift in Sources */,

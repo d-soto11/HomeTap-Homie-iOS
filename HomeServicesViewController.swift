@@ -44,6 +44,17 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
                             K.User.homie = homie
                             self.services = (K.User.homie?.services_brief())!
                             self.tableView.reloadData()
+                           
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerStartService") as! ViewControllerStartService
+                            controller.briefService = self.services[0]
+                            
+                            Service.withID(id: self.services[0].uid!) { (service) in
+                                controller.service = service
+                            }
+                            self.present(controller, animated: true, completion: nil)
+                            
+                            
                             
                         }
                         else
@@ -140,6 +151,12 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
         return 100.0
     }
     
+    @IBAction func goToCalendar(_ sender: Any) {
+        
+        configureScheduleButton.tag = 1
+        
+        K.MaterialTapBar.TapBar?.tabBarTap( configureScheduleButton)
+    }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

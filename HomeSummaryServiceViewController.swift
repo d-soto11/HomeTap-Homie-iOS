@@ -130,38 +130,20 @@ class HomeSummaryServiceViewController: UIViewController {
     
     @IBAction func whereGo(_ sender: Any) {
         
-        let address = self.adressService.text
-        let geocoder = CLGeocoder()
-        
-        geocoder.geocodeAddressString(address!, completionHandler: {(placemarks, error) -> Void in
-            if((error) != nil){
-                print("Error", error!)
-            }
-            if let placemark = placemarks?.first {
-                let coordinatesFounded:CLLocationCoordinate2D = placemark.location!.coordinate
-                print("lat", coordinatesFounded.latitude)
-                print("long", coordinatesFounded.longitude)
-                
-                let latitud: CLLocationDegrees = coordinatesFounded.latitude
-                let longitud: CLLocationDegrees = coordinatesFounded.longitude
+                let latitud: CLLocationDegrees =  (service?.place?.lat)!
+                let longitud: CLLocationDegrees =  (service?.place?.long)!
                 let regionDistance: CLLocationDistance  = 1000
                 let coordinates = CLLocationCoordinate2D(latitude: latitud, longitude: longitud)
                 let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
                 let option = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]
                 let placeMark = MKPlacemark (coordinate: coordinates)
                 let mapItem = MKMapItem(placemark:placeMark)
-                mapItem.name = "cliente service"
+                mapItem.name = serviceBrief?.briefName
                 mapItem.openInMaps(launchOptions: option)
 
-                
-                
-            }
-        })
-        
-        
-        
-        
     }
+                
+        
 
     /*
     // MARK: - Navigation

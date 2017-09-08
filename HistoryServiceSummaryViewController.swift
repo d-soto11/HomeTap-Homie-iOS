@@ -117,7 +117,7 @@ class HistoryServiceSummaryViewController: UIViewController {
 
     @IBAction func callHometapAction(_ sender: Any) {
        
-         let url = URL(string: "tel://3104856560")
+         let url = URL(string: "tel://3100000000")
         UIApplication.shared.open(url! , options: [:] , completionHandler: nil)
     }
 }
