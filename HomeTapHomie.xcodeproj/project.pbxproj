@@ -83,6 +83,8 @@
 		B86200CB1F6282DC000278B2 /* ViewControllerStartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86200CA1F6282DC000278B2 /* ViewControllerStartService.swift */; };
 		B86200CD1F6282F6000278B2 /* ViewControllerEndService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86200CC1F6282F6000278B2 /* ViewControllerEndService.swift */; };
 		B86200CF1F628D00000278B2 /* ViewControllerServiceDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86200CE1F628D00000278B2 /* ViewControllerServiceDone.swift */; };
+		B86200D21F629383000278B2 /* ViewControllerComents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86200D11F629383000278B2 /* ViewControllerComents.swift */; };
+		B86200D41F6293A3000278B2 /* ViewControllerUsedInventoryMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86200D31F6293A3000278B2 /* ViewControllerUsedInventoryMaterial.swift */; };
 		B86D1BD01F21528C00DBF9B9 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BCF1F21528C00DBF9B9 /* ChangePasswordViewController.swift */; };
 		B86D1BD21F21529A00DBF9B9 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BD11F21529A00DBF9B9 /* ChangeEmailViewController.swift */; };
 		B86D1BD41F2152AB00DBF9B9 /* ChangePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BD31F2152AB00DBF9B9 /* ChangePhoneViewController.swift */; };
@@ -193,6 +195,8 @@
 		B86200CA1F6282DC000278B2 /* ViewControllerStartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerStartService.swift; sourceTree = "<group>"; };
 		B86200CC1F6282F6000278B2 /* ViewControllerEndService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerEndService.swift; sourceTree = "<group>"; };
 		B86200CE1F628D00000278B2 /* ViewControllerServiceDone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerServiceDone.swift; sourceTree = "<group>"; };
+		B86200D11F629383000278B2 /* ViewControllerComents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerComents.swift; sourceTree = "<group>"; };
+		B86200D31F6293A3000278B2 /* ViewControllerUsedInventoryMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerUsedInventoryMaterial.swift; sourceTree = "<group>"; };
 		B86D1BCF1F21528C00DBF9B9 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		B86D1BD11F21529A00DBF9B9 /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
 		B86D1BD31F2152AB00DBF9B9 /* ChangePhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePhoneViewController.swift; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 		B805FB011F1AA86B00B7DE41 = {
 			isa = PBXGroup;
 			children = (
+				B86200D01F62934A000278B2 /* AfterService */,
 				B86200C91F6282B9000278B2 /* OnService */,
 				B837B61E1F2D290E006F5626 /* Resources */,
 				B84367CD1F1F41F00085D5A3 /* Authentication */,
@@ -451,6 +456,15 @@
 				B86200CE1F628D00000278B2 /* ViewControllerServiceDone.swift */,
 			);
 			name = OnService;
+			sourceTree = "<group>";
+		};
+		B86200D01F62934A000278B2 /* AfterService */ = {
+			isa = PBXGroup;
+			children = (
+				B86200D11F629383000278B2 /* ViewControllerComents.swift */,
+				B86200D31F6293A3000278B2 /* ViewControllerUsedInventoryMaterial.swift */,
+			);
+			name = AfterService;
 			sourceTree = "<group>";
 		};
 		D3F794F19381E1E1A4BB1732 /* Pods */ = {
@@ -700,6 +714,7 @@
 				B805FB611F1ADE5E00B7DE41 /* ProfileViewController.swift in Sources */,
 				B805FB5F1F1ADE5300B7DE41 /* HistoryViewController.swift in Sources */,
 				B8A75F9D1F3D0E23006072B1 /* HomeSummaryServiceViewController.swift in Sources */,
+				B86200D21F629383000278B2 /* ViewControllerComents.swift in Sources */,
 				B82CD63F1F2BCF3F009CFEEB /* CustomTableViewCell.swift in Sources */,
 				B805FB5D1F1ADE3E00B7DE41 /* InventoryViewController.swift in Sources */,
 				B8A75F9F1F3E4CEE006072B1 /* HistoryServiceSummaryViewController.swift in Sources */,
@@ -721,6 +736,7 @@
 				B805FB651F1ADF4D00B7DE41 /* MainViewController.swift in Sources */,
 				B805FB5B1F1ADE3000B7DE41 /* CalendarViewController.swift in Sources */,
 				B82CD63C1F2BB0D9009CFEEB /* HomeServicesViewController.swift in Sources */,
+				B86200D41F6293A3000278B2 /* ViewControllerUsedInventoryMaterial.swift in Sources */,
 				B83C247B1F2CD765008548E6 /* objectCell.swift in Sources */,
 				B86D1BD01F21528C00DBF9B9 /* ChangePasswordViewController.swift in Sources */,
 				B86D1BD21F21529A00DBF9B9 /* ChangeEmailViewController.swift in Sources */,
