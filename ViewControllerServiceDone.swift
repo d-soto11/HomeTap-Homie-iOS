@@ -17,7 +17,7 @@ class ViewControllerServiceDone: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "TapBarViewController") as! MaterialTapBarViewController
+            let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerComentsController") as! ViewControllerComents
            
             self.present(controller, animated: true, completion: nil)
 

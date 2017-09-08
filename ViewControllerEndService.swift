@@ -64,6 +64,8 @@ class ViewControllerEndService: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        view.isOpaque = false
+        
         self.endServiceButton.roundCorners(radius: K.UI.special_round_px)
         self.callhomeTapButton.roundCorners(radius: K.UI.light_round_px)
         

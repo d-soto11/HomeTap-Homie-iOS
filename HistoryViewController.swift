@@ -48,6 +48,7 @@ class HistoryViewController: UIViewController , UITableViewDataSource, UITableVi
                             self.configureSchedule.alpha = 1
                             self.configureSchedule.isEnabled = true
                             
+                            
                         }
                         
                     }

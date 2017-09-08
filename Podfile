@@ -20,6 +20,7 @@ target 'HomeTapHomie' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'JModalController'
-  pod 'FSCalendar'	
+  pod 'FSCalendar'
+  pod 'Cosmos'	
 
 end

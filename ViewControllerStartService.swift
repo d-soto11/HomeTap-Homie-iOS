@@ -49,6 +49,7 @@ class ViewControllerStartService: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        view.isOpaque = false
         
         self.startServiceButton.roundCorners(radius: K.UI.special_round_px)
         self.cancelServiceButton.roundCorners(radius: K.UI.light_round_px)
