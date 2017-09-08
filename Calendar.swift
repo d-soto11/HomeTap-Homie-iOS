@@ -12,6 +12,8 @@ class HTCBlock: HometapObject {
     public override init(dict: [String : AnyObject]) {
         super.init(dict: dict)
         
+        print("Diccionario del bloque :" + dict.description
+        )
         if let startHour = dict["initialTime"] {
             self.startHour = Date(fromString: startHour as! String, withFormat: .Custom("HH:mm"))
         }
@@ -27,8 +29,11 @@ class HTCBlock: HometapObject {
         if let homie = dict["homieID"] {
             self.homieID = homie as? String
         }
-        
+        if let id = dict["id"] {
+            self.uid = id as? String
+        }
     }
+    
     public func prepareForSave() -> [String:AnyObject] {
         if self.startHour != nil {
             original_dictionary["initialTime"] = self.startHour!.toString(format: .Custom("HH:mm")) as AnyObject
@@ -42,11 +47,11 @@ class HTCBlock: HometapObject {
         if self.serviceID != nil {
             original_dictionary["serviceID"] = self.serviceID as AnyObject
         }
-        if self.uid != nil {
-            original_dictionary["id"] = self.uid as AnyObject
-        }
         if self.homieID != nil {
             original_dictionary["homieID"] = self.homieID as AnyObject
+        }
+        if self.uid != nil {
+            original_dictionary["id"] = self.uid as AnyObject
         }
         
         return original_dictionary
