@@ -26,7 +26,7 @@ class Service: HometapObject {
             self.price = (price as? Double)
         }
         if let state = dict["state"] {
-            self.state = (state as? String)
+            self.state = (state as? Int)
         }
         if let comments = dict["comments"] {
             self.comments = (comments as? String)
@@ -37,6 +37,9 @@ class Service: HometapObject {
         if let id = dict["idService"] {
             self.uid = (id as? String)
         }
+        if let clientID = dict["clientID"] {
+            self.clientID = (clientID as? String)
+        }
         if let briefName = dict["briefName"] {
             self.briefName = (briefName as? String)
         }
@@ -46,7 +49,19 @@ class Service: HometapObject {
         if let briefPhoto = dict["briefPhoto"] {
             self.briefPhoto = (briefPhoto as? String)
         }
-
+        if let time = dict["time"] {
+            self.time = (time as? Int)
+        }
+        if let block = dict["blockID"] {
+            self.blockID = (block as? String)
+        }
+        if let tk = dict["paymentToken"] {
+            self.token = (tk as? String)
+        }
+        if let rating = dict["rating"] {
+            self.rating = (rating as? Double)
+        }
+        
     }
     
     class func withID(id: String, callback: @escaping (_ s: Service?)->Void){
@@ -72,18 +87,39 @@ class Service: HometapObject {
         if self.comments != nil {
             original_dictionary["comments"] = self.comments as AnyObject
         }
-        super.save(route: "clients")
+        if self.time != nil {
+            original_dictionary["time"] = self.time as AnyObject
+        }
+        if self.blockID != nil {
+            original_dictionary["blockID"] = self.blockID as AnyObject
+        }
+        if self.place != nil {
+            original_dictionary["place"] = self.place?.prepareForSave() as AnyObject
+        }
+        if self.token != nil {
+            original_dictionary["paymentToken"] = self.token as AnyObject
+        }
+        if self.rating != nil {
+            original_dictionary["rating"] = self.rating as AnyObject
+        }
+        super.save(route: "services")
+        
     }
     
     var date: Date?
     var price: Double?
-    var state: String?
+    var state: Int?
     var comments: String?
     var briefName: String?
     var briefRating: Double?
     var briefPhoto: String?
-    
+    var time: Int?
+    var blockID: String?
+    var token: String?
+    var clientID: String?
     var place: Place?
+    var rating: Double?
+    
     
     public func homie(callback: @escaping (_:Homie?)->Void) -> Bool {
         if let id = original_dictionary["homieID"] as? String{
@@ -116,9 +152,13 @@ class Service: HometapObject {
                 }
                 return add_services
             }
-            
+            if let addArray = additionalServices as? [[String:AnyObject]] {
+                for service in addArray {
+                    add_services.append(AdditionalService(dict: service))
+                }
+                return add_services
+            }
         }
-        
         return nil
     }
     
@@ -154,7 +194,8 @@ class Service: HometapObject {
         for service in services {
             services_array.append(service.prepareForSave())
         }
-        original_dictionary["places"] = services_array as AnyObject
+        original_dictionary["additionalServices"] = services_array as AnyObject
     }
+
 
 }

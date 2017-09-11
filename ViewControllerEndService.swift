@@ -74,7 +74,12 @@ class ViewControllerEndService: UIViewController {
     
     @IBAction func endService(_ sender: Any) {
         
-        performSegue(withIdentifier: "endServiceSeg", sender:self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerServiceDone") as! ViewControllerServiceDone
+        controller.briefService = self.briefService!
+        controller.service = self.service
+        self.present(controller, animated: true, completion: nil)
+
         
     }
 

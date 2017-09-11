@@ -145,7 +145,10 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     }
     
     func deleteReserv(sender:UIButton){
+        let actual = sender.superview as! CustomView
         
+        K.User.homie?.deleteBlock(uid: actual.idBlockeDB!)
+        K.User.homie?.save()
         sender.superview?.removeFromSuperview()
         let bStart = ((sender.superview)as! CustomView).startBlock - 1
         let bTotal = ((sender.superview)as! CustomView).blocks - 1
@@ -153,7 +156,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
         for i in 0...bTotal
         {
             self.pocisiones[bStart + i] = 0
-            
+            self.tagsssView[bStart + i] = 0
         }
         
     }
@@ -359,12 +362,17 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                 viewP.tag = 100 + i.UiFirstBlock()
                 viewP.idBlockeDB = i.uid
             
-                
+                if(i.serviceID == nil){
                 let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
                 gest.minimumNumberOfTouches = 1
                 gest.maximumNumberOfTouches = 1
                 viewP.addGestureRecognizer(gest)
-                
+                }
+                else{
+                    viewP.backgroundColor = K.UI.alert_color
+                    viewP.btnClos?.isEnabled = false
+                    viewP.lableEstado?.text = "Ocupado"
+                }
                 self.reservationArea.addSubview(viewP)
             }
         }

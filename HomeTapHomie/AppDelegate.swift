@@ -12,9 +12,11 @@ import FirebaseAuth
 import FBSDKCoreKit
 import GoogleMaps
 import GoogleSignIn
+import UserNotifications
+import FirebaseMessaging
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
     
     var window: UIWindow?
     
@@ -39,6 +41,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         //let tabBar: UITabBarController = self.window?.rootViewController as! UITabBarController
         //tabBar.selectedIndex = 2
+        
+        // Notifications configuration
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
         
         
         return true
@@ -83,6 +102,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         statusBar.backgroundColor = color
     }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        K.User.reloadClient()
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        K.User.reloadClient()
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+
     
     
 }

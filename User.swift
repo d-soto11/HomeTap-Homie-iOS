@@ -181,4 +181,46 @@ class User: HometapObject {
         return brief
     }
     
+    
+    public func comments(callback: @escaping (_ c: Comment?, _ total: Int)->Void){
+        if let comms = original_dictionary["comments"] {
+            if let commsDict = comms as? [String:AnyObject] {
+                let total = commsDict.count
+                for (id_comment, _) in commsDict {
+                    Comment.withID(id: id_comment, callback: {(comment) in
+                        callback(comment, total)
+                    })
+                }
+            }
+        }
+    }
+    
+    public func notifications() -> [Notification]? {
+        var notifications:[Notification] = []
+        if let not = original_dictionary["notifications"] {
+            if let notDict = not as? [String:AnyObject] {
+                for (_, notification) in notDict {
+                    if let notificationDict = notification as? [String:AnyObject] {
+                        notifications.append(Notification(dict: notificationDict))
+                    }
+                }
+                return notifications
+            }
+        }
+        return nil
+    }
+    
+    public func saveNotificationToken(token: String) {
+        K.Database.ref().child("homies").child(self.uid!).child("tokens").child(token).setValue(true)
+    }
+    
+   
+    public func clearNotifications() {
+        original_dictionary.removeValue(forKey: "notifications")
+        K.Database.ref().child("homies").child(self.uid!).child("notifications").removeValue()
+    }
+    
+    
+
+    
 }

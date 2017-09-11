@@ -53,6 +53,7 @@ struct K {
         static let light_round_px: CGFloat = 5.0
         static let coment_round_px: CGFloat = 15.0
         static let round_to_circle: CGFloat = 7.5
+        static let round_to_circle_21: CGFloat = 10.5
         
         
     }
@@ -93,7 +94,30 @@ struct K {
         static var homie:Homie?
         
         static var globalInventory: HTCInventory?
-
+        
+        static func reloadClient() {
+            if homie != nil {
+                Homie.withID(id: homie!.uid!, callback: { (c) in
+                    K.User.homie = c
+                })
+            }
+        }
+        
+        static func checkNotifications() {
+            if var pending = K.User.homie?.notifications() {
+                for notification in pending {
+                    switch notification.type! {
+                    case 1:
+                        print("notification")
+                    default:
+                        break
+                    }
+                    
+                }
+                K.User.homie?.clearNotifications()
+            }
+        }
+        
         
         static func logged_user () -> Firebase.User?{
             return Auth.auth().currentUser

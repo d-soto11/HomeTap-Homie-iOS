@@ -60,6 +60,11 @@ extension UIView {
         self.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 
     }
+    func addInventoryShadow(){
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+    }
     func addLightShadow() {
         let shadowPath = UIBezierPath(rect: self.bounds)
         self.layer.masksToBounds = false

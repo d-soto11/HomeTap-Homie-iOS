@@ -10,6 +10,10 @@ import UIKit
 
 class ViewControllerServiceDone: UIViewController {
 
+    var service: Service?
+    var briefService: Service?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +22,8 @@ class ViewControllerServiceDone: UIViewController {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerComentsController") as! ViewControllerComents
-           
+            controller.briefService = self.briefService!
+            controller.service = self.service
             self.present(controller, animated: true, completion: nil)
 
         }

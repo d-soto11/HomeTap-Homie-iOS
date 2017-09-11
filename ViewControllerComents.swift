@@ -55,6 +55,7 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
         self.buttonCallHometap.alpha = 0
         self.buttonCallHometap.isEnabled = false
         self.badRatingLable.alpha = 0
+        doneButton.isEnabled = false
         
         cosmosView.didFinishTouchingCosmos = { rating in
             if (rating < 3)
@@ -72,10 +73,12 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
             if (rating < 3)
             {
                 self.showCall()
+                self.doneButton.isEnabled = true
                 
             }
             else{
                 self.hiddeCall()
+                self.doneButton.isEnabled = true
                 
             }
         }
@@ -133,7 +136,7 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
         self.comentText.layer.borderColor =  UIColor.gray.cgColor
         self.mainViewComents.roundCorners(radius: K.UI.special_round_px)
         
-
+        
         
         
         
@@ -213,7 +216,7 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
                 
             }
             else{
-            
+                
                 self.friendlyButton.bordered(color: UIColor.gray)
                 self.friendlyButton.backgroundColor = UIColor.white
                 self.friendlyButton.setTitleColor(UIColor.gray , for: .normal)
@@ -231,14 +234,14 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
     func showCall() {
         
         self.heightView.constant = 486
-    
+        
         UIView.animate(withDuration: 0.8, delay: 0.2, animations: {
             self.view.layoutIfNeeded()
             
             self.buttonCallHometap.alpha = 1
             self.buttonCallHometap.isEnabled = true
             self.badRatingLable.alpha = 1
-           
+            
             
             
         })
@@ -248,7 +251,7 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
     }
     func hiddeCall() {
         
-
+        
         self.heightView.constant = 395
         
         UIView.animate(withDuration: 0.8, delay: 0.2, animations: {
@@ -265,40 +268,36 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
     
     
     @IBAction func submitinfomation(_ sender: Any) {
-       
+        
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
         for i in 0...3 {
             
             if (buttonsDescription[i]==1)
             {
-                self.compliments["\(3)"] = true
+                self.compliments["\(i)"] = true
             }
         }
-        self.compliments["\(3)"] = true
+        
         let comment = Comment(dict: [:])
         comment.body = self.comentText.text
         comment.homieID = K.User.homie?.uid
         comment.homieName = K.User.homie?.name
         comment.date = Date()
-        let _ = service?.client{ (client) in
-            if client != nil {
-                comment.clientID = client?.uid
-                comment.clientName = client?.name
-                comment.rating = self.cosmosView.rating
-                comment.original_dictionary["tags"] = self.compliments as AnyObject
-                comment.original_dictionary["tipo"] = 1 as AnyObject
-                comment.save()
-                MBProgressHUD.hide(for: self.view, animated: true)
-            }
-        }
+        
+        comment.clientID = service?.clientID
+        comment.clientName = briefService?.briefName
+        comment.rating = self.cosmosView.rating
+        comment.original_dictionary["tags"] = self.compliments as AnyObject
+        comment.original_dictionary["tipo"] = 1 as AnyObject
+        comment.save()
+        MBProgressHUD.hide(for: self.view, animated: true)
         
         
         
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerUsedInventoryMaterial") as! ViewControllerUsedInventoryMaterial
-        self.present(controller, animated: true, completion: nil)
+        
+        self.dismiss(animated: true, completion: nil)
         
         
     }

@@ -95,10 +95,19 @@ class Homie: User {
         return HTCInventory(dict: [:])
     }
 
+    public func saveInventory(inventory: HTCInventory){
+        
+        original_dictionary["products"] = inventory.prepareForSave() as AnyObject
+
+    }
+    
     public func saveBlock(block: HTCBlock) -> String{
+        
         if block.uid == nil {
             block.uid = K.Database.ref().child("homies").child(self.uid!).child("blocks").childByAutoId().key
         }
+        
+        
         let blo_dict = block.prepareForSave()
         var org_blocks_dict:[String:[String:AnyObject]] = original_dictionary["blocks"] as? [String:[String:AnyObject]] ?? [:]
         org_blocks_dict[block.uid!] = blo_dict
@@ -106,6 +115,8 @@ class Homie: User {
         
         return block.uid!
     }
+
+    
     
     public func deleteBlock(uid: String) {
         

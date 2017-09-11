@@ -106,6 +106,24 @@ class HTCInventory: HometapObject {
         
     }
     
+    public func prepareForSave() -> [String:AnyObject] {
+        if self.blue != nil {
+            original_dictionary["blue"] = self.blue! as AnyObject
+        }
+        if self.pink != nil {
+            original_dictionary["pink"] = self.pink! as AnyObject
+        }
+        if self.yellow != nil {
+            original_dictionary["yellow"] = self.yellow!  as AnyObject
+        }
+       
+        
+        return original_dictionary
+    }
+
+    
+    
+    
     
     var blue: Double?
     var pink: Double?

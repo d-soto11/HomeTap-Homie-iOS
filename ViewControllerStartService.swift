@@ -59,14 +59,13 @@ class ViewControllerStartService: UIViewController {
     
 
     @IBAction func startService(_ sender: Any) {
+      
         
-        
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerEndService") as! ViewControllerEndService
-            controller.briefService = self.briefService!
-            controller.service = self.service
-            self.present(controller, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier:"ViewControllerEndService") as! ViewControllerEndService
+        controller.briefService = self.briefService!
+        controller.service = self.service
+        self.present(controller, animated: true, completion: nil)
         
     
         

@@ -33,7 +33,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.62059264636-rusfkqsfku1pgg8p0cnjv4dceb7ekf94</string>
+				<string>com.googleusercontent.apps.62059264636-utfeqr2v1q52nk7n43eog1ir0e819g0c</string>
 			</array>
 		</dict>
 	</array>
@@ -68,6 +68,10 @@
 		<string>Rubik-Blod.ttf</string>
 		<string>Rubik-BlackItalic.ttf</string>
 		<string>Rubik-Black.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

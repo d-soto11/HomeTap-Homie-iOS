@@ -10,6 +10,7 @@ target 'HomeTapHomie' do
   pod 'AFNetworking', '~> 3.0'
   pod 'MBProgressHUD', '~> 1.0'
   pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'

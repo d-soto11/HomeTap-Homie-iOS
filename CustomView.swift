@@ -17,6 +17,9 @@ class CustomView: UIView {
     var startBlock = 0
     var idService: String?
     var idBlockeDB : String?
+    var lableEstado: UILabel?
+    
+    
     
     
     
@@ -40,6 +43,28 @@ class CustomView: UIView {
             self.addSubview(self.btnClos!)
             self.backgroundColor = K.UI.main_color
             self.roundCorners(radius: K.UI.special_round_px)
+            
+            
+            
+            
+            self.lableEstado = UILabel()
+            self.lableEstado?.textColor = UIColor.white
+            self.lableEstado?.font = UIFont(name: "Rubik-Light", size: 13)
+            self.lableEstado?.text = "Disponible"
+            self.lableEstado?.textAlignment = .center
+            
+        self.lableEstado?.translatesAutoresizingMaskIntoConstraints = false
+            
+            self.addSubview(self.lableEstado!)
+            
+            
+            
+            let xConstraint = NSLayoutConstraint(item: self.lableEstado!, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0)
+            
+            let yConstraint = NSLayoutConstraint(item: self.lableEstado!, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0)
+            
+            
+            NSLayoutConstraint.activate([ xConstraint, yConstraint])
         
         }
     
