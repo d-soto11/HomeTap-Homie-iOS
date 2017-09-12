@@ -103,21 +103,6 @@ struct K {
             }
         }
         
-        static func checkNotifications() {
-            if var pending = K.User.homie?.notifications() {
-                for notification in pending {
-                    switch notification.type! {
-                    case 1:
-                        print("notification")
-                    default:
-                        break
-                    }
-                    
-                }
-                K.User.homie?.clearNotifications()
-            }
-        }
-        
         
         static func logged_user () -> Firebase.User?{
             return Auth.auth().currentUser

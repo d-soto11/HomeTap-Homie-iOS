@@ -37,26 +37,32 @@ class ViewControllerEndService: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         
+        for ser in  (service?.additionalServices())!{
+            // image icon
+            let imageName = "iconServiceChecked.png"
+            let image = UIImage(named: imageName)
+            let imageView = UIImageView(image: image!)
+            let widthConstraint = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 20 )
+            imageView.addConstraint(widthConstraint)
+            let heightConstraint = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 20)
+            
+            imageView.addConstraint(heightConstraint)
+            
+            iconsStackView.addArrangedSubview(imageView)
+            
+            // lable service
+            let label = UILabel()
+            label.text = ser.descriptionH
+            label.font = UIFont(name: "Rubik-Medium", size: 21)
+            label.textColor = UIColor.white
+            
+            servicesStackView.addArrangedSubview(label)
+        }
+
         
-        // image icon
-        let imageName = "iconServiceChecked.png"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image!)
-        let widthConstraint = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 20 )
-        imageView.addConstraint(widthConstraint)
-        let heightConstraint = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 20)
         
-        imageView.addConstraint(heightConstraint)
         
-        iconsStackView.addArrangedSubview(imageView)
-        
-        // lable service
-        let label = UILabel()
-        label.text = "Limpiar las cortinas"
-        label.font = UIFont(name: "Rubik-Medium", size: 21)
-        label.textColor = UIColor.white
-        
-        servicesStackView.addArrangedSubview(label)
+       
 
         
     }
@@ -87,7 +93,12 @@ class ViewControllerEndService: UIViewController {
     @IBAction func callHomeTap(_ sender: Any) {
         
         let url = URL(string: "tel://3100000000")
-        UIApplication.shared.open(url! , options: [:] , completionHandler: nil)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url! , options: [:] , completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url!)
+            // Fallback on earlier versions
+        }
     }
     
 }

@@ -306,7 +306,12 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
     @IBAction func callHomeTap(_ sender: Any) {
         
         let url = URL(string: "tel://3100000000")
-        UIApplication.shared.open(url! , options: [:] , completionHandler: nil)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url!)
+        } else {
+            // Fallback on earlier versions
+            UIApplication.shared.openURL(url!)
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

@@ -16,6 +16,7 @@ class Notification: HometapObject {
         if let type = dict["tipo"] {
             self.type = (type as? Int)
         }
+        
     }
     
     var type: Int?

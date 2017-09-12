@@ -103,10 +103,9 @@ class InventoryViewController: UIViewController {
     func AnimateHeight() {
         
         
-        
-        pinkPercentage.text = String(describing: Int(CGFloat((K.User.homie?.inventory()?.pink)!*1/((K.User.globalInventory?.pink)!)) * 100)) + "%"
-        bluePercentage.text = String(describing: Int(CGFloat((K.User.homie?.inventory()?.blue)!*1/((K.User.globalInventory?.blue)!)) * 100)) + "%"
-        yellowPercentage.text = String(describing: Int(CGFloat((K.User.homie?.inventory()?.yellow)!*1/((K.User.globalInventory?.yellow)!)) * 100)) + "%"
+        pinkPercentage.text = String(describing: Double(CGFloat((K.User.homie?.inventory()?.pink)!*1/((K.User.globalInventory?.pink)!)) * 100)) + "%"
+        bluePercentage.text = String(describing: Double(CGFloat((K.User.homie?.inventory()?.blue)!*1/((K.User.globalInventory?.blue)!)) * 100)) + "%"
+        yellowPercentage.text = String(describing: Double(CGFloat((K.User.homie?.inventory()?.yellow)!*1/((K.User.globalInventory?.yellow)!)) * 100)) + "%"
         
         
         UIView.animate(withDuration: 2, animations: {

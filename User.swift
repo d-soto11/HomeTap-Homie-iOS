@@ -44,6 +44,9 @@ class User: HometapObject {
         if let votes = dict["votes"] {
             self.votes = (votes as? Int)
         }
+        if let blocked = dict["blocked"] {
+            self.blocked = (blocked as? Bool)
+        }
     }
     
     public convenience init(user: Firebase.User) {
@@ -88,6 +91,10 @@ class User: HometapObject {
         if self.votes != nil {
             original_dictionary["votes"] = self.votes as AnyObject
         }
+        if self.blocked != nil {
+            original_dictionary["blocked"] = self.blocked as AnyObject
+        }
+        
         
         super.save(route: route)
     }
@@ -102,6 +109,7 @@ class User: HometapObject {
     var rating: Double?
     var phone: String?
     var votes: Int?
+    var blocked: Bool?
     
     public func services_brief() -> [Service]? {
         var services_brief:[Service] = []
@@ -118,6 +126,25 @@ class User: HometapObject {
         return nil
     }
     
+    public func service_brief(serviceId: String ) -> Service? {
+        
+        if let srvc = original_dictionary["upcomingServices"] {
+            if let srvcDict = srvc as? [String:AnyObject] {
+                for (_, service) in srvcDict {
+                    if let servDict = service as? [String:AnyObject] {
+                        let ser = Service(dict: servDict)
+                        if (ser.uid == serviceId )
+                        {
+                            return ser
+                            
+                        }
+                        
+                    }
+                }
+            }
+        }
+        return nil
+    }
     public func services() -> [Service]? {
         var services_brief:[Service] = []
         if let srvc = original_dictionary["upcomingServices"] {

@@ -74,7 +74,10 @@ class HomeSummaryServiceViewController: UIViewController {
             self.extraServicesValue.text = String(Int(val)) + " COP"
             self.comentsService.text = service?.comments
             
-            // image icon
+            
+            for ser in  (service?.additionalServices())!{
+                
+                // image icon
                 let imageName = "iconServiceChecked.png"
                 let image = UIImage(named: imageName)
                 let imageView = UIImageView(image: image!)
@@ -88,10 +91,14 @@ class HomeSummaryServiceViewController: UIViewController {
                 
                 // lable service
                 let label = UILabel()
-                label.text = "Limpiar las cortinas"
+                label.text = ser.descriptionH
                 label.font = UIFont(name: "Rubik-Light", size: 13)
                 
                 stackViewServices.addArrangedSubview(label)
+            }
+            
+            
+            
             
             
             
@@ -130,17 +137,7 @@ class HomeSummaryServiceViewController: UIViewController {
     
     @IBAction func whereGo(_ sender: Any) {
         
-                let latitud: CLLocationDegrees =  (service?.place?.lat)!
-                let longitud: CLLocationDegrees =  (service?.place?.long)!
-                let regionDistance: CLLocationDistance  = 1000
-                let coordinates = CLLocationCoordinate2D(latitude: latitud, longitude: longitud)
-                let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
-                let option = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]
-                let placeMark = MKPlacemark (coordinate: coordinates)
-                let mapItem = MKMapItem(placemark:placeMark)
-                mapItem.name = serviceBrief?.briefName
-                mapItem.openInMaps(launchOptions: option)
-
+        
     }
                 
         

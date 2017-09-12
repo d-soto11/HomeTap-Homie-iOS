@@ -556,7 +556,7 @@
 					B805FB091F1AA86B00B7DE41 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = QBLL74FJC6;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -914,9 +914,12 @@
 				CODE_SIGN_ENTITLEMENTS = HomeTapHomie/HomeTapHomie.entitlements;
 				DEVELOPMENT_TEAM = QBLL74FJC6;
 				INFOPLIST_FILE = HomeTapHomie/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tresastronautas.ios.hometap.homiee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "837437cd-4ece-4a8d-8931-5dbe69e0b64e";
+				PROVISIONING_PROFILE_SPECIFIER = HomieeDevelopment;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -929,9 +932,12 @@
 				CODE_SIGN_ENTITLEMENTS = HomeTapHomie/HomeTapHomie.entitlements;
 				DEVELOPMENT_TEAM = QBLL74FJC6;
 				INFOPLIST_FILE = HomeTapHomie/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tresastronautas.ios.hometap.homiee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "837437cd-4ece-4a8d-8931-5dbe69e0b64e";
+				PROVISIONING_PROFILE_SPECIFIER = HomieeDevelopment;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

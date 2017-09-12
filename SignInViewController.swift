@@ -139,12 +139,16 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         }
         
         K.User.homie?.email = getCurrentUserMail()
-        K.User.homie?.rating = 0.0
+        K.User.homie?.rating = 5.0
         K.User.homie?.votes = 0
         K.User.homie?.uid = getCurrentUserUid()
-        
-        
-        
+        K.User.homie?.blocked = true
+        let inv = HTCInventory(dict:[:])
+        inv.blue = 0
+        inv.pink = 0
+        inv.yellow = 0
+        K.User.homie?.saveInventory(inventory: inv)
+
         //add image to storage
         let storage = Storage.storage()
         let storageRef = storage.reference()

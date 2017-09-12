@@ -27,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         // Configurar Firebase
         FirebaseApp.configure()
         
+        
+        let token = Messaging.messaging().fcmToken
+        print("FCM token: \(token ?? "")")
         // Configurar Google
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()!.options.clientID
         
@@ -58,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         }
         
         application.registerForRemoteNotifications()
+        application.applicationIconBadgeNumber = 0
         
         
         return true
@@ -104,12 +108,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        print(userInfo.description)
         K.User.reloadClient()
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
+         print("2")
+         print(userInfo.description)
         K.User.reloadClient()
         completionHandler(UIBackgroundFetchResult.newData)
     }

@@ -8,6 +8,9 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
+import MBProgressHUD
+
 class HomeServicesViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
     
     
@@ -24,28 +27,72 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
     var services:[Service] = []
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         self.tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
         
+         MBProgressHUD.showAdded(to: self.view, animated: true)
         Auth.auth().addStateDidChangeListener(){auth, user in
             if user != nil {
                 Homie.withID(id: (user?.uid)!, callback: {(homie) in
                     if homie == nil {
                         
+                         MBProgressHUD.hide(for: self.view, animated: true)
                         self.performSegue(withIdentifier: "FillDataSeg", sender: self)
                     }
                     else{
                         K.User.homie = homie
                         K.User.inventory()
                         
+                        if (K.User.homie?.blocked)!{
+                             MBProgressHUD.hide(for: self.view, animated: true)
+                            let alertController = UIAlertController(title: "Alerta", message: "Tu usuario aún no ha sido activado, debes esperar que lo activemos para poder utilizar la aplicación", preferredStyle: .alert)
+                            self.present(alertController, animated: true, completion:nil)
+                        }
+                        
+                        
+                        
+                        if let pending = K.User.homie?.notifications() {
+                            for notification in pending {
+                                print(notification.uid!)
+                                switch notification.type! {
+                                case 0:
+                                    
+                                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                    let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerStartService") as! ViewControllerStartService
+                                    controller.briefService = K.User.homie?.service_brief(serviceId: notification.uid!)
+                                    Service.withID(id: notification.uid!) { (service) in
+                                        controller.service = service
+                                    }
+                                    
+                                    self.present(controller, animated: true, completion: nil)
+                                    
+                                    
+                                    
+                                    
+                                    
+                                default:
+                                    break
+                                }
+                                
+                            }
+                            K.User.homie?.clearNotifications()
+                        }
+                        
+                        
+                        
+                        if let token = Firebase.Messaging.messaging().fcmToken {
+                            K.User.homie?.saveNotificationToken(token: token)
+                        }
+                        
                         if (K.User.homie?.services_brief()) != nil {
                             
                             K.User.homie = homie
                             self.services = (K.User.homie?.services_brief())!
                             self.tableView.reloadData()
-                           
                             
+                             MBProgressHUD.hide(for: self.view, animated: true)
                             
                         }
                         else
@@ -57,15 +104,20 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
                             self.configureScheduleButton.alpha = 1
                             self.configureScheduleButton.isEnabled = true
                             
+                             MBProgressHUD.hide(for: self.view, animated: true)
+                            
                         }
                         
+                         MBProgressHUD.hide(for: self.view, animated: true)
                     }
                     
                 })
             }else{
-            
+                
+                 MBProgressHUD.hide(for: self.view, animated: true)
                 self.performSegue(withIdentifier: "AuthSeg", sender: self)
             }
+            
             
         }
     }
@@ -91,7 +143,7 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
             
             let obj = objectCell(brief: services[indexPath.row])
             
-           
+            
             cell.dayLable.text = String(obj.day)
             cell.monthLable.text = obj.month
             cell.hourLable.text = obj.hour
@@ -161,7 +213,7 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
         }
         self.present(controller, animated: true, completion: nil)
     }
-
+    
     
     
 }
