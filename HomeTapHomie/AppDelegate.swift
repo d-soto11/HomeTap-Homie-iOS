@@ -97,7 +97,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+        let defaults = UserDefaults.standard
+        if let id = K.User.OnServiceId {
+            defaults.set("OnServiceId", forKey:id)
+        }
+        defaults.synchronize()
+    }
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        
+        let defaults = UserDefaults.standard
+        let defaultValue = ["OnServiceId" : " "]
+        defaults.register(defaults: defaultValue)
     }
     
     func setStatusBarBackgroundColor(color: UIColor) {

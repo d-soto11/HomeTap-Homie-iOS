@@ -65,10 +65,9 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
                                     Service.withID(id: notification.uid!) { (service) in
                                         controller.service = service
                                     }
+                                    K.User.OnServiceId = notification.uid!
                                     
                                     self.present(controller, animated: true, completion: nil)
-                                    
-                                    
                                     
                                     
                                     
@@ -77,7 +76,7 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
                                 }
                                 
                             }
-                            K.User.homie?.clearNotifications()
+                            
                         }
                         
                         

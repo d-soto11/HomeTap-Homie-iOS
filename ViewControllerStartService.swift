@@ -24,6 +24,7 @@ class ViewControllerStartService: UIViewController {
     
     @IBOutlet weak var cancelServiceButton: UIButton!
     
+    
     var service: Service?
     var briefService : Service?
     

@@ -84,6 +84,10 @@ class ViewControllerEndService: UIViewController {
         let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerServiceDone") as! ViewControllerServiceDone
         controller.briefService = self.briefService!
         controller.service = self.service
+        K.User.homie?.clearNotifications()
+        service?.state = -1
+        service?.save()
+        K.User.OnServiceId = nil
         self.present(controller, animated: true, completion: nil)
 
         

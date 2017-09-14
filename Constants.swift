@@ -93,6 +93,8 @@ struct K {
         
         static var homie:Homie?
         
+        static var OnServiceId:String?
+        
         static var globalInventory: HTCInventory?
         
         static func reloadClient() {
