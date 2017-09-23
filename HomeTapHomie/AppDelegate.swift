@@ -42,9 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         // Private configurations
         // ...
     
+        GMSServices.provideAPIKey("AIzaSyCOLqvkS20vF-DHdzSZE0mBJC7H2knnwvQ")
         //let tabBar: UITabBarController = self.window?.rootViewController as! UITabBarController
         //tabBar.selectedIndex = 2
-        
         // Notifications configuration
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)

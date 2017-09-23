@@ -15,7 +15,7 @@ class AdditionalService: HometapObject {
         if let price = dict["price"] {
             self.price = (price as? Double)
         }
-        if let descriptionH = dict["description"] {
+        if let descriptionH = dict["name"] {
             self.descriptionH = (descriptionH as? String)
         }
         if let icon = dict["icon"] {

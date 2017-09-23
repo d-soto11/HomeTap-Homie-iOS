@@ -36,7 +36,8 @@ class ViewControllerEndService: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        
+        if (service?.additionalServices()) != nil {
+
         for ser in  (service?.additionalServices())!{
             // image icon
             let imageName = "iconServiceChecked.png"
@@ -59,7 +60,7 @@ class ViewControllerEndService: UIViewController {
             servicesStackView.addArrangedSubview(label)
         }
 
-        
+        }
         
         
        

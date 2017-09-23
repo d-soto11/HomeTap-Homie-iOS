@@ -93,6 +93,15 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
                             
                              MBProgressHUD.hide(for: self.view, animated: true)
                             
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerStartService") as! ViewControllerStartService
+                            controller.briefService = self.services[0]
+                            
+                            Service.withID(id: self.services[0].uid!) { (service) in
+                                controller.service = service
+                            }
+                            self.present(controller, animated: true, completion: nil)
+                            
                         }
                         else
                         {

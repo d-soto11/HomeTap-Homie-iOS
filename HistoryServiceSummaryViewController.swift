@@ -82,9 +82,8 @@ class HistoryServiceSummaryViewController: UIViewController {
             serviceValue.text = String(Int((service?.price)!)) + "COP"
             self.comentsService.text = service?.comments
             
-            
-            
-            for ser in  (service?.additionalServices())!{
+            if (service?.additionalServices()) != nil {
+            for ser in  (self.service?.additionalServices())!{
                 
                 // image icon
                 let imageName = "iconServiceChecked.png"
@@ -96,14 +95,15 @@ class HistoryServiceSummaryViewController: UIViewController {
                 
                 imageView.addConstraint(heightConstraint)
                 
-                iconsStackView.addArrangedSubview(imageView)
+                self.iconsStackView.addArrangedSubview(imageView)
                 
                 // lable service
                 let label = UILabel()
                 label.text = ser.descriptionH
                 label.font = UIFont(name: "Rubik-Light", size: 13)
                 
-                servicesStackView.addArrangedSubview(label)
+                self.servicesStackView.addArrangedSubview(label)
+            }
             }
  
         }

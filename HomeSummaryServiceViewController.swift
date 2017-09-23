@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MapKit
+import GoogleMaps
 class HomeSummaryServiceViewController: UIViewController {
 
     
@@ -70,10 +70,27 @@ class HomeSummaryServiceViewController: UIViewController {
             self.adressService.text = service?.place?.address
             
             
-            let val = ((service?.price)!-Double(55000))
-            self.extraServicesValue.text = String(Int(val)) + " COP"
+            
+            
+            let val = ((service?.price)!-Double(65000))
+            let formatter = NumberFormatter()
+            formatter.locale = Locale.current // Change this to another locale if you want to force a specific locale, otherwise this is redundant as the current locale is the default already
+            formatter.numberStyle = .currency
+            formatter.minimumFractionDigits = 0
+            formatter.maximumFractionDigits = 0
+
+            if var formattedTipAmount = formatter.string(from: val as NSNumber) {
+                
+                formattedTipAmount.remove(at: formattedTipAmount.startIndex)
+                
+                self.extraServicesValue.text = formattedTipAmount + " COP"
+                
+            }
+        
             self.comentsService.text = service?.comments
             
+            if (service?.additionalServices()) != nil {
+
             
             for ser in  (service?.additionalServices())!{
                 
@@ -98,7 +115,7 @@ class HomeSummaryServiceViewController: UIViewController {
             }
             
             
-            
+            }
             
             
             
@@ -137,7 +154,26 @@ class HomeSummaryServiceViewController: UIViewController {
     
     @IBAction func whereGo(_ sender: Any) {
         
+        print(service?.place?.lat ?? "no lat")
         
+        print(service?.place?.long ?? "no lng")
+        
+        let lat = service?.place?.lat
+        let lon = service?.place?.long
+        
+        print(lat ?? "no lat")
+        
+        print(lon ?? "no lng")
+        
+        if (UIApplication.shared.canOpenURL(URL(string:"https://maps.google.com")!))
+        {
+            UIApplication.shared.openURL(NSURL(string:
+                "https://maps.google.com//?saddr=&daddr=\(Float(lat!)),\(Float(lon!))&directionsmode=driving")! as URL)
+        } else
+        {
+            NSLog("Can't use com.google.maps://");
+        }
+ 
     }
                 
         
