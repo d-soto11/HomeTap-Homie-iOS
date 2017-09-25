@@ -25,17 +25,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let tap1 = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.goPhone))
-        phoneLabel.isUserInteractionEnabled = true
-        phoneLabel.addGestureRecognizer(tap1)
-        let tap2 = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.goMail))
-        eMailLabel.isUserInteractionEnabled = true
-        eMailLabel.addGestureRecognizer(tap2)
-        let tap3 = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.goPassword))
-        passwordLabel.isUserInteractionEnabled = true
-        passwordLabel.addGestureRecognizer(tap3)
-        
         //configuration profile picture
         
         self.profilePicture.layer.borderWidth = 1
@@ -88,6 +77,14 @@ class ProfileViewController: UIViewController {
         
         do{
             try Auth.auth().signOut()
+            URLCache.shared.removeAllCachedResponses()
+            
+            if let cookies = HTTPCookieStorage.shared.cookies {
+                for cookie in cookies {
+                    HTTPCookieStorage.shared.deleteCookie(cookie)
+                }
+            }
+            
             self.performSegue(withIdentifier: "LogOutSeg", sender: self)
             
         }catch{
@@ -95,36 +92,5 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    func goPassword(sender:UITapGestureRecognizer) {
-        
-        self.performSegue(withIdentifier: "PasswordSeg", sender: self)
-        
     }
-    
-    func goName(sender:UITapGestureRecognizer) {
-        
-        self.performSegue(withIdentifier: "NameSeg", sender: self)
-        
-    }
-    func goPhone(sender:UITapGestureRecognizer) {
-        
-        self.performSegue(withIdentifier: "PhoneSeg", sender: self)
-        
-    }
-    func goMail(sender:UITapGestureRecognizer) {
-        
-        self.performSegue(withIdentifier: "MailSeg", sender: self)
-        
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-}
+  

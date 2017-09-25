@@ -111,8 +111,6 @@ class AuthViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInU
         let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         
         
-        print("entro a facebook")
-        
         Auth.auth().signIn(with: credential) { (user, error) in
             
             if error != nil{

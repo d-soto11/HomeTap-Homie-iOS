@@ -55,7 +55,6 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
                         
                         if let pending = K.User.homie?.notifications() {
                             for notification in pending {
-                                print(notification.uid!)
                                 switch notification.type! {
                                 case 0:
                                     
@@ -92,15 +91,6 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
                             self.tableView.reloadData()
                             
                              MBProgressHUD.hide(for: self.view, animated: true)
-                            
-                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerStartService") as! ViewControllerStartService
-                            controller.briefService = self.services[0]
-                            
-                            Service.withID(id: self.services[0].uid!) { (service) in
-                                controller.service = service
-                            }
-                            self.present(controller, animated: true, completion: nil)
                             
                         }
                         else

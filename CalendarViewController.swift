@@ -392,19 +392,37 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                 if (index < 15)
                 {
                     
-                    print(index)
-                    if(self.pocisiones[index] == 0 )
-                    {
-                        
-                        if (index > 0){
-                            if(self.pocisiones[index - 1] == 1){
+                        print(index)
+                        if(self.pocisiones[index] == 0 )
+                        {
+                            
+                            if (index > 3){
                                 
-                                if index > 9 && index < 15 {
                                     
-                                    let alertController = UIAlertController(title: "Alerta", message: "¿Extender el bloque anterior?", preferredStyle: .alert)
+                                    var cond = true
+                                    var cond2 = true
+                                    for i in 0...9
+                                    {
+                                        if(self.pocisiones[index + i] == 1)
+                                        {
+                                            cond = false
+                                            break
+                                        }
+                                        
+                                    }
+                                
+                                for i in (index-4)...(index)
+                                {
+                                    if(self.pocisiones[i] == 1)
+                                    {
+                                        cond2 = false
+                                        break
+                                    }
                                     
-                                    let cancelAction = UIAlertAction(title: "No", style: .cancel) { (action:UIAlertAction!) in
-                                        print("you have pressed No button");
+                                }
+                                    
+                                    if(cond && cond2)
+                                    {
                                         
                                         for i in 0...9
                                         {
@@ -414,11 +432,11 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                                         
                                         let n = CGFloat(40 * (Double(index)))
                                         let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 400) ))
-                                        viewP.blocks = 9
+                                        viewP.blocks = 10
                                         
                                         viewP.startBlock = (index + 1)
                                         viewP.tag = 100 + index
-                                        viewP.idBlockeDB = self.createBlock(blockStart: index, blocks: 10, dateN: self.dateTemp)
+                                        viewP.idBlockeDB = createBlock(blockStart: index, blocks: 10, dateN: self.dateTemp)
                                         
                                         let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
                                         gest.minimumNumberOfTouches = 1
@@ -427,48 +445,14 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                                         
                                         self.reservationArea.addSubview(viewP)
                                         
-                                        
-                                        
+                                        print("estado despues de agregar : pociciones :" +  self.pocisiones.description + " tags: " + self.tagsssView.description)
                                         
                                     }
-                                    alertController.addAction(cancelAction)
-                                    
-                                    let OKAction = UIAlertAction(title: "si", style: .default) { (action:UIAlertAction!) in
-                                        print("you have pressed Yes button");
-                                        
-                                        
-                                        let varia = self.reservationArea.viewWithTag(self.tagsssView[index - 1]) as! CustomView
-                                        self.reservationArea.viewWithTag(self.tagsssView[index - 1])?.frame = CGRect.init(x: (varia.frame.origin.x), y: (varia.frame.origin.y), width: (varia.frame.width) , height:varia.frame.height + 400 )
-                                        K.User.homie?.deleteBlock(uid: varia.idBlockeDB!)
-                                        varia.blocks = varia.blocks + 10
-                                        varia.idBlockeDB = self.createBlock(blockStart: varia.startBlock-1, blocks: varia.blocks , dateN: self.dateTemp)
-                                        K.User.homie?.save()
-                                        for i in 0...9
-                                        {
-                                            self.pocisiones[index + i] = 1
-                                            self.tagsssView[index + i] = varia.tag
-                                        }
-                                        
-                                        
-                                        
-                                        
-                                        //Call another alert here
-                                    }
-                                    alertController.addAction(OKAction)
-                                    
-                                    self.present(alertController, animated: true, completion:nil)
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                }
+                                
+                                
+                                
                             }
                             else{
-                                
                                 
                                 var cond = true
                                 
@@ -484,75 +468,32 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                                 
                                 if(cond)
                                 {
-                                
-                                for i in 0...9
-                                {
-                                    self.pocisiones[index + i] = 1
-                                    self.tagsssView[index + i] = index + 100
+                                    for i in 0...9
+                                    {
+                                        self.pocisiones[index + i] = 1
+                                        self.tagsssView[index + i] = index + 100                            }
+                                    
+                                    let n = CGFloat(40 * (Double(index)))
+                                    let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 400) ))
+                                    viewP.blocks = 10
+                                    viewP.startBlock = (index + 1)
+                                    viewP.tag = 100 + index
+                                    viewP.idBlockeDB = createBlock(blockStart: index, blocks: 10, dateN: self.dateTemp)
+                                    let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
+                                    gest.minimumNumberOfTouches = 1
+                                    gest.maximumNumberOfTouches = 1
+                                    viewP.addGestureRecognizer(gest)
+                                    
+                                    self.reservationArea.addSubview(viewP)
+                                    
+                                    print("estado  despues de agregar: pociciones :" +  self.pocisiones.description + " tags: " + self.tagsssView.description)
+                                    
                                 }
                                 
-                                let n = CGFloat(40 * (Double(index)))
-                                let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 400) ))
-                                viewP.blocks = 10
-                                
-                                viewP.startBlock = (index + 1)
-                                viewP.tag = 100 + index
-                                viewP.idBlockeDB = createBlock(blockStart: index, blocks: 10, dateN: self.dateTemp)
-                                
-                                let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
-                                gest.minimumNumberOfTouches = 1
-                                gest.maximumNumberOfTouches = 1
-                                viewP.addGestureRecognizer(gest)
-                                
-                                self.reservationArea.addSubview(viewP)
-                                
-                                print("estado despues de agregar : pociciones :" +  self.pocisiones.description + " tags: " + self.tagsssView.description)
-                                
-                                }
                             }
-                            
-                            
                         }
-                        else{
-                            
-                            var cond = true
-                            
-                            for i in 0...9
-                            {
-                                if(self.pocisiones[index + i] == 1)
-                                {
-                                    cond = false
-                                    break
-                                }
-                                
-                            }
-                            
-                            if(cond)
-                            {
-                                for i in 0...9
-                                {
-                                    self.pocisiones[index + i] = 1
-                                    self.tagsssView[index + i] = index + 100                            }
-                                
-                                let n = CGFloat(40 * (Double(index)))
-                                let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 400) ))
-                                viewP.blocks = 10
-                                viewP.startBlock = (index + 1)
-                                viewP.tag = 100 + index
-                                viewP.idBlockeDB = createBlock(blockStart: index, blocks: 10, dateN: self.dateTemp)
-                                let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
-                                gest.minimumNumberOfTouches = 1
-                                gest.maximumNumberOfTouches = 1
-                                viewP.addGestureRecognizer(gest)
-                                
-                                self.reservationArea.addSubview(viewP)
-                                
-                                print("estado  despues de agregar: pociciones :" +  self.pocisiones.description + " tags: " + self.tagsssView.description)
-                                
-                            }
-                            
-                           }
-                    }
+                  
+                    
                 }
             }
             

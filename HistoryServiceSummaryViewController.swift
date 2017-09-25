@@ -109,7 +109,7 @@ class HistoryServiceSummaryViewController: UIViewController {
         }
         else
         {
-            print("el nil")
+            print("NO SERVICE")
         }
         
     }

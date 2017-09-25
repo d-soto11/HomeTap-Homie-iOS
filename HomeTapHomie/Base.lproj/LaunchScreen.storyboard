@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoApp.png" translatesAutoresizingMaskIntoConstraints="NO" id="kLM-f8-GCo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoAppRed.png" translatesAutoresizingMaskIntoConstraints="NO" id="kLM-f8-GCo">
                                 <rect key="frame" x="16" y="-1750.5" width="343" height="4167"/>
                             </imageView>
                         </subviews>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logoApp.png" width="4167" height="4167"/>
+        <image name="logoAppRed.png" width="4167" height="4167"/>
     </resources>
 </document>

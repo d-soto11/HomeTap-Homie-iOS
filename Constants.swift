@@ -54,6 +54,7 @@ struct K {
         static let coment_round_px: CGFloat = 15.0
         static let round_to_circle: CGFloat = 7.5
         static let round_to_circle_21: CGFloat = 10.5
+        static let light_round_px_10: CGFloat = 10.0
         
         
     }

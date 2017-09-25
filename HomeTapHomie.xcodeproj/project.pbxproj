@@ -20,7 +20,6 @@
 		B805FB5D1F1ADE3E00B7DE41 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B805FB5C1F1ADE3E00B7DE41 /* InventoryViewController.swift */; };
 		B805FB5F1F1ADE5300B7DE41 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B805FB5E1F1ADE5300B7DE41 /* HistoryViewController.swift */; };
 		B805FB611F1ADE5E00B7DE41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B805FB601F1ADE5E00B7DE41 /* ProfileViewController.swift */; };
-		B805FB651F1ADF4D00B7DE41 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B805FB641F1ADF4D00B7DE41 /* MainViewController.swift */; };
 		B817C69F1F3B36390078629C /* AdditionalServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C6941F3B36390078629C /* AdditionalServices.swift */; };
 		B817C6A01F3B36390078629C /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C6951F3B36390078629C /* Calendar.swift */; };
 		B817C6A11F3B36390078629C /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817C6961F3B36390078629C /* Client.swift */; };
@@ -66,11 +65,10 @@
 		B837B6351F2D298E006F5626 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B837B62A1F2D298E006F5626 /* Rubik-MediumItalic.ttf */; };
 		B837B6361F2D298E006F5626 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B837B62B1F2D298E006F5626 /* Rubik-Regular.ttf */; };
 		B83C247B1F2CD765008548E6 /* objectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83C247A1F2CD765008548E6 /* objectCell.swift */; };
-		B83D3DCC1F25EC58006B4B4F /* InventoryLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83D3DCB1F25EC58006B4B4F /* InventoryLevel.swift */; };
 		B84367CA1F1E8C2D0085D5A3 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84367C91F1E8C2D0085D5A3 /* AuthViewController.swift */; };
 		B84367CC1F1E97D50085D5A3 /* Login.png in Resources */ = {isa = PBXBuildFile; fileRef = B84367CB1F1E97D50085D5A3 /* Login.png */; };
 		B84367CF1F1FE13C0085D5A3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84367CE1F1FE13C0085D5A3 /* SignInViewController.swift */; };
-		B843680F1F2018F10085D5A3 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843680E1F2018F10085D5A3 /* ChangeNameViewController.swift */; };
+		B844886F1F7708D700CD015A /* logoAppRed.png in Resources */ = {isa = PBXBuildFile; fileRef = B844886E1F7708D700CD015A /* logoAppRed.png */; };
 		B850BCEF1F41705100033E51 /* iconInventoryBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = B850BCC41F41705100033E51 /* iconInventoryBlue.png */; };
 		B850BCF21F41705100033E51 /* iconInventoryPink.png in Resources */ = {isa = PBXBuildFile; fileRef = B850BCC71F41705100033E51 /* iconInventoryPink.png */; };
 		B850BCF31F41705100033E51 /* iconInventoryYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = B850BCC81F41705100033E51 /* iconInventoryYellow.png */; };
@@ -83,9 +81,6 @@
 		B86200CF1F628D00000278B2 /* ViewControllerServiceDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86200CE1F628D00000278B2 /* ViewControllerServiceDone.swift */; };
 		B86200D21F629383000278B2 /* ViewControllerComents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86200D11F629383000278B2 /* ViewControllerComents.swift */; };
 		B86200D41F6293A3000278B2 /* ViewControllerUsedInventoryMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86200D31F6293A3000278B2 /* ViewControllerUsedInventoryMaterial.swift */; };
-		B86D1BD01F21528C00DBF9B9 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BCF1F21528C00DBF9B9 /* ChangePasswordViewController.swift */; };
-		B86D1BD21F21529A00DBF9B9 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BD11F21529A00DBF9B9 /* ChangeEmailViewController.swift */; };
-		B86D1BD41F2152AB00DBF9B9 /* ChangePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D1BD31F2152AB00DBF9B9 /* ChangePhoneViewController.swift */; };
 		B885B9961F664C6700073BAA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B885B9951F664C6700073BAA /* Notification.swift */; };
 		B885B9981F664FAC00073BAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B885B9971F664FAC00073BAA /* GoogleService-Info.plist */; };
 		B89429321F635CFA00054FFB /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89429311F635CFA00054FFB /* Comment.swift */; };
@@ -134,7 +129,6 @@
 		B805FB5C1F1ADE3E00B7DE41 /* InventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		B805FB5E1F1ADE5300B7DE41 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		B805FB601F1ADE5E00B7DE41 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		B805FB641F1ADF4D00B7DE41 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B817C6941F3B36390078629C /* AdditionalServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalServices.swift; sourceTree = "<group>"; };
 		B817C6951F3B36390078629C /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		B817C6961F3B36390078629C /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -180,11 +174,10 @@
 		B837B62A1F2D298E006F5626 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
 		B837B62B1F2D298E006F5626 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		B83C247A1F2CD765008548E6 /* objectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objectCell.swift; sourceTree = "<group>"; };
-		B83D3DCB1F25EC58006B4B4F /* InventoryLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryLevel.swift; sourceTree = "<group>"; };
 		B84367C91F1E8C2D0085D5A3 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		B84367CB1F1E97D50085D5A3 /* Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login.png; sourceTree = "<group>"; };
 		B84367CE1F1FE13C0085D5A3 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		B843680E1F2018F10085D5A3 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
+		B844886E1F7708D700CD015A /* logoAppRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoAppRed.png; sourceTree = "<group>"; };
 		B850BCC41F41705100033E51 /* iconInventoryBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconInventoryBlue.png; sourceTree = "<group>"; };
 		B850BCC71F41705100033E51 /* iconInventoryPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconInventoryPink.png; sourceTree = "<group>"; };
 		B850BCC81F41705100033E51 /* iconInventoryYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconInventoryYellow.png; sourceTree = "<group>"; };
@@ -197,9 +190,6 @@
 		B86200CE1F628D00000278B2 /* ViewControllerServiceDone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerServiceDone.swift; sourceTree = "<group>"; };
 		B86200D11F629383000278B2 /* ViewControllerComents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerComents.swift; sourceTree = "<group>"; };
 		B86200D31F6293A3000278B2 /* ViewControllerUsedInventoryMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerUsedInventoryMaterial.swift; sourceTree = "<group>"; };
-		B86D1BCF1F21528C00DBF9B9 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
-		B86D1BD11F21529A00DBF9B9 /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
-		B86D1BD31F2152AB00DBF9B9 /* ChangePhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePhoneViewController.swift; sourceTree = "<group>"; };
 		B885B9951F664C6700073BAA /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		B885B9971F664FAC00073BAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B885B9991F66566100073BAA /* HomeTapHomie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeTapHomie.entitlements; sourceTree = "<group>"; };
@@ -287,7 +277,6 @@
 				B885B9971F664FAC00073BAA /* GoogleService-Info.plist */,
 				B805FB0D1F1AA86B00B7DE41 /* AppDelegate.swift */,
 				B805FB111F1AA86B00B7DE41 /* Main.storyboard */,
-				B805FB641F1ADF4D00B7DE41 /* MainViewController.swift */,
 				B805FB141F1AA86B00B7DE41 /* Assets.xcassets */,
 				B805FB161F1AA86B00B7DE41 /* LaunchScreen.storyboard */,
 				B805FB191F1AA86B00B7DE41 /* Info.plist */,
@@ -327,7 +316,6 @@
 				B817C69C1F3B36390078629C /* Product.swift */,
 				B817C69D1F3B36390078629C /* Service.swift */,
 				B817C69E1F3B36390078629C /* User.swift */,
-				B83D3DCB1F25EC58006B4B4F /* InventoryLevel.swift */,
 				B83C247A1F2CD765008548E6 /* objectCell.swift */,
 				B82E88FA1F44F82600DE95A7 /* CustomView.swift */,
 				B89429311F635CFA00054FFB /* Comment.swift */,
@@ -351,10 +339,6 @@
 			isa = PBXGroup;
 			children = (
 				B805FB601F1ADE5E00B7DE41 /* ProfileViewController.swift */,
-				B843680E1F2018F10085D5A3 /* ChangeNameViewController.swift */,
-				B86D1BCF1F21528C00DBF9B9 /* ChangePasswordViewController.swift */,
-				B86D1BD11F21529A00DBF9B9 /* ChangeEmailViewController.swift */,
-				B86D1BD31F2152AB00DBF9B9 /* ChangePhoneViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -419,6 +403,7 @@
 				B801E8DE1F627C3500208756 /* start.bmp */,
 				B801E8DA1F627AAF00208756 /* web_hi_res_512.png */,
 				B820639B1F48EBA3000B2E71 /* iconStarEmpty.png */,
+				B844886E1F7708D700CD015A /* logoAppRed.png */,
 				B820639C1F48EBA3000B2E71 /* iconStarFilled.png */,
 				B820639D1F48EBA3000B2E71 /* iconInventoryGray.png */,
 				B820639E1F48EBA3000B2E71 /* iconInventoryGreen.png */,
@@ -639,6 +624,7 @@
 				B837B6351F2D298E006F5626 /* Rubik-MediumItalic.ttf in Resources */,
 				B82063B71F48EBA3000B2E71 /* iconHistoryGray.png in Resources */,
 				B805FB131F1AA86B00B7DE41 /* Main.storyboard in Resources */,
+				B844886F1F7708D700CD015A /* logoAppRed.png in Resources */,
 				B82063B41F48EBA3000B2E71 /* iconCalendarGreen.png in Resources */,
 				B837B62F1F2D298E006F5626 /* Rubik-Bold.ttf in Resources */,
 				B82063AB1F48EBA3000B2E71 /* iconStarEmpty.png in Resources */,
@@ -726,7 +712,6 @@
 				B817C6A21F3B36390078629C /* Constants.swift in Sources */,
 				B805FB0E1F1AA86B00B7DE41 /* AppDelegate.swift in Sources */,
 				B817C6A91F3B36390078629C /* User.swift in Sources */,
-				B86D1BD41F2152AB00DBF9B9 /* ChangePhoneViewController.swift in Sources */,
 				B805FB611F1ADE5E00B7DE41 /* ProfileViewController.swift in Sources */,
 				B805FB5F1F1ADE5300B7DE41 /* HistoryViewController.swift in Sources */,
 				B8A75F9D1F3D0E23006072B1 /* HomeSummaryServiceViewController.swift in Sources */,
@@ -744,20 +729,15 @@
 				B817C6A81F3B36390078629C /* Service.swift in Sources */,
 				B817C6A51F3B36390078629C /* Homie.swift in Sources */,
 				B84367CF1F1FE13C0085D5A3 /* SignInViewController.swift in Sources */,
-				B83D3DCC1F25EC58006B4B4F /* InventoryLevel.swift in Sources */,
 				B86200CF1F628D00000278B2 /* ViewControllerServiceDone.swift in Sources */,
 				B817C6A71F3B36390078629C /* Product.swift in Sources */,
 				B817C6A01F3B36390078629C /* Calendar.swift in Sources */,
-				B843680F1F2018F10085D5A3 /* ChangeNameViewController.swift in Sources */,
 				B817C6A11F3B36390078629C /* Client.swift in Sources */,
-				B805FB651F1ADF4D00B7DE41 /* MainViewController.swift in Sources */,
 				B805FB5B1F1ADE3000B7DE41 /* CalendarViewController.swift in Sources */,
 				B82CD63C1F2BB0D9009CFEEB /* HomeServicesViewController.swift in Sources */,
 				B86200D41F6293A3000278B2 /* ViewControllerUsedInventoryMaterial.swift in Sources */,
 				B83C247B1F2CD765008548E6 /* objectCell.swift in Sources */,
-				B86D1BD01F21528C00DBF9B9 /* ChangePasswordViewController.swift in Sources */,
 				B89429321F635CFA00054FFB /* Comment.swift in Sources */,
-				B86D1BD21F21529A00DBF9B9 /* ChangeEmailViewController.swift in Sources */,
 				B8CE52EE1F3049CC0072FF98 /* CustomHistoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

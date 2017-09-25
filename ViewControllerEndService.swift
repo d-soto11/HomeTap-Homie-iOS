@@ -74,7 +74,7 @@ class ViewControllerEndService: UIViewController {
         view.isOpaque = false
         
         self.endServiceButton.roundCorners(radius: K.UI.special_round_px)
-        self.callhomeTapButton.roundCorners(radius: K.UI.light_round_px)
+        self.callhomeTapButton.roundCorners(radius: K.UI.light_round_px_10)
         
     }
     

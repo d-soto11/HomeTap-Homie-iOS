@@ -77,7 +77,6 @@ class objectCell: NSObject {
         
         var fullNameArr = nameTemp?.components(separatedBy: " ")
         
-        print(fullNameArr?.count ?? "no tiene")
         if fullNameArr?.count == 4 {
             name = (fullNameArr?[0])! + " " + (fullNameArr?[1])!
             lastName = (fullNameArr?[2])! + " " + (fullNameArr?[3])!

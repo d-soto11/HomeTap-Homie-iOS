@@ -12,8 +12,7 @@ class HTCBlock: HometapObject {
     public override init(dict: [String : AnyObject]) {
         super.init(dict: dict)
         
-        print("Diccionario del bloque :" + dict.description
-        )
+        
         if let startHour = dict["initialTime"] {
             self.startHour = Date(fromString: startHour as! String, withFormat: .Custom("HH:mm"))
         }

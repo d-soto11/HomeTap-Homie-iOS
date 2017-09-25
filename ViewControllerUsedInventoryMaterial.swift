@@ -96,7 +96,7 @@ class ViewControllerUsedInventoryMaterial: UIViewController {
     
     @IBAction func plusInventory(_ sender: UIButton) {
         
-        print("plus : " + String(sender.tag))
+        
         let tagObj = sender.tag
         
         switch tagObj {
@@ -118,7 +118,7 @@ class ViewControllerUsedInventoryMaterial: UIViewController {
                 
             }
             
-            print(yellow)
+           
             
         case 1:
             
@@ -159,7 +159,6 @@ class ViewControllerUsedInventoryMaterial: UIViewController {
     
     @IBAction func minusInventory(_ sender: UIButton) {
         
-        print("minus : " + String(sender.tag))
         let tagObj = sender.tag
         
         switch tagObj {
@@ -169,10 +168,9 @@ class ViewControllerUsedInventoryMaterial: UIViewController {
                 yellow = yellow - 0.5
                 
                 if(yellow.truncatingRemainder(dividingBy: 1) == 0.5){
-                    print("entro")
+                    
                     decimalCupsYellow.alpha = 1
                     
-                    print("alpha" + String(describing: self.decimalCupsYellow.alpha))
                     
                     intCupsYellow.text = String(Int(yellow))
                     
@@ -184,7 +182,6 @@ class ViewControllerUsedInventoryMaterial: UIViewController {
                     
                 }
             }
-            print(yellow)
             
         case 1:
             if( blue >= 0.5){

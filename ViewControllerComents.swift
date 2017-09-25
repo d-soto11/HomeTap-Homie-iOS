@@ -15,7 +15,7 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var cosmosView: CosmosView!
     
-    var buttonsDescription: [Int] = [0,0,0,0]
+    var buttonsDescription: [Int] = [0,0,0]
     
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
@@ -26,8 +26,6 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
     @IBOutlet weak var onTimeButton: UIButton!
     
     @IBOutlet weak var cleanButton: UIButton!
-    
-    @IBOutlet weak var friendlyButton: UIButton!
     
     @IBOutlet weak var comentText: UITextView!
     
@@ -84,6 +82,29 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
         }
         
         
+        self.fastButton.layer.borderWidth = 1
+        self.fastButton.roundCorners(radius: K.UI.coment_round_px)
+        self.fastButton.bordered(color: UIColor.gray)
+        
+        self.cleanButton.layer.borderWidth = 1
+        self.cleanButton.roundCorners(radius: K.UI.coment_round_px)
+        self.cleanButton.bordered(color: UIColor.gray)
+        
+        self.onTimeButton.layer.borderWidth = 1
+        self.onTimeButton.roundCorners(radius: K.UI.coment_round_px)
+        self.onTimeButton.bordered(color: UIColor.gray)
+        
+        self.doneButton.roundCorners(radius: K.UI.special_round_px)
+        self.buttonCallHometap.roundCorners(radius: K.UI.special_round_px)
+        self.mainViewComents.bordered(color: UIColor.gray)
+        
+        self.comentText.layer.borderWidth = 1
+        self.comentText.layer.borderColor =  UIColor.gray.cgColor
+        self.mainViewComents.roundCorners(radius: K.UI.special_round_px)
+        
+
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -112,31 +133,6 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
         super.viewDidLayoutSubviews()
         view.isOpaque = false
         
-        self.fastButton.layer.borderWidth = 1
-        self.fastButton.roundCorners(radius: K.UI.coment_round_px)
-        self.fastButton.bordered(color: UIColor.gray)
-        
-        self.cleanButton.layer.borderWidth = 1
-        self.cleanButton.roundCorners(radius: K.UI.coment_round_px)
-        self.cleanButton.bordered(color: UIColor.gray)
-        
-        self.friendlyButton.layer.borderWidth = 1
-        self.friendlyButton.roundCorners(radius: K.UI.coment_round_px)
-        self.friendlyButton.bordered(color: UIColor.gray)
-        
-        self.onTimeButton.layer.borderWidth = 1
-        self.onTimeButton.roundCorners(radius: K.UI.coment_round_px)
-        self.onTimeButton.bordered(color: UIColor.gray)
-        
-        self.doneButton.roundCorners(radius: K.UI.special_round_px)
-        self.buttonCallHometap.roundCorners(radius: K.UI.special_round_px)
-        self.mainViewComents.bordered(color: UIColor.gray)
-        
-        self.comentText.layer.borderWidth = 1
-        self.comentText.layer.borderColor =  UIColor.gray.cgColor
-        self.mainViewComents.roundCorners(radius: K.UI.special_round_px)
-        
-        
         
         
         
@@ -146,17 +142,17 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
     @IBAction func descriptionButtons(_ sender: UIButton) {
         
         let index = sender.tag
-        print("indice button: " + String(index))
+        
         switch  index {
-        case 0:
+        case 4:
             
             if(buttonsDescription[0] == 0){
+                
                 self.fastButton.bordered(color: .clear)
-                fastButton.layer.borderWidth = 1
                 self.fastButton.backgroundColor = K.UI.main_color
                 self.fastButton.setTitleColor(UIColor.white , for: .normal)
-                self.fastButton.roundCorners(radius: K.UI.coment_round_px)
-                buttonsDescription[0] = 1
+                self.buttonsDescription[0] = 1
+                
             }
             else{
                 
@@ -164,65 +160,40 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
                 self.fastButton.layer.borderWidth = 1
                 self.fastButton.backgroundColor = UIColor.white
                 self.fastButton.setTitleColor(UIColor.gray , for: .normal)
-                self.fastButton.roundCorners(radius: K.UI.coment_round_px)
-                
                 buttonsDescription[0] = 0
             }
             
-        case 1:
+        case 5:
             
             if(buttonsDescription[1] == 0){
                 
                 self.onTimeButton.bordered(color: .clear)
                 self.onTimeButton.backgroundColor = K.UI.main_color
                 self.onTimeButton.setTitleColor(UIColor.white , for: .normal)
-                self.onTimeButton.roundCorners(radius: K.UI.coment_round_px)
                 buttonsDescription[1] = 1
             }
             else{
                 self.onTimeButton.bordered(color: UIColor.gray)
                 self.onTimeButton.backgroundColor = UIColor.white
                 self.onTimeButton.setTitleColor(UIColor.gray , for: .normal)
-                self.onTimeButton.roundCorners(radius: K.UI.coment_round_px)
                 buttonsDescription[1] = 0
             }
             
-        case 2:
+        case 6:
             if(buttonsDescription[2] == 0){
                 
                 self.cleanButton.bordered(color: .clear)
                 self.cleanButton.backgroundColor = K.UI.main_color
                 self.cleanButton.setTitleColor(UIColor.white , for: .normal)
-                self.cleanButton.roundCorners(radius: K.UI.coment_round_px)
                 buttonsDescription[2] = 1
             }
             else{
                 self.cleanButton.bordered(color: UIColor.gray)
                 self.cleanButton.backgroundColor = UIColor.white
                 self.cleanButton.setTitleColor(UIColor.gray , for: .normal)
-                self.cleanButton.roundCorners(radius: K.UI.coment_round_px)
                 buttonsDescription[2] = 0
             }
             
-        case 3:
-            
-            if(buttonsDescription[3] == 0){
-                
-                self.friendlyButton.bordered(color: .clear)
-                self.friendlyButton.backgroundColor = K.UI.main_color
-                self.friendlyButton.setTitleColor(UIColor.white , for: .normal)
-                self.friendlyButton.roundCorners(radius: K.UI.coment_round_px)
-                buttonsDescription[3] = 1
-                
-            }
-            else{
-                
-                self.friendlyButton.bordered(color: UIColor.gray)
-                self.friendlyButton.backgroundColor = UIColor.white
-                self.friendlyButton.setTitleColor(UIColor.gray , for: .normal)
-                self.friendlyButton.roundCorners(radius: K.UI.coment_round_px)
-                buttonsDescription[3] = 0
-            }
         default:
             return
         }
@@ -271,11 +242,11 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        for i in 0...3 {
+        for i in 0...2 {
             
             if (buttonsDescription[i]==1)
             {
-                self.compliments["\(i)"] = true
+                self.compliments["\(i+4)"] = true
             }
         }
         
@@ -290,14 +261,16 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
         comment.rating = self.cosmosView.rating
         comment.original_dictionary["tags"] = self.compliments as AnyObject
         comment.original_dictionary["tipo"] = 1 as AnyObject
-        comment.save()
+        
+    print(comment.original_dictionary)
+        //comment.save()
         MBProgressHUD.hide(for: self.view, animated: true)
         
         
         
         
         
-        self.dismiss(animated: true, completion: nil)
+       // self.dismiss(animated: true, completion: nil)
         
         
     }

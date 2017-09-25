@@ -65,39 +65,28 @@ class ViewControllerStartService: UIViewController, CLLocationManagerDelegate {
         view.isOpaque = false
         
         self.startServiceButton.roundCorners(radius: K.UI.special_round_px)
-        self.cancelServiceButton.roundCorners(radius: K.UI.light_round_px)
+        self.cancelServiceButton.roundCorners(radius: K.UI.light_round_px_10)
         self.clientPhoto.circleImage()
         
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-        
-    }
-    
-    
-
     @IBAction func startService(_ sender: Any) {
       
         
         let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
         let serviceValue:CLLocationCoordinate2D = CLLocationCoordinate2DMake((service?.place?.lat)!, (service?.place?.long)!)
-        
-        print("serlocations = \(serviceValue.latitude) \(serviceValue.longitude)")
-        
-        print("mylocations = \(locValue.latitude) \(locValue.longitude)")
-        
         let from = CLLocation(latitude: serviceValue.latitude, longitude: serviceValue.longitude)
         let to = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
         
         let dif  = from.distance(from: to)
-        print(dif)
         
-        if ( dif < 30){
+        if ( dif < 50){
             
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier:"ViewControllerEndService") as! ViewControllerEndService
+            controller.briefService = self.briefService!
+            controller.service = self.service
+            self.present(controller, animated: true, completion: nil)
         }
         else{
             
@@ -110,14 +99,8 @@ class ViewControllerStartService: UIViewController, CLLocationManagerDelegate {
             
         }
         
-        /*
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier:"ViewControllerEndService") as! ViewControllerEndService
-        controller.briefService = self.briefService!
-        controller.service = self.service
-        self.present(controller, animated: true, completion: nil)
+       
         
-    */
         
     }
 
@@ -125,6 +108,12 @@ class ViewControllerStartService: UIViewController, CLLocationManagerDelegate {
  
     @IBAction func cancelService(_ sender: Any) {
         
-        self.dismiss(animated: true, completion: nil)
+        let url = URL(string: "tel://3100000000")
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url! , options: [:] , completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url!)
+            // Fallback on earlier versions
+        }
     }
 }

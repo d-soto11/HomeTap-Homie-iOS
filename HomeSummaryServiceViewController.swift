@@ -153,17 +153,10 @@ class HomeSummaryServiceViewController: UIViewController {
     
     
     @IBAction func whereGo(_ sender: Any) {
-        
-        print(service?.place?.lat ?? "no lat")
-        
-        print(service?.place?.long ?? "no lng")
+       
         
         let lat = service?.place?.lat
         let lon = service?.place?.long
-        
-        print(lat ?? "no lat")
-        
-        print(lon ?? "no lng")
         
         if (UIApplication.shared.canOpenURL(URL(string:"https://maps.google.com")!))
         {
@@ -178,14 +171,5 @@ class HomeSummaryServiceViewController: UIViewController {
                 
         
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }

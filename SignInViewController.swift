@@ -60,6 +60,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         
         sexPicker.delegate = self
         sexPicker.dataSource = self
+        sexPicker.backgroundColor = .white
         userSexTxt.inputView = sexPicker
         
         createDatePicker()
@@ -67,6 +68,10 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidLayoutSubviews() {
+    
+        buttonContinue.roundCorners(radius: K.UI.special_round_px)
+    }
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -156,7 +161,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         data = UIImageJPEGRepresentation(userImage.image!, 0.8)! as NSData
         // set upload path
         let filePath = "homies/\(getCurrentUserUid() ?? "" )/\("pp.png")"
-        print(filePath)
+      
         let metaData = StorageMetadata()
         metaData.contentType = "image/png"
         storageRef.child(filePath).putData(data as Data, metadata: metaData){(metaData,error) in
@@ -181,6 +186,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
     {
         //Format for picker
         datePicker.datePickerMode = .date
+        datePicker.backgroundColor = .white
         
         //toolbar
         let toolBar = UIToolbar()
