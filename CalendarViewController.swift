@@ -293,8 +293,8 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                         K.User.homie?.save()
                         
                         for i in (target.startBlock - 1)...(target.startBlock + target.blocks - 2)
-                        {   self.pocisiones[ i] = 1
-                            self.tagsssView[ i] = target.tag
+                        {   self.pocisiones[i] = 1
+                            self.tagsssView[i] = target.tag
                         }
                         
                         
@@ -354,8 +354,8 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
         
         for index in 0...23 {
             if (y > CGFloat((Double(index) * 40)) && y < CGFloat((40 * (Double(index + 1)))))
-            {   if (index < 15)
             {
+                if (index < 15){
                 
                 if(self.pocisiones[index] == 0 )
                 {
@@ -385,8 +385,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                             
                         }
                         
-                        if(cond && cond2)
-                        {
+                        if(cond && cond2){
                             
                             for i in 0...9
                             {
@@ -430,8 +429,8 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                             
                         }
                         
-                        if(cond)
-                        {
+                        if(cond){
+                            
                             for i in 0...9
                             {
                                 self.pocisiones[index + i] = 1
