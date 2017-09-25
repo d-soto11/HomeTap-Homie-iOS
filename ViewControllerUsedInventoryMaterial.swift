@@ -47,6 +47,10 @@ class ViewControllerUsedInventoryMaterial: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.decimalCupsBlue.alpha = 0
+        self.decimalCupsYellow.alpha = 0
+        self.decimalCupsPink.alpha = 0
+        
         // Do any additional setup after loading the view.
     }
     
@@ -83,9 +87,7 @@ class ViewControllerUsedInventoryMaterial: UIViewController {
         self.viewPlusPink.addInventoryShadow()
         self.viewMinusPink.addInventoryShadow()
         
-        self.decimalCupsBlue.alpha = 0
-        self.decimalCupsYellow.alpha = 0
-        self.decimalCupsPink.alpha = 0
+       
         
         
         
@@ -140,15 +142,15 @@ class ViewControllerUsedInventoryMaterial: UIViewController {
         case 2:
             pink = pink + 0.5
             
-            if(yellow.truncatingRemainder(dividingBy: 1) == 0.5){
-                self.decimalCupsPink.alpha = 1
-                self.intCupsPink.text = String(Int(pink))
+            if(pink.truncatingRemainder(dividingBy: 1) == 0.5){
+                decimalCupsPink.alpha = 1
+                intCupsPink.text = String(Int(pink))
                 
                 
             }else
             {
-                self.decimalCupsPink.alpha = 0
-                self.intCupsPink.text = String(Int(pink))
+                decimalCupsPink.alpha = 0
+                intCupsPink.text = String(Int(pink))
                 
             }
             
@@ -200,7 +202,6 @@ class ViewControllerUsedInventoryMaterial: UIViewController {
                 }
             }
         case 2:
-            
             if( pink >= 0.5){
                 pink = pink - 0.5
                 

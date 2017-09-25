@@ -63,7 +63,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
         
         dateLable.text = dateTemp.toCalendar()
         
-       
+        
         
         
         
@@ -91,7 +91,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
         let dat = cal.startOfDay(for: Date())
         
         if (date <= dat)
-
+            
         {
             return UIColor.red
             
@@ -137,8 +137,6 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     {
         let currentPoint = gesture.location(in: reservationArea)
         
-        print(String(describing: currentPoint.x) + " --- " + String(describing: currentPoint.y))
-        
         drawInUi(x: CGFloat(currentPoint.x), y: CGFloat(currentPoint.y))
         
         
@@ -180,47 +178,33 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     func dragBlock( gesture: UIPanGestureRecognizer){
         
         
-        print("estado inicial: pociciones :" +  self.pocisiones.description + " tags: " + self.tagsssView.description)
         let target = gesture.view! as! CustomView
-        
-        print("bloque inicio: " + String(target.startBlock))
-        print("bloques: " + String(target.blocks))
         let initialIndex = target.startBlock + target.blocks - 1
-        
-        print("INICIO EN BUSQUEDA LIMITE : " + String(initialIndex))
         
         var limit = 23
         
         if(initialIndex != 23){
-        for i in initialIndex...23{
-            
-            if (self.pocisiones[ i ] == 1 )
-            {
-                limit = i
-                break
+            for i in initialIndex...23{
+                
+                if (self.pocisiones[ i ] == 1 )
+                {
+                    limit = i
+                    break
+                }
             }
         }
-        }
-        
-        print("El limite es :" + String(limit))
-        
-        
-        
         
         UIView.animate(withDuration: 0, animations: {
             
-            print(gesture.location(in: self.reservationArea).y)
             if( gesture.location(in: self.reservationArea).y > CGFloat((target.startBlock + 7 - 1 ) * 40) && gesture.location(in: self.reservationArea).y < 983 )
             {
                 target.frame = CGRect(x: target.frame.origin.x , y: target.frame.origin.y , width: target.frame.width, height: gesture.location(in: self.reservationArea).y - target.frame.origin.y)
                 
                 if(gesture.location(in: self.reservationArea).y > CGFloat((limit)*40) && gesture.location(in: self.reservationArea).y < CGFloat(40*23) )
                 {
-                    print("////////// ENTRA A  MAYOR QUE LIMITE //////////////")
                     let alertController = UIAlertController(title: "Alerta", message: "¿Eliminar el siguiente bloque?", preferredStyle: .alert)
                     
                     let cancelAction = UIAlertAction(title: "No", style: .cancel) { (action:UIAlertAction!) in
-                        print("you have pressed No button");
                         target.frame = CGRect(x: target.frame.origin.x , y: target.frame.origin.y , width: target.frame.width, height: CGFloat( limit * 40) - target.frame.origin.y)
                         K.User.homie?.deleteBlock(uid: target.idBlockeDB!)
                         target.blocks = (limit-target.startBlock)
@@ -240,15 +224,12 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                     alertController.addAction(cancelAction)
                     
                     let OKAction = UIAlertAction(title: "si", style: .default) { (action:UIAlertAction!) in
-                        print("you have pressed Yes button");
-                        
                         for vi in self.reservationArea.subviews {
                             
                             let temp = vi as! CustomView
                             if(vi.tag == self.tagsssView[limit])
                             {
                                 vi.removeFromSuperview()
-                                print(temp.idBlockeDB!)
                                 K.User.homie?.deleteBlock(uid: temp.idBlockeDB!)
                                 K.User.homie?.deleteBlock(uid: target.idBlockeDB!)
                                 for i in (temp.startBlock-1)...(temp.startBlock + temp.blocks - 2)
@@ -267,7 +248,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                                     self.pocisiones[(target.startBlock) + i] = 1
                                     self.tagsssView[(target.startBlock) + i] = target.tag
                                 }
-
+                                
                                 
                                 
                                 break
@@ -281,62 +262,49 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                     alertController.addAction(OKAction)
                     
                     self.present(alertController, animated: true, completion:nil)
-                    print("DESPUES DE AVISO : pociciones :" +  self.pocisiones.description + " tags: " + self.tagsssView.description)
                     
-
+                    
                     
                 }
                 
                 if(gesture.location(in: self.reservationArea).y < CGFloat((limit)*40) || gesture.location(in: self.reservationArea).y > CGFloat(40*23) ) {
                     
-                    print("////////// ENTRA A  MENOR QUE LIMITE //////////////")
-                    
                     
                     if(gesture.state == .ended)
                     {
-                         print("////////// TERMINO MOVIMIENTO //////////////")
                         
                         let locAproximation = Int(gesture.location(in: self.reservationArea).y/40)
                         
                         
                         target.frame = CGRect(x: target.frame.origin.x , y: target.frame.origin.y , width: target.frame.width, height: CGFloat(locAproximation * 40) - target.frame.origin.y)
                         
-                    
+                        
                         for i in (target.startBlock - 1)...(target.startBlock + target.blocks - 2)
                         {
                             
                             self.pocisiones[i] = 0
                             self.tagsssView[i] = 0
                         }
-                        print("estado  111111: pociciones :" +  self.pocisiones.description + " tags: " + self.tagsssView.description)
                         
                         K.User.homie?.deleteBlock(uid: target.idBlockeDB!)
                         target.blocks = (locAproximation - target.startBlock + 1)
-                        print("bloques cambio :" + String(target.blocks))
-                        print("bloque inicio  :" + String(target.startBlock))
                         
                         target.idBlockeDB = self.createBlock(blockStart: target.startBlock-1, blocks: target.blocks, dateN: self.dateTemp)
                         K.User.homie?.save()
                         
                         for i in (target.startBlock - 1)...(target.startBlock + target.blocks - 2)
-                        {
-                            print ("valor de i :" + String(i))
-                            self.pocisiones[ i] = 1
+                        {   self.pocisiones[ i] = 1
                             self.tagsssView[ i] = target.tag
                         }
                         
                         
                         
-                        print("estado  despues de actualizar: pociciones :" +  self.pocisiones.description + " tags: " + self.tagsssView.description)
-                        
-
-                        
                     }
                     
-                   
+                    
                 }
                 
-
+                
             }
             
             
@@ -363,12 +331,12 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                 viewP.startBlock = (i.UiFirstBlock() + 1 )
                 viewP.tag = 100 + i.UiFirstBlock()
                 viewP.idBlockeDB = i.uid
-            
+                
                 if(i.serviceID == nil){
-                let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
-                gest.minimumNumberOfTouches = 1
-                gest.maximumNumberOfTouches = 1
-                viewP.addGestureRecognizer(gest)
+                    let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
+                    gest.minimumNumberOfTouches = 1
+                    gest.maximumNumberOfTouches = 1
+                    viewP.addGestureRecognizer(gest)
                 }
                 else{
                     viewP.backgroundColor = K.UI.alert_color
@@ -379,7 +347,6 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
             }
         }
         
-        print("estado : pociciones :" +  self.pocisiones.description + " tags: " + self.tagsssView.description)
     }
     
     func drawInUi(x: CGFloat , y: CGFloat ){
@@ -387,113 +354,109 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
         
         for index in 0...23 {
             if (y > CGFloat((Double(index) * 40)) && y < CGFloat((40 * (Double(index + 1)))))
+            {   if (index < 15)
             {
-                print(index)
-                if (index < 15)
+                
+                if(self.pocisiones[index] == 0 )
                 {
                     
-                        print(index)
-                        if(self.pocisiones[index] == 0 )
+                    if (index > 3){
+                        
+                        
+                        var cond = true
+                        var cond2 = true
+                        for i in 0...9
+                        {
+                            if(self.pocisiones[index + i] == 1)
+                            {
+                                cond = false
+                                break
+                            }
+                            
+                        }
+                        
+                        for i in (index-4)...(index)
+                        {
+                            if(self.pocisiones[i] == 1)
+                            {
+                                cond2 = false
+                                break
+                            }
+                            
+                        }
+                        
+                        if(cond && cond2)
                         {
                             
-                            if (index > 3){
-                                
-                                    
-                                    var cond = true
-                                    var cond2 = true
-                                    for i in 0...9
-                                    {
-                                        if(self.pocisiones[index + i] == 1)
-                                        {
-                                            cond = false
-                                            break
-                                        }
-                                        
-                                    }
-                                
-                                for i in (index-4)...(index)
-                                {
-                                    if(self.pocisiones[i] == 1)
-                                    {
-                                        cond2 = false
-                                        break
-                                    }
-                                    
-                                }
-                                    
-                                    if(cond && cond2)
-                                    {
-                                        
-                                        for i in 0...9
-                                        {
-                                            self.pocisiones[index + i] = 1
-                                            self.tagsssView[index + i] = index + 100
-                                        }
-                                        
-                                        let n = CGFloat(40 * (Double(index)))
-                                        let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 400) ))
-                                        viewP.blocks = 10
-                                        
-                                        viewP.startBlock = (index + 1)
-                                        viewP.tag = 100 + index
-                                        viewP.idBlockeDB = createBlock(blockStart: index, blocks: 10, dateN: self.dateTemp)
-                                        
-                                        let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
-                                        gest.minimumNumberOfTouches = 1
-                                        gest.maximumNumberOfTouches = 1
-                                        viewP.addGestureRecognizer(gest)
-                                        
-                                        self.reservationArea.addSubview(viewP)
-                                        
-                                        print("estado despues de agregar : pociciones :" +  self.pocisiones.description + " tags: " + self.tagsssView.description)
-                                        
-                                    }
-                                
-                                
-                                
+                            for i in 0...9
+                            {
+                                self.pocisiones[index + i] = 1
+                                self.tagsssView[index + i] = index + 100
                             }
-                            else{
-                                
-                                var cond = true
-                                
-                                for i in 0...9
-                                {
-                                    if(self.pocisiones[index + i] == 1)
-                                    {
-                                        cond = false
-                                        break
-                                    }
-                                    
-                                }
-                                
-                                if(cond)
-                                {
-                                    for i in 0...9
-                                    {
-                                        self.pocisiones[index + i] = 1
-                                        self.tagsssView[index + i] = index + 100                            }
-                                    
-                                    let n = CGFloat(40 * (Double(index)))
-                                    let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 400) ))
-                                    viewP.blocks = 10
-                                    viewP.startBlock = (index + 1)
-                                    viewP.tag = 100 + index
-                                    viewP.idBlockeDB = createBlock(blockStart: index, blocks: 10, dateN: self.dateTemp)
-                                    let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
-                                    gest.minimumNumberOfTouches = 1
-                                    gest.maximumNumberOfTouches = 1
-                                    viewP.addGestureRecognizer(gest)
-                                    
-                                    self.reservationArea.addSubview(viewP)
-                                    
-                                    print("estado  despues de agregar: pociciones :" +  self.pocisiones.description + " tags: " + self.tagsssView.description)
-                                    
-                                }
-                                
-                            }
+                            
+                            let n = CGFloat(40 * (Double(index)))
+                            let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 400) ))
+                            viewP.blocks = 10
+                            
+                            viewP.startBlock = (index + 1)
+                            viewP.tag = 100 + index
+                            viewP.idBlockeDB = createBlock(blockStart: index, blocks: 10, dateN: self.dateTemp)
+                            
+                            let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
+                            gest.minimumNumberOfTouches = 1
+                            gest.maximumNumberOfTouches = 1
+                            viewP.addGestureRecognizer(gest)
+                            
+                            self.reservationArea.addSubview(viewP)
+                            
+                            
+                            
                         }
-                  
-                    
+                        
+                        
+                        
+                    }
+                    else{
+                        
+                        var cond = true
+                        
+                        for i in 0...9
+                        {
+                            if(self.pocisiones[index + i] == 1)
+                            {
+                                cond = false
+                                break
+                            }
+                            
+                        }
+                        
+                        if(cond)
+                        {
+                            for i in 0...9
+                            {
+                                self.pocisiones[index + i] = 1
+                                self.tagsssView[index + i] = index + 100                            }
+                            
+                            let n = CGFloat(40 * (Double(index)))
+                            let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 400) ))
+                            viewP.blocks = 10
+                            viewP.startBlock = (index + 1)
+                            viewP.tag = 100 + index
+                            viewP.idBlockeDB = createBlock(blockStart: index, blocks: 10, dateN: self.dateTemp)
+                            let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
+                            gest.minimumNumberOfTouches = 1
+                            gest.maximumNumberOfTouches = 1
+                            viewP.addGestureRecognizer(gest)
+                            
+                            self.reservationArea.addSubview(viewP)
+                            
+                            
+                        }
+                        
+                    }
+                }
+                
+                
                 }
             }
             

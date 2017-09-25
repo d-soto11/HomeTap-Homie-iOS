@@ -86,6 +86,8 @@ class ViewControllerStartService: UIViewController, CLLocationManagerDelegate {
             let controller = storyboard.instantiateViewController(withIdentifier:"ViewControllerEndService") as! ViewControllerEndService
             controller.briefService = self.briefService!
             controller.service = self.service
+            self.service?.state = 1
+            self.service?.save()
             self.present(controller, animated: true, completion: nil)
         }
         else{

@@ -92,6 +92,12 @@ class HistoryViewController: UIViewController , UITableViewDataSource, UITableVi
             
             let obj = objectCell(brief: services[indexPath.row])
             
+            if (obj.state == -1){
+                cell.stateLable.text = "Cancelado"
+                cell.stateLable.textColor = K.UI.alert_color
+                
+            }
+            
             cell.hourLable.text = obj.hour
             cell.nameLable.text = obj.name + " " + obj.lastName
             cell.dateLable.text = obj.date?.toString(format: .Short)

@@ -21,6 +21,7 @@ class objectCell: NSObject {
     var idService : String = " "
     var holdName : String = " "
     var date: Date?
+    var state: Int?
     
     public init(brief: Service){
         
@@ -96,7 +97,9 @@ class objectCell: NSObject {
         
         idService = brief.uid!
         
-        
+        if let s = brief.state {
+        state = s
+        }
         
         
         

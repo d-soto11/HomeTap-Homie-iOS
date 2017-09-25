@@ -9,7 +9,7 @@
 import UIKit
 
 class HistoryServiceSummaryViewController: UIViewController {
-
+    
     
     @IBOutlet weak var clientPhoto: UIImageView!
     
@@ -42,10 +42,10 @@ class HistoryServiceSummaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -62,12 +62,19 @@ class HistoryServiceSummaryViewController: UIViewController {
         self.buttonCall.roundCorners(radius: K.UI.special_round_px)
         self.clientPhoto.circleImage()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         
         if  service != nil {
             
-            serviceState.text = "Completado"
+            if(service?.state == 2){
+                serviceState.text = "Completado"
+            }
+            else
+            {
+                serviceState.text = "Cancelado"
+                serviceState.textColor = K.UI.alert_color
+            }
             clientName.text = serviceBrief?.briefName
             clientPhoto.downloadedFrom(link: (serviceBrief?.briefPhoto)!, contentMode: UIViewContentMode.scaleAspectFill)
             dateService.text = service?.date?.toString(format: Date.DateFormat.Short)
@@ -83,29 +90,29 @@ class HistoryServiceSummaryViewController: UIViewController {
             self.comentsService.text = service?.comments
             
             if (service?.additionalServices()) != nil {
-            for ser in  (self.service?.additionalServices())!{
-                
-                // image icon
-                let imageName = "iconServiceChecked.png"
-                let image = UIImage(named: imageName)
-                let imageView = UIImageView(image: image!)
-                let widthConstraint = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 15)
-                imageView.addConstraint(widthConstraint)
-                let heightConstraint = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 15)
-                
-                imageView.addConstraint(heightConstraint)
-                
-                self.iconsStackView.addArrangedSubview(imageView)
-                
-                // lable service
-                let label = UILabel()
-                label.text = ser.descriptionH
-                label.font = UIFont(name: "Rubik-Light", size: 13)
-                
-                self.servicesStackView.addArrangedSubview(label)
+                for ser in  (self.service?.additionalServices())!{
+                    
+                    // image icon
+                    let imageName = "iconServiceChecked.png"
+                    let image = UIImage(named: imageName)
+                    let imageView = UIImageView(image: image!)
+                    let widthConstraint = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 15)
+                    imageView.addConstraint(widthConstraint)
+                    let heightConstraint = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 15)
+                    
+                    imageView.addConstraint(heightConstraint)
+                    
+                    self.iconsStackView.addArrangedSubview(imageView)
+                    
+                    // lable service
+                    let label = UILabel()
+                    label.text = ser.descriptionH
+                    label.font = UIFont(name: "Rubik-Light", size: 13)
+                    
+                    self.servicesStackView.addArrangedSubview(label)
+                }
             }
-            }
- 
+            
         }
         else
         {
@@ -114,10 +121,10 @@ class HistoryServiceSummaryViewController: UIViewController {
         
     }
     
-
+    
     @IBAction func callHometapAction(_ sender: Any) {
-       
-         let url = URL(string: "tel://3100000000")
+        
+        let url = URL(string: "tel://3100000000")
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url! , options: [:] , completionHandler: nil)
         } else {

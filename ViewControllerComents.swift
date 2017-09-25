@@ -246,7 +246,7 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
             
             if (buttonsDescription[i]==1)
             {
-                self.compliments["\(i+4)"] = true
+                self.compliments["t\(i+4)"] = true
             }
         }
         
@@ -262,15 +262,10 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
         comment.original_dictionary["tags"] = self.compliments as AnyObject
         comment.original_dictionary["tipo"] = 1 as AnyObject
         
-    print(comment.original_dictionary)
-        //comment.save()
+        print(comment.original_dictionary)
+        comment.save()
         MBProgressHUD.hide(for: self.view, animated: true)
-        
-        
-        
-        
-        
-       // self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
         
         
     }
