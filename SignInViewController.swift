@@ -69,7 +69,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     override func viewDidLayoutSubviews() {
-    
+        
         buttonContinue.roundCorners(radius: K.UI.special_round_px)
     }
     
@@ -130,58 +130,63 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         
         //preguntarle al pez sobre el date
         
-        K.User.homie = Homie(user: Auth.auth().currentUser!)
-        K.User.homie?.name = userNameTxt.text
-        K.User.homie?.phone = userPhoneTxt.text
-        K.User.homie?.birth =  Date()
-        K.User.homie?.joined = Date()
-        if userSexTxt.text == "Hombre"{
-            K.User.homie?.gender = 0
-        }
-        else
-        {
-            K.User.homie?.gender = 1
-        }
-        
-        K.User.homie?.email = getCurrentUserMail()
-        K.User.homie?.rating = 5.0
-        K.User.homie?.votes = 0
-        K.User.homie?.uid = getCurrentUserUid()
-        K.User.homie?.blocked = true
-        let inv = HTCInventory(dict:[:])
-        inv.blue = 0
-        inv.pink = 0
-        inv.yellow = 0
-        K.User.homie?.saveInventory(inventory: inv)
-
-        //add image to storage
-        let storage = Storage.storage()
-        let storageRef = storage.reference()
-        var data = NSData()
-        data = UIImageJPEGRepresentation(userImage.image!, 0.8)! as NSData
-        // set upload path
-        let filePath = "homies/\(getCurrentUserUid() ?? "" )/\("pp.png")"
-      
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/png"
-        storageRef.child(filePath).putData(data as Data, metadata: metaData){(metaData,error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }else{
-                //store downloadURL
-                let downloadURL = metaData!.downloadURL()!.absoluteString
-                K.User.homie?.photo = downloadURL
-                K.User.homie?.save()
+        print(userImageSelected)
+        if(userImageSelected){
+            
+            K.User.homie = Homie(user: Auth.auth().currentUser!)
+            K.User.homie?.name = userNameTxt.text
+            K.User.homie?.phone = userPhoneTxt.text
+            K.User.homie?.birth =  Date()
+            K.User.homie?.joined = Date()
+            if userSexTxt.text == "Hombre"{
+                K.User.homie?.gender = 0
+            }
+            else
+            {
+                K.User.homie?.gender = 1
             }
             
+            K.User.homie?.email = getCurrentUserMail()
+            K.User.homie?.rating = 5.0
+            K.User.homie?.votes = 0
+            K.User.homie?.uid = getCurrentUserUid()
+            K.User.homie?.blocked = true
+            let inv = HTCInventory(dict:[:])
+            inv.blue = 0
+            inv.pink = 0
+            inv.yellow = 0
+            K.User.homie?.saveInventory(inventory: inv)
+            
+            //add image to storage
+            let storage = Storage.storage()
+            let storageRef = storage.reference()
+            var data = NSData()
+            data = UIImageJPEGRepresentation(userImage.image!, 0.8)! as NSData
+            // set upload path
+            let filePath = "homies/\(getCurrentUserUid() ?? "" )/\("pp.png")"
+            
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/png"
+            storageRef.child(filePath).putData(data as Data, metadata: metaData){(metaData,error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }else{
+                    //store downloadURL
+                    let downloadURL = metaData!.downloadURL()!.absoluteString
+                    K.User.homie?.photo = downloadURL
+                    K.User.homie?.save()
+                }
+                
+            }
+            
+            
+            self.dismiss(animated: true, completion: nil)
+            
         }
-
-        
-        self.dismiss(animated: true, completion: nil)
     }
     
-   
+    
     func createDatePicker()
     {
         //Format for picker
@@ -210,6 +215,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         dateFormatter.timeStyle = .none
         
         userDateTxt.text = dateFormatter.string(from: datePicker.date)
+        editingChanged(userDateTxt)
         self.view.endEditing(true)
     }
     
@@ -231,6 +237,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         userSexTxt.text =  sex[row]
+        editingChanged(userSexTxt)
         self.view.endEditing(false)
         
     }
@@ -248,14 +255,14 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
             let date = userDateTxt.text, !date.isEmpty,
             let sex = userSexTxt.text, !sex.isEmpty
             else {
-                if(userImageSelected){
-                    buttonContinue.isEnabled = true
-                    return
-                }
-            buttonContinue.isEnabled = false
-            return
-        }
-        buttonContinue.isEnabled = false
+                print("entro a false")
+                buttonContinue.isEnabled = false
+                return
+                
+            }
+        buttonContinue.isEnabled = true
+        
+        print("entro a true")
     }
     
     

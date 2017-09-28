@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>FirebaseAppDelegateProxyEnabled</key>
-	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -40,26 +38,28 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>FacebookAppID</key>
 	<string>154461368451713</string>
 	<key>FacebookDisplayName</key>
 	<string>homie-prueba-3a</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>googlechromes</string>
 		<string>comgooglemaps</string>
 	</array>
-	<key>NSLocationUsageDescription</key>
-	<string>Need location access for updating location</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Need location access for updating location</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Need location access for updating location</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Para tomar su foto</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Need location access for updating location</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Need location access for updating location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Need location access for updating location</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Para seleccionar su foto</string>
 	<key>UIAppFonts</key>

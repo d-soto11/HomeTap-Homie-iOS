@@ -24,6 +24,9 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
     
     @IBOutlet weak var textBookings: UILabel!
     
+    
+    @IBOutlet weak var heigthImageConstraint: NSLayoutConstraint!
+    
     var services:[Service] = []
     
     override func viewDidLoad() {
@@ -49,6 +52,23 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
                              MBProgressHUD.hide(for: self.view, animated: true)
                             let alertController = UIAlertController(title: "Alerta", message: "Tu usuario aún no ha sido activado, debes esperar que lo activemos para poder utilizar la aplicación", preferredStyle: .alert)
                             self.present(alertController, animated: true, completion:nil)
+                            
+                            let listener = K.Database.ref().child("homies").child(K.User.homie!.uid!).child("blocked").observe(.value, with: { (snapshot) in
+                                if let b = snapshot.value as? Bool {
+                                    
+                                    if(b == false){
+                                        
+                                    let cancelAction = UIAlertAction(title: "Continuar", style: .cancel) { (action:UIAlertAction!) in
+                                    }
+                                    alertController.addAction(cancelAction)
+                                    }
+                                    
+                                    
+                                }
+                                
+                            })
+                            K.Database.ref().removeObserver(withHandle: listener)
+
                         }
                         
                         
@@ -102,6 +122,14 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
                             self.configureScheduleButton.alpha = 1
                             self.configureScheduleButton.isEnabled = true
                             
+                            let screenSize = UIScreen.main.bounds
+                            let screenHeighttt = screenSize.height
+                            
+                            if(screenHeighttt <= 480 ){
+                                let he = self.heigthImageConstraint.constant
+                                self.heigthImageConstraint.constant = (he/2)
+                            
+                            }
                              MBProgressHUD.hide(for: self.view, animated: true)
                             
                         }
