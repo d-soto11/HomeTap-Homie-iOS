@@ -8,7 +8,6 @@
 
 import Foundation
 import Firebase
-import JModalController
 
 struct K {
     struct Test {

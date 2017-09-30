@@ -252,7 +252,6 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         guard
             let phone = userPhoneTxt.text, !phone.isEmpty,
             let name = userNameTxt.text, !name.isEmpty,
-            let date = userDateTxt.text, !date.isEmpty,
             let sex = userSexTxt.text, !sex.isEmpty
             else {
                 print("entro a false")
