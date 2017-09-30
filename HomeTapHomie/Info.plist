@@ -21,12 +21,10 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string></string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb154461368451713</string>
-			</array>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb827341990764179</string>
+            </array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
@@ -39,16 +37,20 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>3</string>
-	<key>FacebookAppID</key>
-	<string>154461368451713</string>
-	<key>FacebookDisplayName</key>
-	<string>homie-prueba-3a</string>
+    <key>FacebookAppID</key>
+    <string>827341990764179</string>
+    <key>FacebookDisplayName</key>
+    <string>HomeTap</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>googlechromes</string>
 		<string>comgooglemaps</string>
+        <string>fbapi</string>
+        <string>fb-messenger-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

@@ -16,6 +16,10 @@ import MBProgressHUD
 class AuthViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate, UITextFieldDelegate  {
     
     
+    
+    
+    @IBOutlet weak var fbLogin: FBSDKLoginButton!
+    
     @IBOutlet weak var GoogleLogin: GIDSignInButton!
     
     

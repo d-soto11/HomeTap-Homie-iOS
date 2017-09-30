@@ -1748,16 +1748,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mmV-Fb-AhM">
-                                <rect key="frame" x="25" y="290" width="270" height="50"/>
+                                <rect key="frame" x="25" y="290" width="270" height="116"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mMy-dt-iHk" customClass="GIDSignInButton">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSD-mg-wEw" userLabel="fbLogin" customClass="FBSDKLoginButton">
                                         <rect key="frame" x="0.0" y="0.0" width="270" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="rUF-8j-Dlh"/>
-                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mMy-dt-iHk" customClass="GIDSignInButton">
+                                        <rect key="frame" x="0.0" y="66" width="270" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="BlO-Vl-L8Q"/>
+                                    <constraint firstItem="mMy-dt-iHk" firstAttribute="top" secondItem="mmV-Fb-AhM" secondAttribute="top" constant="66" id="TEz-qL-aNF"/>
+                                </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoApp.png" translatesAutoresizingMaskIntoConstraints="NO" id="CIi-g2-57U">
                                 <rect key="frame" x="35" y="40" width="250" height="250"/>
@@ -1769,10 +1774,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="v7i-hV-y2v" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mmV-Fb-AhM" secondAttribute="bottom" constant="74" id="BWo-l5-fp9"/>
                             <constraint firstItem="mmV-Fb-AhM" firstAttribute="top" secondItem="CIi-g2-57U" secondAttribute="bottom" id="O9V-dH-VCs"/>
                             <constraint firstItem="mmV-Fb-AhM" firstAttribute="leading" secondItem="gcn-nN-Pyr" secondAttribute="leading" constant="25" id="QPz-8S-QSP"/>
                             <constraint firstAttribute="trailing" secondItem="mmV-Fb-AhM" secondAttribute="trailing" constant="25" id="YWa-yQ-K7D"/>
+                            <constraint firstItem="v7i-hV-y2v" firstAttribute="top" secondItem="mmV-Fb-AhM" secondAttribute="bottom" constant="74" id="rlh-Ut-p8Y"/>
                             <constraint firstItem="CIi-g2-57U" firstAttribute="top" secondItem="PLm-rz-6V5" secondAttribute="bottom" constant="20" id="ude-05-30a"/>
                             <constraint firstItem="CIi-g2-57U" firstAttribute="centerX" secondItem="gcn-nN-Pyr" secondAttribute="centerX" id="zsK-4w-GBe"/>
                         </constraints>
@@ -1780,11 +1785,12 @@
                     <navigationItem key="navigationItem" id="pvw-Pa-ce2"/>
                     <connections>
                         <outlet property="GoogleLogin" destination="mMy-dt-iHk" id="hIe-zk-Icy"/>
+                        <outlet property="fbLogin" destination="pSD-mg-wEw" id="4Gw-uT-iUu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fd2-8g-BCS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-198" y="-819"/>
+            <point key="canvasLocation" x="-198.75" y="-820"/>
         </scene>
         <!--SignInView-->
         <scene sceneID="B2p-nQ-pEZ">
