@@ -24,9 +24,11 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var userSexTxt: UITextField!
     
+    @IBOutlet weak var emailTxt: UITextField!
+    
     let datePicker = UIDatePicker()
     
-    var sex = ["Hombre", "Mujer"]
+    var sex = ["Hombre", "Mujer","Otro" ]
     
     let sexPicker = UIPickerView()
     
@@ -39,6 +41,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         buttonContinue.isEnabled = false
         self.userPhoneTxt.delegate = self
         self.userNameTxt.delegate = self
+        self.emailTxt.delegate = self
         
         userImage.layer.borderWidth = 1
         userImage.layer.masksToBounds = false
@@ -50,7 +53,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         userSexTxt.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         userNameTxt.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         userPhoneTxt.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
-        
+        emailTxt.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         
         self.userImage.layer.borderWidth = 1
         self.userImage.layer.masksToBounds = false
@@ -74,6 +77,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
@@ -84,7 +88,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         userImage.image=image
         userImageSelected=true
-        dismiss(animated: true, completion: nil )
+        picker.dismiss(animated: true, completion: nil )
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -129,6 +133,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func endRegistration(_ sender: UIButton) {
         
         //preguntarle al pez sobre el date
+        print("llega al button")
         
         print(userImageSelected)
         if(userImageSelected){
@@ -136,12 +141,24 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
             K.User.homie = Homie(user: Auth.auth().currentUser!)
             K.User.homie?.name = userNameTxt.text
             K.User.homie?.phone = userPhoneTxt.text
-            K.User.homie?.birth =  Date()
+            K.User.homie?.email = emailTxt.text
+            if (userDateTxt.text == nil)
+            {
+                K.User.homie?.birth = Date()
+            }else{
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = ("YYYY/mm/dd")
+                let date = dateFormatter.date(from: self.userDateTxt.text! )
+                 K.User.homie?.birth = date
+            }
             K.User.homie?.joined = Date()
             if userSexTxt.text == "Hombre"{
                 K.User.homie?.gender = 0
             }
-            else
+            if userSexTxt.text == "Otro"{
+                K.User.homie?.gender = 2
+            }
+            if  userSexTxt.text == "Mujer"
             {
                 K.User.homie?.gender = 1
             }
@@ -213,9 +230,8 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
-        
         userDateTxt.text = dateFormatter.string(from: datePicker.date)
-        editingChanged(userDateTxt)
+        
         self.view.endEditing(true)
     }
     
@@ -252,7 +268,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         guard
             let phone = userPhoneTxt.text, !phone.isEmpty,
             let name = userNameTxt.text, !name.isEmpty,
-            let sex = userSexTxt.text, !sex.isEmpty
+            let e = emailTxt.text, !e.isEmpty
             else {
                 print("entro a false")
                 buttonContinue.isEnabled = false

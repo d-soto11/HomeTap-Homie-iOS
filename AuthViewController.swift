@@ -29,6 +29,16 @@ class AuthViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInU
         GIDSignIn.sharedInstance().uiDelegate = self
         fbLogin.delegate = self
         
+        
+        let layoutConstraintsArr = fbLogin.constraints
+        // Iterate over array and test constraints until we find the correct one:
+        for lc in layoutConstraintsArr { // or attribute is NSLayoutAttributeHeight etc.
+            if ( lc.constant == 28 ){
+                // Then disable it...
+                lc.isActive = false
+                break
+            }
+        }
         // Do any additional setup after loading the view.
     }
     

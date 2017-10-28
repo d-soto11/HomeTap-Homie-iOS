@@ -9,6 +9,7 @@
 import Foundation
 
 class Place: HometapObject {
+    
     public override init(dict: [String : AnyObject]) {
         super.init(dict: dict)
         

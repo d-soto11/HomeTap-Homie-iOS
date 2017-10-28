@@ -196,7 +196,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
         
         UIView.animate(withDuration: 0, animations: {
             
-            if( gesture.location(in: self.reservationArea).y > CGFloat((target.startBlock + 7 - 1 ) * 40) && gesture.location(in: self.reservationArea).y < 983 )
+            if( gesture.location(in: self.reservationArea).y > CGFloat((target.startBlock + 10 - 1 ) * 40) && gesture.location(in: self.reservationArea).y < 983 )
             {
                 target.frame = CGRect(x: target.frame.origin.x , y: target.frame.origin.y , width: target.frame.width, height: gesture.location(in: self.reservationArea).y - target.frame.origin.y)
                 

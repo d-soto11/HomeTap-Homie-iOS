@@ -15,16 +15,16 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
+	<string>1.0.3</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb827341990764179</string>
-            </array>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb827341990764179</string>
+			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
@@ -36,21 +36,21 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>3</string>
-    <key>FacebookAppID</key>
-    <string>827341990764179</string>
-    <key>FacebookDisplayName</key>
-    <string>HomeTap</string>
+	<string>6</string>
+	<key>FacebookAppID</key>
+	<string>827341990764179</string>
+	<key>FacebookDisplayName</key>
+	<string>HomeTap</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>googlechromes</string>
 		<string>comgooglemaps</string>
-        <string>fbapi</string>
-        <string>fb-messenger-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
