@@ -133,7 +133,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
      // Pass the selected object to the new view controller.
      }
      */
-    func respondGesture(gesture: UITapGestureRecognizer)
+    @objc func respondGesture(gesture: UITapGestureRecognizer)
     {
         let currentPoint = gesture.location(in: reservationArea)
         
@@ -142,7 +142,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
         
     }
     
-    func deleteReserv(sender:UIButton){
+     @objc  func deleteReserv(sender:UIButton){
         let actual = sender.superview as! CustomView
         
         K.User.homie?.deleteBlock(uid: actual.idBlockeDB!)
@@ -175,7 +175,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     
     
     
-    func dragBlock( gesture: UIPanGestureRecognizer){
+    @objc func dragBlock( gesture: UIPanGestureRecognizer){
         
         
         let target = gesture.view! as! CustomView

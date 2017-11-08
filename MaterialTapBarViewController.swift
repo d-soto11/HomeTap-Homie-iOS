@@ -207,7 +207,8 @@ class MaterialTapBarViewController: UIViewController {
         
     }
     
-    func respondToSwipeGesture(gesture: UIGestureRecognizer)
+    
+@objc func respondToSwipeGesture(gesture: UIGestureRecognizer)
     {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer
         {

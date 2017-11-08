@@ -119,7 +119,7 @@ extension UIViewController {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clearKeyboards)))
     }
     
-    func keyboardWillDisplay(notification:NSNotification) {
+    @objc func keyboardWillDisplay(notification:NSNotification) {
         let userInfo:Dictionary = notification.userInfo!
         let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
         let keyboardRectangle = keyboardFrame.cgRectValue
@@ -130,7 +130,7 @@ extension UIViewController {
         })
     }
     
-    func keyboardWillHide(notification:NSNotification) {
+    @objc func keyboardWillHide(notification:NSNotification) {
         UIView.animate(withDuration: 0.3, animations: {
             self.view.frame = self.originalFrame()
         })
@@ -148,7 +148,7 @@ extension UIViewController {
         return []
     }
     
-    func clearKeyboards(index: Int = -1) {
+    @objc func clearKeyboards(index: Int = -1) {
         let kb = keyboards()
         for k in kb {
             k.resignFirstResponder()

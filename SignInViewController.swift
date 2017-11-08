@@ -26,6 +26,12 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var emailTxt: UITextField!
     
+    @IBOutlet weak var termsLb: UILabel!
+    
+    @IBOutlet weak var upConst: NSLayoutConstraint!
+    
+    @IBOutlet weak var downConst: NSLayoutConstraint!
+    
     let datePicker = UIDatePicker()
     
     var sex = ["Hombre", "Mujer","Otro" ]
@@ -37,6 +43,10 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SignInViewController.tapFunction))
+        termsLb.isUserInteractionEnabled = true
+        termsLb.addGestureRecognizer(tap)
         
         buttonContinue.isEnabled = false
         self.userPhoneTxt.delegate = self
@@ -225,7 +235,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         
     }
     
-    func donePressed(){
+    @objc func donePressed(){
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -258,7 +268,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
         
     }
     
-    func editingChanged(_ textField: UITextField) {
+    @objc func editingChanged(_ textField: UITextField) {
         if textField.text?.characters.count == 1 {
             if textField.text?.characters.first == " " {
                 textField.text = ""
@@ -281,6 +291,51 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if (textField.tag == 89 ){
+            
+            self.downConst.constant = 70
+            self.upConst.constant = 0
+            
+            UIView.animate(withDuration: 0.4, delay: 0.1, animations: {
+                self.view.layoutIfNeeded()
+                
+                
+            })
+        }
+    }
+    
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case 89:
+            self.downConst.constant = 40
+            self.upConst.constant = 30
+            
+            UIView.animate(withDuration: 0.4, delay: 0.1, animations: {
+                self.view.layoutIfNeeded()
+                
+                
+            })
+            
+        default: break
+        }
+    }
+    
+    @objc func tapFunction(sender:UITapGestureRecognizer) {
+        
+        print("llega")
+        guard let url = URL(string: "https://hometap.com.co/terms.pdf") else {
+            return //be safe
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
     
     
 }
