@@ -142,10 +142,7 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func endRegistration(_ sender: UIButton) {
         
-        //preguntarle al pez sobre el date
-        print("llega al button")
         
-        print(userImageSelected)
         if(userImageSelected){
             
             K.User.homie = Homie(user: Auth.auth().currentUser!)
@@ -280,14 +277,13 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
             let name = userNameTxt.text, !name.isEmpty,
             let e = emailTxt.text, !e.isEmpty
             else {
-                print("entro a false")
+                
                 buttonContinue.isEnabled = false
                 return
                 
             }
         buttonContinue.isEnabled = true
         
-        print("entro a true")
     }
     
     
@@ -325,7 +321,6 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
     
     @objc func tapFunction(sender:UITapGestureRecognizer) {
         
-        print("llega")
         guard let url = URL(string: "https://hometap.com.co/terms.pdf") else {
             return //be safe
         }
