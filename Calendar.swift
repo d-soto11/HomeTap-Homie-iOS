@@ -83,7 +83,7 @@ class HTCBlock: HometapObject {
     
     public func UiFirstBlock()-> Int{
         
-        let time = startHour?.timeIntervalSince(Date(fromString: "07:00" , withFormat: .Custom("HH:mm"))!)
+        let time = startHour?.timeIntervalSince(Date(fromString: "06:00" , withFormat: .Custom("HH:mm"))!)
         return Int(time!/(3600*0.5))
     }
     

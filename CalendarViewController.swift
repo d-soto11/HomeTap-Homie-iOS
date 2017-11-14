@@ -24,9 +24,9 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     
     @IBOutlet weak var reservationArea: UIView!
     
-    var pocisiones: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-    var tagsssView: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-    
+    var pocisiones: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    var tagsssView: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+   
     
     
     
@@ -110,8 +110,8 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
         }
         
         
-        pocisiones = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        tagsssView = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        pocisiones = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        tagsssView = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         
         paintBlocks( dateN: date)
     }
@@ -321,6 +321,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                 let tagView = i.UiFirstBlock() + 100
                 for j in i.UiFirstBlock()...(i.UiFirstBlock() + i.UiBlocks() - 1)
                 {
+                    print("index: " + String(j))
                     self.pocisiones[j] = 1
                     self.tagsssView[j] =  tagView
                 }
@@ -333,10 +334,10 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                 viewP.idBlockeDB = i.uid
                 
                 if(i.serviceID == nil){
-                    let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
-                    gest.minimumNumberOfTouches = 1
-                    gest.maximumNumberOfTouches = 1
-                    viewP.addGestureRecognizer(gest)
+                    //let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
+                    //gest.minimumNumberOfTouches = 1
+                    //gest.maximumNumberOfTouches = 1
+                    //viewP.addGestureRecognizer(gest)
                 }
                 else{
                     viewP.backgroundColor = K.UI.alert_color
@@ -351,22 +352,25 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     
     func drawInUi(x: CGFloat , y: CGFloat ){
         
+        print(pocisiones)
         
-        for index in 0...23 {
+        for index in 0...27 {
             if (y > CGFloat((Double(index) * 40)) && y < CGFloat((40 * (Double(index + 1)))))
             {
-                if (index < 15){
+                if (index < 18){
                 
                 if(self.pocisiones[index] == 0 )
                 {
                     
-                    if (index > 3){
+                    if (index > 2){
                         
                         
                         var cond = true
                         var cond2 = true
-                        for i in 0...9
+                        for i in 0...11
                         {
+                            print("i:" + String(i) + " index: " + String(index))
+                            print(self.pocisiones.count)
                             if(self.pocisiones[index + i] == 1)
                             {
                                 cond = false
@@ -387,24 +391,24 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                         
                         if(cond && cond2){
                             
-                            for i in 0...9
+                            for i in 0...11
                             {
                                 self.pocisiones[index + i] = 1
                                 self.tagsssView[index + i] = index + 100
                             }
                             
                             let n = CGFloat(40 * (Double(index)))
-                            let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 400) ))
-                            viewP.blocks = 10
+                            let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 480) ))
+                            viewP.blocks = 12
                             
                             viewP.startBlock = (index + 1)
                             viewP.tag = 100 + index
-                            viewP.idBlockeDB = createBlock(blockStart: index, blocks: 10, dateN: self.dateTemp)
+                            viewP.idBlockeDB = createBlock(blockStart: index, blocks: 12, dateN: self.dateTemp)
                             
-                            let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
-                            gest.minimumNumberOfTouches = 1
-                            gest.maximumNumberOfTouches = 1
-                            viewP.addGestureRecognizer(gest)
+                            //let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
+                            //gest.minimumNumberOfTouches = 1
+                            //gest.maximumNumberOfTouches = 1
+                            //viewP.addGestureRecognizer(gest)
                             
                             self.reservationArea.addSubview(viewP)
                             
@@ -416,10 +420,10 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                         
                     }
                     else{
-                        
+                        if(index > 0){
                         var cond = true
                         
-                        for i in 0...9
+                        for i in 0...11
                         {
                             if(self.pocisiones[index + i] == 1)
                             {
@@ -431,27 +435,27 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
                         
                         if(cond){
                             
-                            for i in 0...9
+                            for i in 0...11
                             {
                                 self.pocisiones[index + i] = 1
                                 self.tagsssView[index + i] = index + 100                            }
                             
                             let n = CGFloat(40 * (Double(index)))
-                            let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 400) ))
-                            viewP.blocks = 10
+                            let viewP = CustomView(frame: CGRect.init(x: CGFloat(0), y: n, width:CGFloat( self.reservationArea.frame.width) , height:CGFloat( 480) ))
+                            viewP.blocks = 12
                             viewP.startBlock = (index + 1)
                             viewP.tag = 100 + index
-                            viewP.idBlockeDB = createBlock(blockStart: index, blocks: 10, dateN: self.dateTemp)
-                            let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
-                            gest.minimumNumberOfTouches = 1
-                            gest.maximumNumberOfTouches = 1
-                            viewP.addGestureRecognizer(gest)
+                            viewP.idBlockeDB = createBlock(blockStart: index, blocks: 12, dateN: self.dateTemp)
+                            //let gest = UIPanGestureRecognizer(target: self, action: #selector(self.dragBlock))
+                            //gest.minimumNumberOfTouches = 1
+                            //gest.maximumNumberOfTouches = 1
+                            //viewP.addGestureRecognizer(gest)
                             
                             self.reservationArea.addSubview(viewP)
                             
                             
                         }
-                        
+                        }
                     }
                 }
                 
@@ -464,8 +468,8 @@ class CalendarViewController: UIViewController, FSCalendarDelegate , FSCalendarD
     
     
     func createBlock(blockStart: Int , blocks: Int , dateN: Date)->String{
-        let initialTime = Double(7.0 + (Double(blockStart)/2.0))
-        let finalTime =   Double((7.0 + (Double(blockStart + blocks)/2.0)))
+        let initialTime = Double(6.0 + (Double(blockStart)/2.0))
+        let finalTime =   Double((6.0 + (Double(blockStart + blocks)/2.0)))
         let  date = dateN
         
         let blo = HTCBlock(dict: [:])

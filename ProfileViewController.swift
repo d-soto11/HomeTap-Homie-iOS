@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var eMailLabel: UILabel!
-    @IBOutlet weak var passwordLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,6 @@ class ProfileViewController: UIViewController {
         self.nameLabel.text = K.User.homie?.name
         self.phoneLabel.text = K.User.homie?.phone
         self.eMailLabel.text = K.User.homie?.email
-        self.passwordLabel.text = "******"
         if ( K.User.homie?.photo != nil ){
             self.profilePicture.downloadedFrom(link:  (K.User.homie?.photo)!)
         }

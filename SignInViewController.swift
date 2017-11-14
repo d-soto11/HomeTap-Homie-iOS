@@ -208,6 +208,14 @@ class SignInViewController:UIViewController, UIImagePickerControllerDelegate, UI
             self.dismiss(animated: true, completion: nil)
             
         }
+        else
+        {
+            let alertController = UIAlertController(title: "Alerta", message: "Debes seleccionar una foto de perfil para continuar.", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "ok", style: .cancel) { (action:UIAlertAction!) in
+            }
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion:nil)
+        }
     }
     
     
