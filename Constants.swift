@@ -97,6 +97,8 @@ struct K {
         
         static var globalInventory: HTCInventory?
         
+        static var base: HTCBasic?
+        
         static func reloadClient() {
             if homie != nil {
                 Homie.withID(id: homie!.uid!, callback: { (c) in
@@ -114,6 +116,12 @@ struct K {
         
             Homie.globalInventory { (inven) in
                 globalInventory = inven
+            }
+        }
+        static func basePrice() {
+            
+            Homie.basePrice{ (a) in
+                base = a
             }
         }
         

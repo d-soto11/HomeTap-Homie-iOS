@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		715AD43B1FD5B84E002EBEE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 715AD43A1FD5B84E002EBEE4 /* GoogleService-Info.plist */; };
 		80527A42222753BD0DC9B12D /* Pods_HomeTapHomie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7370E7BE00CC68F72AC542FD /* Pods_HomeTapHomie.framework */; };
 		B801E8DB1F627AAF00208756 /* web_hi_res_512.png in Resources */ = {isa = PBXBuildFile; fileRef = B801E8DA1F627AAF00208756 /* web_hi_res_512.png */; };
 		B801E8DF1F627C3500208756 /* start.bmp in Resources */ = {isa = PBXBuildFile; fileRef = B801E8DE1F627C3500208756 /* start.bmp */; };
@@ -82,7 +83,6 @@
 		B86200D21F629383000278B2 /* ViewControllerComents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86200D11F629383000278B2 /* ViewControllerComents.swift */; };
 		B86200D41F6293A3000278B2 /* ViewControllerUsedInventoryMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86200D31F6293A3000278B2 /* ViewControllerUsedInventoryMaterial.swift */; };
 		B885B9961F664C6700073BAA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B885B9951F664C6700073BAA /* Notification.swift */; };
-		B885B9981F664FAC00073BAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B885B9971F664FAC00073BAA /* GoogleService-Info.plist */; };
 		B89429321F635CFA00054FFB /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89429311F635CFA00054FFB /* Comment.swift */; };
 		B8A75F9D1F3D0E23006072B1 /* HomeSummaryServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A75F9C1F3D0E23006072B1 /* HomeSummaryServiceViewController.swift */; };
 		B8A75F9F1F3E4CEE006072B1 /* HistoryServiceSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A75F9E1F3E4CEE006072B1 /* HistoryServiceSummaryViewController.swift */; };
@@ -110,6 +110,7 @@
 
 /* Begin PBXFileReference section */
 		1CE56ED0F50C18388C527648 /* Pods-HomeTapHomie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTapHomie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTapHomie/Pods-HomeTapHomie.debug.xcconfig"; sourceTree = "<group>"; };
+		715AD43A1FD5B84E002EBEE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7370E7BE00CC68F72AC542FD /* Pods_HomeTapHomie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTapHomie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B801E8DA1F627AAF00208756 /* web_hi_res_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = web_hi_res_512.png; sourceTree = "<group>"; };
 		B801E8DE1F627C3500208756 /* start.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = start.bmp; sourceTree = "<group>"; };
@@ -191,7 +192,6 @@
 		B86200D11F629383000278B2 /* ViewControllerComents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerComents.swift; sourceTree = "<group>"; };
 		B86200D31F6293A3000278B2 /* ViewControllerUsedInventoryMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerUsedInventoryMaterial.swift; sourceTree = "<group>"; };
 		B885B9951F664C6700073BAA /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
-		B885B9971F664FAC00073BAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B885B9991F66566100073BAA /* HomeTapHomie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeTapHomie.entitlements; sourceTree = "<group>"; };
 		B89429311F635CFA00054FFB /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		B8A75F9C1F3D0E23006072B1 /* HomeSummaryServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSummaryServiceViewController.swift; sourceTree = "<group>"; };
@@ -274,9 +274,9 @@
 			isa = PBXGroup;
 			children = (
 				B885B9991F66566100073BAA /* HomeTapHomie.entitlements */,
-				B885B9971F664FAC00073BAA /* GoogleService-Info.plist */,
 				B805FB0D1F1AA86B00B7DE41 /* AppDelegate.swift */,
 				B805FB111F1AA86B00B7DE41 /* Main.storyboard */,
+				715AD43A1FD5B84E002EBEE4 /* GoogleService-Info.plist */,
 				B805FB141F1AA86B00B7DE41 /* Assets.xcassets */,
 				B805FB161F1AA86B00B7DE41 /* LaunchScreen.storyboard */,
 				B805FB191F1AA86B00B7DE41 /* Info.plist */,
@@ -482,6 +482,7 @@
 				B805FB081F1AA86B00B7DE41 /* Resources */,
 				A81C7667A63EEBDE74363B63 /* [CP] Embed Pods Frameworks */,
 				B884DC81E4A27FA8A4351818 /* [CP] Copy Pods Resources */,
+				71C2A9EC1FBCCCAC005BE97A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -593,7 +594,6 @@
 			files = (
 				B837B62C1F2D298E006F5626 /* OFL.txt in Resources */,
 				B82063B51F48EBA3000B2E71 /* iconCreditCardGray.png in Resources */,
-				B885B9981F664FAC00073BAA /* GoogleService-Info.plist in Resources */,
 				B82063B11F48EBA3000B2E71 /* iconAdressGray.png in Resources */,
 				B837B6361F2D298E006F5626 /* Rubik-Regular.ttf in Resources */,
 				B82CD6401F2BCF3F009CFEEB /* CustomTableViewCell.xib in Resources */,
@@ -611,6 +611,7 @@
 				B850BCF41F41705100033E51 /* iconNoPhoto.png in Resources */,
 				B8ABB9E91F76BAB2003940DC /* logoApp.png in Resources */,
 				B837B6341F2D298E006F5626 /* Rubik-Medium.ttf in Resources */,
+				715AD43B1FD5B84E002EBEE4 /* GoogleService-Info.plist in Resources */,
 				B82063B21F48EBA3000B2E71 /* iconAdressGreen.png in Resources */,
 				B850BCEF1F41705100033E51 /* iconInventoryBlue.png in Resources */,
 				B850BCF81F41705100033E51 /* iconServiceBooked.png in Resources */,
@@ -674,6 +675,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		71C2A9EC1FBCCCAC005BE97A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 12a944dba2ef8609d33564f551bb99b9bafbfcee a17a25c158540ea276366c4771487f1fb858865bf63ba3d74cd8f58f119ebe2a";
 		};
 		A81C7667A63EEBDE74363B63 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

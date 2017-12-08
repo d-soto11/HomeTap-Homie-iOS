@@ -24,5 +24,7 @@ target 'HomeTapHomie' do
   pod 'GooglePlaces'
   pod 'JModalController'
   pod 'FSCalendar'	
-  pod 'Cosmos' 
+  pod 'Cosmos'
+  pod 'Fabric'
+  pod 'Crashlytics' 	
 end

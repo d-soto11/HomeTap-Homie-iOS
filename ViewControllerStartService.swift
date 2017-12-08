@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Firebase
 
 class ViewControllerStartService: UIViewController, CLLocationManagerDelegate {
 
@@ -110,12 +111,18 @@ class ViewControllerStartService: UIViewController, CLLocationManagerDelegate {
  
     @IBAction func cancelService(_ sender: Any) {
         
-        let url = URL(string: "tel://3100000000")
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url! , options: [:] , completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url!)
-            // Fallback on earlier versions
-        }
+        K.Database.ref().child("appContent").observe(DataEventType.value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String:AnyObject] {
+                let url = URL(string: "tel://" + String(dict["tel"] as! Int))
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url! , options: [:] , completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url!)
+                    // Fallback on earlier versions
+                }
+            }
+            
+        })
+        
     }
 }

@@ -130,3 +130,32 @@ class HTCInventory: HometapObject {
     
     
 }
+
+class HTCBasic: HometapObject {
+    
+    public override init(dict: [String : AnyObject]) {
+        super.init(dict: dict)
+        
+        if let p = dict["price"] {
+            self.price = (p as? String)
+        }
+        if let t = dict["time"] {
+            self.time = (t as? String)
+        }
+    }
+    
+    
+    public func save() {
+        if self.time != nil {
+            original_dictionary["time"] = self.time as AnyObject
+        }
+        if self.price != nil {
+            original_dictionary["price"] = self.price as AnyObject
+        }
+        super.save(route: "services")
+        
+    }
+    
+    var time: String?
+    var price: String?
+}

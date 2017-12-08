@@ -265,13 +265,17 @@ class ViewControllerComents: UIViewController, UITextViewDelegate {
         print(comment.original_dictionary)
         comment.save()
         MBProgressHUD.hide(for: self.view, animated: true)
-        self.dismiss(animated: true, completion: nil)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerUsedInventoryMaterial") as! ViewControllerUsedInventoryMaterial
+        self.present(controller, animated: true, completion: nil)
         
         
     }
     
     
     @IBAction func callHomeTap(_ sender: Any) {
+        
         
         let url = URL(string: "tel://3100000000")
         if #available(iOS 10.0, *) {

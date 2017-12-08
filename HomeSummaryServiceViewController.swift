@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
 class HomeSummaryServiceViewController: UIViewController {
 
     
@@ -34,6 +35,7 @@ class HomeSummaryServiceViewController: UIViewController {
     
     @IBOutlet weak var buttonHowToGo: UIButton!
     
+    @IBOutlet weak var baseprice: UILabel!
     
     @IBOutlet weak var buttonCancelService: UIButton!
     
@@ -46,7 +48,8 @@ class HomeSummaryServiceViewController: UIViewController {
     
     var serviceBrief: Service?
     var service : Service?
-    
+    var bP : HTCBasic?
+    var basePrice = 0.0
     
     
     
@@ -59,6 +62,8 @@ class HomeSummaryServiceViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
        
         if  service != nil {
+     //       print(K.User.base?.price)
+    
             
             self.clientName.text = serviceBrief?.briefName
             self.clientPhoto.downloadedFrom(link: (serviceBrief?.briefPhoto)!, contentMode: UIViewContentMode.scaleAspectFill)
@@ -72,20 +77,43 @@ class HomeSummaryServiceViewController: UIViewController {
             
             
             
-            let val = ((service?.price)!-Double(65000))
-            let formatter = NumberFormatter()
-            formatter.locale = Locale.current // Change this to another locale if you want to force a specific locale, otherwise this is redundant as the current locale is the default already
-            formatter.numberStyle = .currency
-            formatter.minimumFractionDigits = 0
-            formatter.maximumFractionDigits = 0
-
-            if var formattedTipAmount = formatter.string(from: val as NSNumber) {
-                
-                formattedTipAmount.remove(at: formattedTipAmount.startIndex)
-                
-                self.extraServicesValue.text = formattedTipAmount + " COP"
-                
-            }
+            K.Database.ref().child("appContent").child("services").child("basic").observe(DataEventType.value, with: { (snapshot) in
+                if let dict = snapshot.value as? [String:AnyObject] {
+                    if let prices = dict["price"] {
+                        print("entro")
+                        
+                        self.basePrice = (prices as? Double)!
+                        let val = ((self.service?.price)!-Double(self.basePrice))
+                        let formatter = NumberFormatter()
+                        formatter.locale = Locale.current // Change this to another locale if you want to force a specific locale, otherwise this is redundant as the current locale is the default already
+                        formatter.numberStyle = .currency
+                        formatter.minimumFractionDigits = 0
+                        formatter.maximumFractionDigits = 0
+                        
+                        if var formattedTipAmount = formatter.string(from: val as NSNumber) {
+                            
+                            formattedTipAmount.remove(at: formattedTipAmount.startIndex)
+                            
+                            self.extraServicesValue.text = formattedTipAmount + " COP"
+                            
+                        }
+                        
+                        if var formattedTipAmount = formatter.string(from: self.basePrice as NSNumber) {
+                            
+                            formattedTipAmount.remove(at: formattedTipAmount.startIndex)
+                            
+                            self.baseprice.text  = formattedTipAmount + " COP"
+                            
+                        }
+                    }
+                   
+                } else {
+                    
+                }
+            })
+            
+            
+            
         
             self.comentsService.text = service?.comments
             

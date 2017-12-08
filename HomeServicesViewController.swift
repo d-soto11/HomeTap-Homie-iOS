@@ -29,6 +29,8 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
     
     var services:[Service] = []
     
+    var ser : Service?
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -47,6 +49,7 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
                     else{
                         K.User.homie = homie
                         K.User.inventory()
+                        K.User.basePrice()
                         
                         if (K.User.homie?.blocked)!{
                              MBProgressHUD.hide(for: self.view, animated: true)
@@ -77,17 +80,28 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
                             for notification in pending {
                                 switch notification.type! {
                                 case 0:
-                                    
-                                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                    let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerStartService") as! ViewControllerStartService
-                                    controller.briefService = K.User.homie?.service_brief(serviceId: notification.uid!)
                                     Service.withID(id: notification.uid!) { (service) in
-                                        controller.service = service
+                                        self.ser = service
+                                        if (self.ser?.state == 0){
+                                            
+                                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                            let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerStartService") as! ViewControllerStartService
+                                            controller.briefService = K.User.homie?.service_brief(serviceId: notification.uid!)
+                                            controller.service = self.ser
+                                            K.User.OnServiceId = notification.uid!
+                                            
+                                            self.present(controller, animated: true, completion: nil)
+                                        }
+                                        if (self.ser?.state == 1) {
+                                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                            let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerEndService") as! ViewControllerEndService
+                                            controller.briefService = K.User.homie?.service_brief(serviceId: notification.uid!)
+                                            K.User.OnServiceId = notification.uid!
+                                            controller.service = self.ser
+                                            
+                                            self.present(controller, animated: true, completion: nil)
+                                        }
                                     }
-                                    K.User.OnServiceId = notification.uid!
-                                    
-                                    self.present(controller, animated: true, completion: nil)
-                                    
                                     
                                     
                                 default:

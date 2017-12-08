@@ -42,6 +42,16 @@ class Homie: User {
         })
     }
     
+    class func basePrice( callback: @escaping (_ s: HTCBasic?)->Void){
+        K.Database.ref().child("appContent").child("services").child("basic").observe(DataEventType.value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String:AnyObject] {
+               callback(HTCBasic(dict: dict))
+            } else {
+                callback(nil)
+            }
+        })
+    }
+    
    
     
     public func save() {
@@ -130,11 +140,5 @@ class Homie: User {
     
 }
 
-/*
- public func products() -> [HTCBlock] {
- 
- return nil
- }
- */
 
 

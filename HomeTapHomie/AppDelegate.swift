@@ -14,6 +14,8 @@ import GoogleMaps
 import GoogleSignIn
 import UserNotifications
 import FirebaseMessaging
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
@@ -23,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // Configure Crashlytics
+        Fabric.with([Crashlytics.self])
         // Override point for customization after application launch.
         // Configurar Firebase
         FirebaseApp.configure()
