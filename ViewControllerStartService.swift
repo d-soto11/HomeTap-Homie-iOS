@@ -81,7 +81,7 @@ class ViewControllerStartService: UIViewController, CLLocationManagerDelegate {
         
         let dif  = from.distance(from: to)
         
-        if ( dif < 50){
+        if ( dif < 500){
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier:"ViewControllerEndService") as! ViewControllerEndService
