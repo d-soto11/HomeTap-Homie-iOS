@@ -195,6 +195,10 @@ class HomeServicesViewController: UIViewController , UITableViewDataSource, UITa
             
             cell.mainBackground.addHomeCellShadow()
             cell.mainBackground.roundCorners(radius: K.UI.light_round_px)
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = UIColor.clear
+            cell.selectedBackgroundView = backgroundView
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             
             
             return cell

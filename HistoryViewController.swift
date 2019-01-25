@@ -107,6 +107,10 @@ class HistoryViewController: UIViewController , UITableViewDataSource, UITableVi
             cell.payedLable.text = obj.price
             cell.mainBackground.addHomeCellShadow()
             cell.mainBackground.roundCorners(radius: K.UI.light_round_px)
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = UIColor.clear
+            cell.selectedBackgroundView = backgroundView
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             
             return cell
         } else {
@@ -125,6 +129,10 @@ class HistoryViewController: UIViewController , UITableViewDataSource, UITableVi
                 
                 cell.mainBackground.addHomeCellShadow()
                 cell.mainBackground.roundCorners(radius: K.UI.light_round_px)
+                let backgroundView = UIView()
+                backgroundView.backgroundColor = UIColor.clear
+                cell.selectedBackgroundView = backgroundView
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 return cell
             }
             else
